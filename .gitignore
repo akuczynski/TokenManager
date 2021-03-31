@@ -1,0 +1,5 @@
+﻿.vs
+src/TokenManager.Core/bin
+src/TokenManager.Core/obj
+src/TokenManager.UI/obj
+src/TokenManager.UI/bin
