@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<tokens>
+	<subtokens>
+		<token key="##Env##" value="DVA" />
+		<token key="##Subtoken_DB_Server##" value="localhost" />
+		<token key="##Subtoken_DB_Database##" value="catalog" />
+	</subtokens>
+	<token key="##ConnectionString##" value="Server=##Subtoken_DB_Server##;Database=##Subtoken_DB_Database##;Trusted_Connection=True;" />
+</tokens>

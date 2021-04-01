@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<tokens>
+	<subtokens>
+		<token key="##Env##" value="DVA" />
+		<token key="##Subtoken_DB_User##" value="dbUser" />
+		<token key="##Subtoken_DB_Password##" value="P@ssw0rd" password="true" />
+		<token key="##Subtoken_DB_Server##" value="192.168.0.2" />
+		<token key="##Subtoken_DB_Database##" value="catalog" />
+	</subtokens>
+	<token key="##ConnectionString##" value="Server=##Subtoken_DB_Server##,63022;Database=##Subtoken_DB_Database##;User Id=##Subtoken_DB_User##;Password=##Subtoken_DB_Password##;" />
+</tokens>

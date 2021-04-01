@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<tokens>
+	<subtokens>
+		<token key="##Subtoken_DriveLetter##" value="c" />
+		<token key="##Subtoken_BaseDir##" value="##Subtoken_DriveLetter##:\application" description="Application base directory absolute path" />
+	</subtokens>
+
+	<token key="##ConnectionString##" value="Server=##Subtoken_DB_Server##;Database=##Subtoken_DB_Database##;User Id=##Subtoken_DB_User##;Password=##Subtoken_DB_Password##;" />
+	<token key="#DataDir#" value="##Subtoken_BaseDir##\data" />
+	<token key="##GoogleApiKey##" value="FA2CF10ADE7E49CA8B9D07F8FA31206E" />
+	<token key="##JiraApiKey##" value="16D701F7BD2D48EF9DD254A2A5F2AA74" />
+	<token key="##Url##" value="https://app-##Env##" />
+	<token key="##WorkspaceDir##" value="##Subtoken_BaseDir##\workspace" />
+</tokens>
