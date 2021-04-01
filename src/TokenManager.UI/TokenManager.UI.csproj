@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Log.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="appSettings.json" />
     <None Remove="C:\Users\akuczynski\.nuget\packages\nlog.config\4.7.9\contentFiles\any\any\NLog.config" />
   </ItemGroup>

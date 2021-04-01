@@ -1,12 +1,24 @@
-﻿using NLog;
+﻿using System.ComponentModel.Composition;
+using NLog;
 using NLog.Config;
 using NLog.Targets;
+using TokenManager.UI;
 
-namespace TokenManager.UI
+namespace TokenManager.Core.Services
 {
+
+    [Export(typeof(ILogger))]
+    public class Logger  : TokenManager.Core.Services.ILogger
+    {
+        public void Info(string text)
+        {
+            Log.Instance.Info(text);
+        }
+    }
+
     internal static class Log
     {
-        public static Logger Instance { get; private set; }
+        public static NLog.Logger Instance { get; private set; }
         static Log()
         {
 #if DEBUG
@@ -15,7 +27,7 @@ namespace TokenManager.UI
             var fileTarget = new FileTarget();
             config.AddTarget("file", fileTarget);
 
-            fileTarget.FileName = "${basedir}\\TokenManager.log";
+            fileTarget.FileName = "${basedir}\\" + Constants.LogFileName;
             fileTarget.Layout = "${date:format=yyyy-MM-dd HH\\:mm\\:ss}: ${message}";
 
             var rule = new LoggingRule("*", LogLevel.Trace, fileTarget);
