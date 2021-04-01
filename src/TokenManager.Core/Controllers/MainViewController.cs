@@ -26,11 +26,6 @@ namespace TokenManager.Core.Controllers
         private INotyficationService _notyficationService { get; set; }
         private IPersistanceController _persistanceController { get; set; }
 
-        private HashSet<TokenViewModel> Tokens { get; set; }
-
-        private HashSet<EnvironentTokenViewModel> EnvironmentTokens { get; set; }
-
-
         [ImportingConstructor]
         public MainViewController(
             ILogger logger,
@@ -52,16 +47,16 @@ namespace TokenManager.Core.Controllers
 
         public IEnumerable<TokenViewModel> ShowData(bool showTokens, bool showSubTokens)
         {
-            throw new NotImplementedException();
+            return _persistanceController.ViewData(showTokens, showSubTokens);
         }
 
         public void LoadData()
         {
-            _logger.Info("Load Data");
-            _notyficationService.Publish(new ModelHasChangedEvent());
+            _logger.Info("Loading Tokens");
 
             var rootFolderPath = _configuration.Get("MainFolderPath");
-            _persistanceController.LoadData(rootFolderPath);
+            _persistanceController.LoadData(rootFolderPath, true);
+            _notyficationService.Publish(new ProjectLoadedEvent());
         }
 
         public void SaveData()

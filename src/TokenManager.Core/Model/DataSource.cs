@@ -4,18 +4,16 @@ namespace TokenManager.Core.Model
 {
     public class DataSource
     {
-        private IList<EnvironmentToken> EnvironmentTokens { get; set; }
+        private Dictionary<Environment, IList<Token>> EnvironmentTokens { get; set; }
 
         public DataSource()
         {
-            // TODO: 
+            EnvironmentTokens = new Dictionary<Environment, IList<Token>>();
         }
 
-        private class EnvironmentToken
+        public void Add(Environment environment, IList<Token> tokens)
         {
-            public Environment Environment { get; set; }
-
-            public List<Token> Tokens { get; set; }
+            EnvironmentTokens.Add(environment, tokens);
         }
     }
 }

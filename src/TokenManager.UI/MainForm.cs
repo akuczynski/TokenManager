@@ -22,13 +22,12 @@ namespace TokenManager
             Shell.CompositionContainer.ComposeParts(this);
 
             NotyficationService.Subscribe(typeof(ModelHasChangedEvent), this);
-            MainViewController.LoadData();
+            NotyficationService.Subscribe(typeof(ProjectLoadedEvent), this);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-        
-         
+            MainViewController.LoadData();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
@@ -38,9 +37,10 @@ namespace TokenManager
 
         void IEventHandler.Handle(IEvent @event)
         {
-            if (@event is ModelHasChangedEvent)
+            if (@event is ProjectLoadedEvent)
             {
-                Console.Out.Write("It works");
+                TokensGridView.DataSource = MainViewController.ShowData(true, true);
+           
             }
         }
     }
