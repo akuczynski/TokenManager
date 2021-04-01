@@ -1,0 +1,35 @@
+/** 
+Diagram wygenerowany przy pomocy narzędzia: https://app.quickdatabasediagrams.com
+**/
+
+Tokens
+--- 
+Token string 
+Value string 
+SubToken bool 
+Description string 
+Global bool 
+
+TokenMap
+-----
+Environment string FK >- Environment.Name
+Tokens ref FK >- Token.Name
+
+
+Token
+----
+Name PK string
+Value string 
+Description string 
+Password bool 
+UserName string 
+SubToken bool 
+Action string 
+IsDirty bool 
+ 
+
+Environment
+------ 
+Name string 
+Source string 
+Root bool 
