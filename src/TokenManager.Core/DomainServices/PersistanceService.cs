@@ -1,12 +1,8 @@
-﻿using System.Collections.Generic;
-using System.ComponentModel.Composition;
+﻿using System.ComponentModel.Composition;
 using System.IO;
 using TokenManager.Core.Model;
-using TokenManager.Core.Services;
-using TokenManager.Core.ViewModel;
-using System.Linq; 
 
-namespace TokenManager.Core.Controllers
+namespace TokenManager.Core.DomainServices
 {
     public interface IPersistanceService
     {

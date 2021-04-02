@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.Composition;
 using System.Windows.Forms;
-using TokenManager.Core.Controllers;
+using TokenManager.Core.DomainServices;
 
 namespace TokenManager.UserControls
 {

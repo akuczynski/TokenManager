@@ -3,8 +3,8 @@ using System.Configuration;
 
 namespace TokenManager
 {
-    [Export(typeof(Core.Services.IConfiguration))]
-    public class Configuration : Core.Services.IConfiguration
+    [Export(typeof(Core.DomainServices.IConfiguration))]
+    public class Configuration : Core.DomainServices.IConfiguration
     {
         public string Get(string key)
         {

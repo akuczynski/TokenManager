@@ -6,8 +6,8 @@ using NLog.Targets;
 namespace TokenManager
 {
 
-    [Export(typeof(ILogger))]
-    public class Logger  : Core.Services.ILogger
+    [Export(typeof(Core.DomainServices.ILogger))]
+    public class Logger  : Core.DomainServices.ILogger
     {
         public void Info(string text)
         {

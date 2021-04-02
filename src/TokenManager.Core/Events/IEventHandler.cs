@@ -2,6 +2,6 @@
 {
     public interface IEventHandler
     {
-        void Handle(IEvent @event);
+        void Handle(IEvent appEvent);
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace TokenManager.Core.Services
+﻿namespace TokenManager.Core.DomainServices
 {
     public interface IConfiguration
     {

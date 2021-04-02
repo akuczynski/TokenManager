@@ -3,8 +3,15 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using TokenManager.Core.Events;
 
-namespace TokenManager.Core.Services
+namespace TokenManager.Core.DomainServices
 {
+    public interface INotyficationService
+    {
+        void Subscribe(Type eventType, IEventHandler handler);
+
+        void Publish(IEvent appEvent);
+    }
+
     [Export(typeof(INotyficationService))]
     internal class NotyficationService : INotyficationService
     {
@@ -15,15 +22,15 @@ namespace TokenManager.Core.Services
             _eventHandlers = new Dictionary<Type, IList<IEventHandler>>();
         }
 
-        public void Publish(IEvent @event)
+        public void Publish(IEvent appEvent)
         {
-            var eventType = @event.GetType();
-            if (_eventHandlers.ContainsKey(@event.GetType()))
+            var eventType = appEvent.GetType();
+            if (_eventHandlers.ContainsKey(appEvent.GetType()))
             {
                 var handlers = _eventHandlers[eventType];
                 foreach (var handler in handlers)
                 {
-                    handler.Handle(@event);
+                    handler.Handle(appEvent);
                 }
             }
         }

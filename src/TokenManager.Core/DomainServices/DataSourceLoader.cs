@@ -4,8 +4,13 @@ using System.Xml;
 using System.Xml.Linq;
 using TokenManager.Core.Model;
 
-namespace TokenManager.Core.Services
+namespace TokenManager.Core.DomainServices
 {
+    public interface IDataSourceLoader
+    {
+        IList<Token> ReadTokens(string filePath, bool isRoot);
+    }
+
     [Export(typeof(IDataSourceLoader))]
     internal class DataSourceLoader : IDataSourceLoader
     {

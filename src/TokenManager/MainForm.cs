@@ -9,9 +9,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using TokenManager.Core.Controllers;
+using TokenManager.Core.DomainServices;
 using TokenManager.Core.Events;
-using TokenManager.Core.Services;
+using TokenManager.Core.DomainServices;
 
 namespace TokenManager
 {
@@ -33,9 +33,9 @@ namespace TokenManager
         }
          
 
-        void IEventHandler.Handle(IEvent @event)
+        void IEventHandler.Handle(IEvent appEvent)
         {
-            if (@event is ProjectLoadedEvent)
+            if (appEvent is ProjectLoadedEvent)
             {
                 TokensGrid.ShowData(true, true);
             }

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using TokenManager.Core.Events;
-using TokenManager.Core.Services;
+using TokenManager.Core.DomainServices;
 using TokenManager.Core.ViewModel;
 
-namespace TokenManager.Core.Controllers
+namespace TokenManager.Core.DomainServices
 {
     public interface IMainViewController
     {

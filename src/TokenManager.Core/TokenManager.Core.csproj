@@ -43,23 +43,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\MainViewController.cs" />
-    <Compile Include="Services\PersistanceService.cs" />
+    <Compile Include="Controllers\TokenEditViewController.cs" />
+    <Compile Include="Controllers\TokenEnvironmentController.cs" />
+    <Compile Include="Events\Events.cs" />
+    <Compile Include="DomainServices\PersistanceService.cs" />
     <Compile Include="Controllers\TokensGridViewController.cs" />
     <Compile Include="Events\IEvent.cs" />
     <Compile Include="Events\IEventHandler.cs" />
-    <Compile Include="Events\ModelHasChangedEvent.cs" />
-    <Compile Include="Events\ProjectLoadedEvent.cs" />
     <Compile Include="Model\DataSource.cs" />
     <Compile Include="Model\Environment.cs" />
     <Compile Include="Model\Token.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Services\DataSourceLoader.cs" />
+    <Compile Include="DomainServices\DataSourceLoader.cs" />
     <Compile Include="Services\IConfiguration.cs" />
-    <Compile Include="Services\IDataSourceLoader.cs" />
     <Compile Include="Services\ILogger.cs" />
-    <Compile Include="Services\INotyficationService.cs" />
-    <Compile Include="Services\Logger.cs" />
     <Compile Include="Services\NotyficationService.cs" />
+    <Compile Include="DomainServices\TokenManagementService.cs" />
     <Compile Include="ViewModel\EnvironentTokenViewModel.cs" />
     <Compile Include="ViewModel\TokenViewModel.cs" />
   </ItemGroup>
