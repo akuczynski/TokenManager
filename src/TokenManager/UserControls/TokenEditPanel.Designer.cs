@@ -1,7 +1,7 @@
 ﻿
 namespace TokenManager.UserControls
 {
-    partial class TokensGrid
+    partial class TokenEditPanel
     {
         /// <summary> 
         /// Required designer variable.
@@ -29,34 +29,33 @@ namespace TokenManager.UserControls
         /// </summary>
         private void InitializeComponent()
         {
-            this.MainGrid = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // MainGrid
+            // label1
             // 
-            this.MainGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.MainGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.MainGrid.Location = new System.Drawing.Point(0, 0);
-            this.MainGrid.Name = "MainGrid";
-            this.MainGrid.Size = new System.Drawing.Size(604, 466);
-            this.MainGrid.TabIndex = 0;
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(41, 69);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(89, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Token Edit Panel";
             // 
-            // TokensGrid
+            // TokenEditPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.MainGrid);
-            this.Name = "TokensGrid";
-            this.Size = new System.Drawing.Size(604, 466);
-            ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).EndInit();
+            this.Controls.Add(this.label1);
+            this.Name = "TokenEditPanel";
+            this.Size = new System.Drawing.Size(148, 148);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.DataGridView MainGrid;
+        private System.Windows.Forms.Label label1;
     }
 }

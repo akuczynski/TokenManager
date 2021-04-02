@@ -12,7 +12,6 @@ namespace TokenManager.UserControls
         public TokensGrid()
         {
             InitializeComponent();
-            Shell.CompositionContainer.ComposeParts(this);
         }
 
         public void ShowData(bool showTokens,bool showSubTokens)

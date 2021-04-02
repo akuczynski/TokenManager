@@ -29,34 +29,48 @@ namespace TokenManager
         /// </summary>
         private void InitializeComponent()
         {
-            this.LoadBtn = new System.Windows.Forms.Button();
+            this.TokenEditPanel = new TokenManager.UserControls.TokenEditPanel();
+            this.MenuPanel = new TokenManager.UserControls.MenuPanel();
             this.TokensGrid = new TokenManager.UserControls.TokensGrid();
             this.SuspendLayout();
             // 
-            // LoadBtn
+            // TokenEditPanel
             // 
-            this.LoadBtn.Location = new System.Drawing.Point(35, 30);
-            this.LoadBtn.Name = "LoadBtn";
-            this.LoadBtn.Size = new System.Drawing.Size(75, 23);
-            this.LoadBtn.TabIndex = 0;
-            this.LoadBtn.Text = "Load";
-            this.LoadBtn.UseVisualStyleBackColor = true;
-            this.LoadBtn.Click += new System.EventHandler(this.LoadBtn_Click);
+            this.TokenEditPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TokenEditPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.TokenEditPanel.Location = new System.Drawing.Point(0, 609);
+            this.TokenEditPanel.Name = "TokenEditPanel";
+            this.TokenEditPanel.Size = new System.Drawing.Size(1021, 124);
+            this.TokenEditPanel.TabIndex = 3;
+            // 
+            // MenuPanel
+            // 
+            this.MenuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.MenuPanel.Location = new System.Drawing.Point(0, 0);
+            this.MenuPanel.MainViewController = null;
+            this.MenuPanel.Name = "MenuPanel";
+            this.MenuPanel.Size = new System.Drawing.Size(1021, 75);
+            this.MenuPanel.TabIndex = 5;
             // 
             // TokensGrid
             // 
-            this.TokensGrid.Location = new System.Drawing.Point(35, 59);
+            this.TokensGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TokensGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TokensGrid.Location = new System.Drawing.Point(0, 75);
             this.TokensGrid.Name = "TokensGrid";
-            this.TokensGrid.Size = new System.Drawing.Size(617, 362);
+            this.TokensGrid.Size = new System.Drawing.Size(1021, 658);
             this.TokensGrid.TabIndex = 2;
+            this.TokensGrid.TokensGridViewController = null;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1021, 733);
+            this.Controls.Add(this.TokenEditPanel);
             this.Controls.Add(this.TokensGrid);
-            this.Controls.Add(this.LoadBtn);
+            this.Controls.Add(this.MenuPanel);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -64,8 +78,8 @@ namespace TokenManager
         }
 
         #endregion
-
-        private System.Windows.Forms.Button LoadBtn;
+        private UserControls.TokenEditPanel TokenEditPanel;
+        private UserControls.MenuPanel MenuPanel;
         private UserControls.TokensGrid TokensGrid;
     }
 }
