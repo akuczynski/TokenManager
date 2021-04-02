@@ -12,6 +12,8 @@ namespace TokenManager.UserControls
 {
     public partial class TokenEditPanel : UserControl
     {
+        public IMainForm MainForm { get; set; }
+
         public TokenEditPanel()
         {
             InitializeComponent();

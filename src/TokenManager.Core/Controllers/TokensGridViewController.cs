@@ -3,7 +3,6 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using TokenManager.Core.Events;
 using TokenManager.Core.Model;
-using TokenManager.Core.DomainServices;
 using TokenManager.Core.ViewModel;
 
 namespace TokenManager.Core.DomainServices
@@ -33,27 +32,32 @@ namespace TokenManager.Core.DomainServices
             _persistanceService = persistanceService;
             _notyficationService = notyficationService; 
 
-            _tokens = new HashSet<TokenViewModel>();
-
             _notyficationService.Subscribe(typeof(ProjectLoadedEvent), this);
         }
 
         public IEnumerable<TokenViewModel> GetTokenList(bool showTokens, bool showSubTokens, string tokenName)
         {
+            var result = Enumerable.Empty<TokenViewModel>();
+
             if (showSubTokens && showTokens)
             {
-                return _tokens.ToList();
+                result = _tokens.ToList();
             }
             else if (showTokens == false && showSubTokens == true)
             {
-                return _tokens.Where(x => x.IsSubToken == true).ToList();
+                result = _tokens.Where(x => x.IsSubToken == true).ToList();
             }
             else if (showTokens == true && showSubTokens == false)
             {
-                return _tokens.Where(x => x.IsSubToken == false).ToList();
+                result = _tokens.Where(x => x.IsSubToken == false).ToList();
             }
 
-            return Enumerable.Empty<TokenViewModel>();
+            if (!string.IsNullOrEmpty(tokenName))
+            {
+                result = result.Where(x => x.Token.ToLower().Contains(tokenName.ToLower())).ToList();
+            }
+
+            return result;
         }
 
         public IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName)
@@ -64,6 +68,7 @@ namespace TokenManager.Core.DomainServices
 
         private void Init()
         {
+            _tokens = new HashSet<TokenViewModel>();
             var dataSource = _persistanceService.GetData();
             foreach(var item in dataSource.EnvironmentTokens)
             {

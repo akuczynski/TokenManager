@@ -44,7 +44,6 @@
   <ItemGroup>
     <Compile Include="Controllers\MainViewController.cs" />
     <Compile Include="Controllers\TokenEditViewController.cs" />
-    <Compile Include="Controllers\TokenEnvironmentController.cs" />
     <Compile Include="Events\Events.cs" />
     <Compile Include="DomainServices\PersistanceService.cs" />
     <Compile Include="Controllers\TokensGridViewController.cs" />

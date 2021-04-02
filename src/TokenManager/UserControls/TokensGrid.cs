@@ -8,16 +8,17 @@ namespace TokenManager.UserControls
     {
         [Import]
         public ITokensGridViewController TokensGridViewController { get; set; }
-         
+
+        public IMainForm MainForm { get; set; }
+        
         public TokensGrid()
         {
             InitializeComponent();
         }
 
-        public void ShowData(bool showTokens,bool showSubTokens)
+        public void ShowData(bool showTokens,bool showSubTokens, string tokenName)
         {
-            this.MainGrid.DataSource = TokensGridViewController.GetTokenList(showTokens, showSubTokens, "");
+            this.MainGrid.DataSource = TokensGridViewController.GetTokenList(showTokens, showSubTokens, tokenName);
         }
-
     }
 }

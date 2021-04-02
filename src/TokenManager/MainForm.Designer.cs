@@ -30,8 +30,8 @@ namespace TokenManager
         private void InitializeComponent()
         {
             this.TokenEditPanel = new TokenManager.UserControls.TokenEditPanel();
-            this.MenuPanel = new TokenManager.UserControls.MenuPanel();
             this.TokensGrid = new TokenManager.UserControls.TokensGrid();
+            this.MenuPanel = new TokenManager.UserControls.MenuPanel();
             this.SuspendLayout();
             // 
             // TokenEditPanel
@@ -43,6 +43,16 @@ namespace TokenManager
             this.TokenEditPanel.Size = new System.Drawing.Size(1021, 124);
             this.TokenEditPanel.TabIndex = 3;
             // 
+            // TokensGrid
+            // 
+            this.TokensGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.TokensGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TokensGrid.Location = new System.Drawing.Point(0, 34);
+            this.TokensGrid.Name = "TokensGrid";
+            this.TokensGrid.Size = new System.Drawing.Size(1021, 699);
+            this.TokensGrid.TabIndex = 2;
+            this.TokensGrid.TokensGridViewController = null;
+            // 
             // MenuPanel
             // 
             this.MenuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
@@ -50,18 +60,8 @@ namespace TokenManager
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.MainViewController = null;
             this.MenuPanel.Name = "MenuPanel";
-            this.MenuPanel.Size = new System.Drawing.Size(1021, 75);
+            this.MenuPanel.Size = new System.Drawing.Size(1021, 34);
             this.MenuPanel.TabIndex = 5;
-            // 
-            // TokensGrid
-            // 
-            this.TokensGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TokensGrid.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TokensGrid.Location = new System.Drawing.Point(0, 75);
-            this.TokensGrid.Name = "TokensGrid";
-            this.TokensGrid.Size = new System.Drawing.Size(1021, 658);
-            this.TokensGrid.TabIndex = 2;
-            this.TokensGrid.TokensGridViewController = null;
             // 
             // MainForm
             // 
@@ -72,7 +72,7 @@ namespace TokenManager
             this.Controls.Add(this.TokensGrid);
             this.Controls.Add(this.MenuPanel);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Token Manager";
             this.ResumeLayout(false);
 
         }

@@ -26,11 +26,11 @@ namespace TokenManager.Core.DomainServices
         public PersistanceService(IDataSourceLoader dataSourceLoader)
         {
             _dataSourceLoader = dataSourceLoader;
-            DataSource = new DataSource();
         }
 
         public void LoadData(string folderPath, bool isRoot)
         {
+            DataSource = new DataSource();
             var tokenXml = Path.Combine(folderPath, "tokens.xml");
 
             var environment = new Environment
