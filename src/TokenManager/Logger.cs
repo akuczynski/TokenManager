@@ -2,13 +2,12 @@
 using NLog;
 using NLog.Config;
 using NLog.Targets;
-using TokenManager.UI;
 
-namespace TokenManager.Core.Services
+namespace TokenManager
 {
 
     [Export(typeof(ILogger))]
-    public class Logger  : TokenManager.Core.Services.ILogger
+    public class Logger  : Core.Services.ILogger
     {
         public void Info(string text)
         {

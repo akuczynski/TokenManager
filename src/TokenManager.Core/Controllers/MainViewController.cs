@@ -36,7 +36,6 @@ namespace TokenManager.Core.Controllers
             _logger = logger;
             _configuration = configuration;
             _notyficationService = notyficationService;
-
             _persistanceController = persistanceController;
         }
 
@@ -47,14 +46,16 @@ namespace TokenManager.Core.Controllers
 
         public IEnumerable<TokenViewModel> ShowData(bool showTokens, bool showSubTokens)
         {
+            _logger.Info("Display Tokens");
+
             return _persistanceController.ViewData(showTokens, showSubTokens);
         }
 
         public void LoadData()
         {
-            _logger.Info("Loading Tokens");
+            _logger.Info("Load Tokens");
 
-            var rootFolderPath = _configuration.Get("MainFolderPath");
+            var rootFolderPath = _configuration.Get("RootFolder");
             _persistanceController.LoadData(rootFolderPath, true);
             _notyficationService.Publish(new ProjectLoadedEvent());
         }

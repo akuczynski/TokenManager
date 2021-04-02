@@ -3,3 +3,6 @@ src/TokenManager.Core/bin
 src/TokenManager.Core/obj
 src/TokenManager.UI/obj
 src/TokenManager.UI/bin
+src/TokenManager/bin
+src/TokenManager/obj
+*.user

@@ -1,4 +1,4 @@
-﻿namespace TokenManager.UI
+﻿namespace TokenManager
 {
     internal class Constants
     {
