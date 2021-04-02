@@ -37,7 +37,7 @@ namespace TokenManager
         {
             if (@event is ProjectLoadedEvent)
             {
-                TokensGridView.DataSource = MainViewController.ShowData(true, true);
+                TokensGrid.MainGridDataSource = MainViewController.ShowData(true, true);
             }
         }
 
@@ -46,4 +46,4 @@ namespace TokenManager
             MainViewController.LoadData();
         }
     }
-}
+} 

@@ -30,8 +30,7 @@ namespace TokenManager
         private void InitializeComponent()
         {
             this.LoadBtn = new System.Windows.Forms.Button();
-            this.TokensGridView = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.TokensGridView)).BeginInit();
+            this.TokensGrid = new TokenManager.UserControls.TokensGrid();
             this.SuspendLayout();
             // 
             // LoadBtn
@@ -44,24 +43,22 @@ namespace TokenManager
             this.LoadBtn.UseVisualStyleBackColor = true;
             this.LoadBtn.Click += new System.EventHandler(this.LoadBtn_Click);
             // 
-            // TokensGridView
+            // TokensGrid
             // 
-            this.TokensGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.TokensGridView.Location = new System.Drawing.Point(35, 79);
-            this.TokensGridView.Name = "TokensGridView";
-            this.TokensGridView.Size = new System.Drawing.Size(714, 329);
-            this.TokensGridView.TabIndex = 1;
+            this.TokensGrid.Location = new System.Drawing.Point(35, 59);
+            this.TokensGrid.Name = "TokensGrid";
+            this.TokensGrid.Size = new System.Drawing.Size(617, 362);
+            this.TokensGrid.TabIndex = 2;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.TokensGridView);
+            this.Controls.Add(this.TokensGrid);
             this.Controls.Add(this.LoadBtn);
             this.Name = "MainForm";
             this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.TokensGridView)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -69,7 +66,7 @@ namespace TokenManager
         #endregion
 
         private System.Windows.Forms.Button LoadBtn;
-        private System.Windows.Forms.DataGridView TokensGridView;
+        private UserControls.TokensGrid TokensGrid;
     }
 }
 
