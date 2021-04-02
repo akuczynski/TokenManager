@@ -101,7 +101,7 @@ namespace TokenManager.UserControls
             // 
             this.ValidateBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.ValidateBtn.Enabled = false;
-            this.ValidateBtn.Location = new System.Drawing.Point(857, 4);
+            this.ValidateBtn.Location = new System.Drawing.Point(818, 4);
             this.ValidateBtn.Name = "ValidateBtn";
             this.ValidateBtn.Size = new System.Drawing.Size(75, 23);
             this.ValidateBtn.TabIndex = 7;
@@ -131,7 +131,7 @@ namespace TokenManager.UserControls
             this.Controls.Add(this.FilterLbl);
             this.Controls.Add(this.LoadBtn);
             this.Name = "MenuPanel";
-            this.Size = new System.Drawing.Size(939, 36);
+            this.Size = new System.Drawing.Size(900, 36);
             this.ResumeLayout(false);
             this.PerformLayout();
 

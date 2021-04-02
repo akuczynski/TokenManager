@@ -38,9 +38,10 @@ namespace TokenManager
             // 
             this.TokenEditPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TokenEditPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.TokenEditPanel.Location = new System.Drawing.Point(0, 609);
+            this.TokenEditPanel.Location = new System.Drawing.Point(0, 481);
+            this.TokenEditPanel.MainForm = null;
             this.TokenEditPanel.Name = "TokenEditPanel";
-            this.TokenEditPanel.Size = new System.Drawing.Size(1021, 124);
+            this.TokenEditPanel.Size = new System.Drawing.Size(1021, 252);
             this.TokenEditPanel.TabIndex = 3;
             // 
             // TokensGrid
@@ -48,6 +49,7 @@ namespace TokenManager
             this.TokensGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TokensGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TokensGrid.Location = new System.Drawing.Point(0, 34);
+            this.TokensGrid.MainForm = null;
             this.TokensGrid.Name = "TokensGrid";
             this.TokensGrid.Size = new System.Drawing.Size(1021, 699);
             this.TokensGrid.TabIndex = 2;
@@ -58,6 +60,7 @@ namespace TokenManager
             this.MenuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
+            this.MenuPanel.MainForm = null;
             this.MenuPanel.MainViewController = null;
             this.MenuPanel.Name = "MenuPanel";
             this.MenuPanel.Size = new System.Drawing.Size(1021, 34);
