@@ -1,29 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.Composition;
 using System.Windows.Forms;
-using TokenManager.Core.ViewModel;
+using TokenManager.Core.Controllers;
 
 namespace TokenManager.UserControls
 {
     public partial class TokensGrid : UserControl
     {
-        public IEnumerable<TokenViewModel> MainGridDataSource
-        {
-            set
-            {
-                this.MainGrid.DataSource = value;
-            }
-        }
-
+        [Import]
+        public ITokensGridViewController TokensGridViewController { get; set; }
+         
         public TokensGrid()
         {
             InitializeComponent();
+            Shell.CompositionContainer.ComposeParts(this);
+        }
+
+        public void ShowData(bool showTokens,bool showSubTokens)
+        {
+            this.MainGrid.DataSource = TokensGridViewController.GetTokenList(showTokens, showSubTokens, "");
         }
 
     }

@@ -43,7 +43,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\MainViewController.cs" />
-    <Compile Include="Controllers\PersistanceController.cs" />
+    <Compile Include="Services\PersistanceService.cs" />
+    <Compile Include="Controllers\TokensGridViewController.cs" />
     <Compile Include="Events\IEvent.cs" />
     <Compile Include="Events\IEventHandler.cs" />
     <Compile Include="Events\ModelHasChangedEvent.cs" />

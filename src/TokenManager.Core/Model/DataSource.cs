@@ -4,7 +4,7 @@ namespace TokenManager.Core.Model
 {
     public class DataSource
     {
-        private Dictionary<Environment, IList<Token>> EnvironmentTokens { get; set; }
+        public Dictionary<Environment, IList<Token>> EnvironmentTokens { get; private set; }
 
         public DataSource()
         {

@@ -37,7 +37,7 @@ namespace TokenManager
         {
             if (@event is ProjectLoadedEvent)
             {
-                TokensGrid.MainGridDataSource = MainViewController.ShowData(true, true);
+                TokensGrid.ShowData(true, true);
             }
         }
 
