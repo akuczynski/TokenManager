@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace TokenManager.Forms
 {
-    public partial class AddForm : UserControl
+    public partial class EnvironmentForm : Form
     {
-        public AddForm()
+        public EnvironmentForm()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

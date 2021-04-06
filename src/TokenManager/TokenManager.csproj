@@ -80,11 +80,17 @@
   <ItemGroup>
     <Compile Include="Configuration.cs" />
     <Compile Include="Constants.cs" />
-    <Compile Include="Forms\AddForm.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Forms\EnvironmentForm.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\AddForm.Designer.cs">
-      <DependentUpon>AddForm.cs</DependentUpon>
+    <Compile Include="Forms\EnvironmentForm.Designer.cs">
+      <DependentUpon>EnvironmentForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\TokenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\TokenForm.Designer.cs">
+      <DependentUpon>TokenForm.cs</DependentUpon>
     </Compile>
     <Compile Include="IMainForm.cs" />
     <Compile Include="Logger.cs" />
@@ -113,8 +119,11 @@
     <Compile Include="UserControls\TokensGrid.Designer.cs">
       <DependentUpon>TokensGrid.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Forms\AddForm.resx">
-      <DependentUpon>AddForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EnvironmentForm.resx">
+      <DependentUpon>EnvironmentForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\TokenForm.resx">
+      <DependentUpon>TokenForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

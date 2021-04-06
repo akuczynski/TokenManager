@@ -37,19 +37,34 @@ namespace TokenManager.UserControls
             if (e.Button == MouseButtons.Right)
             {
                 ContextMenu m = new ContextMenu();
-                m.MenuItems.Add(new MenuItem("Add"));
-                m.MenuItems.Add(new MenuItem("Edit"));
+                m.MenuItems.Add("Add", ShowModalWindow);
+                m.MenuItems.Add("Edit", ShowModalWindow);
                 m.MenuItems.Add(new MenuItem("Remove"));
 
                 m.Show(this.MainGrid, new Point(e.X, e.Y));
             }
         }
 
+        private void ShowModalWindow(object sender, EventArgs e)
+        {
+            var menuItem = sender as MenuItem;
+            var tokenName = GetSelectedToken();
+            if ("Add".Equals(menuItem?.Text))
+            {
+                MainForm.ShowTokenModalWindow(false);
+            }
+            else
+            {
+                MainForm.ShowTokenModalWindow(true, tokenName);
+            }
+
+        }
+
         private void MainGrid_SelectionChanged(object sender, EventArgs e)
         {
             if (MainGrid.CurrentRow.Index != _selectedRowIndex)
             {
-                string tokenName = (string)MainGrid.CurrentRow.Cells[0]?.Value;
+                string tokenName = GetSelectedToken();
                 this.SubGrid.DataSource = TokensGridViewController.GetTokenValuesForAllEnvironments(tokenName);                
 
                 _selectedRowIndex = MainGrid.CurrentRow.Index;
@@ -57,6 +72,11 @@ namespace TokenManager.UserControls
                 var text = string.Format(Messages.TokenSelectionChanged, tokenName);
                 MainForm.UpdateMessageOnStatusBar(text);
             }
+        }
+
+        private string GetSelectedToken()
+        {
+            return (string)MainGrid.CurrentRow.Cells[0]?.Value;
         }
 
         private void UpdateRowsBackgroundColors()

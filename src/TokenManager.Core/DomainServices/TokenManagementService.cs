@@ -18,13 +18,17 @@ namespace TokenManager.Core.DomainServices
         void Init();
 
         IEnumerable<TokenViewModel> Tokens { get; }
+
+        IEnumerable<string> Environments { get; }
     }
 
     [Export(typeof(ITokenManagementService))]
     internal class TokenManagementService : ITokenManagementService
     {
         //todo: add subscribe events 
-        private HashSet<TokenViewModel> _tokens { get; set; }
+        private HashSet<TokenViewModel> _tokens;
+
+        private IList<string> _environments;
 
         private IPersistanceService _persistanceService { get; set; }
 
@@ -33,6 +37,14 @@ namespace TokenManager.Core.DomainServices
             get
             {
                 return _tokens.ToList();
+            }
+        }
+
+        public IEnumerable<string> Environments
+        {
+            get
+            {
+                return _environments;
             }
         }
 
@@ -79,6 +91,7 @@ namespace TokenManager.Core.DomainServices
         public void Init()
         {
             _tokens = new HashSet<TokenViewModel>(new TokenViewModelComparer());
+            _environments = new List<string>();
             var dataSource = _persistanceService.GetData();
 
             var globalTokens = dataSource.GetTokens(dataSource.RootEnvironment);
@@ -93,6 +106,7 @@ namespace TokenManager.Core.DomainServices
 
                 var tokens = dataSource.GetTokens(environment);
                 AddToTokensSet(tokens, false);
+                _environments.Add(environment.Name);
             }
 
             // subscribe

@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
 using TokenManager.Core.Events;
+using TokenManager.Forms;
 using TokenManager.Properties;
 
 namespace TokenManager
@@ -10,6 +11,14 @@ namespace TokenManager
     {
         [Import]
         public INotyficationService NotyficationService { get; set; }
+
+        public IWin32Window Window
+        {
+            get
+            {
+                return this;
+            }
+        }
 
         public MainForm()
         {
@@ -45,6 +54,16 @@ namespace TokenManager
         public void UpdateMessageOnStatusBar(string text)
         {
             StatubBarLbl.Text = text;
+        }
+
+        public void ShowTokenModalWindow(bool isEdit, string token)
+        {
+            var modalWindow = new TokenForm();
+            Shell.CompositionContainer.ComposeParts(modalWindow);
+
+            modalWindow.MainForm = this;
+            modalWindow.Init(isEdit, token);
+            modalWindow.ShowDialog(this);
         }
     }
 } 
