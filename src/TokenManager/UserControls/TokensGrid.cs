@@ -37,12 +37,11 @@ namespace TokenManager.UserControls
             if (e.Button == MouseButtons.Right)
             {
                 ContextMenu m = new ContextMenu();
+                m.MenuItems.Add(new MenuItem("Add"));
                 m.MenuItems.Add(new MenuItem("Edit"));
                 m.MenuItems.Add(new MenuItem("Remove"));
-                m.MenuItems.Add(new MenuItem("Create"));                
 
                 m.Show(this.MainGrid, new Point(e.X, e.Y));
-
             }
         }
 

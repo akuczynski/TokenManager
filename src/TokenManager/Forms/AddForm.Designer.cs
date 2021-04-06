@@ -47,9 +47,10 @@ namespace TokenManager.Forms
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(365, 348);
+            this.button1.Location = new System.Drawing.Point(274, 283);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 36);
+            this.button1.Size = new System.Drawing.Size(90, 29);
             this.button1.TabIndex = 0;
             this.button1.Text = "Update/Add";
             this.button1.UseVisualStyleBackColor = true;
@@ -57,17 +58,19 @@ namespace TokenManager.Forms
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(148, 31);
+            this.textBox1.Location = new System.Drawing.Point(111, 25);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(186, 22);
+            this.textBox1.Size = new System.Drawing.Size(140, 20);
             this.textBox1.TabIndex = 1;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(365, 31);
+            this.checkBox1.Location = new System.Drawing.Point(274, 25);
+            this.checkBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(95, 21);
+            this.checkBox1.Size = new System.Drawing.Size(76, 17);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "SubToken";
             this.checkBox1.UseVisualStyleBackColor = true;
@@ -75,36 +78,40 @@ namespace TokenManager.Forms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 31);
+            this.label1.Location = new System.Drawing.Point(14, 25);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(85, 17);
+            this.label1.Size = new System.Drawing.Size(66, 13);
             this.label1.TabIndex = 3;
             this.label1.Text = "TokenName";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 71);
+            this.label2.Location = new System.Drawing.Point(14, 58);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(90, 21);
+            this.label2.Size = new System.Drawing.Size(55, 13);
             this.label2.TabIndex = 4;
             this.label2.Text = "Defined in";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(23, 117);
+            this.label3.Location = new System.Drawing.Point(17, 95);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(55, 21);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 5;
             this.label3.Text = "Value";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(18, 165);
+            this.label4.Location = new System.Drawing.Point(14, 134);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 21);
+            this.label4.Size = new System.Drawing.Size(60, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Description";
             this.label4.Click += new System.EventHandler(this.label4_Click);
@@ -112,18 +119,20 @@ namespace TokenManager.Forms
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(23, 214);
+            this.label5.Location = new System.Drawing.Point(17, 174);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 21);
+            this.label5.Size = new System.Drawing.Size(57, 13);
             this.label5.TabIndex = 7;
             this.label5.Text = "UserName";
             // 
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(26, 357);
+            this.checkBox2.Location = new System.Drawing.Point(20, 290);
+            this.checkBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(91, 21);
+            this.checkBox2.Size = new System.Drawing.Size(72, 17);
             this.checkBox2.TabIndex = 8;
             this.checkBox2.Text = "Password";
             this.checkBox2.UseVisualStyleBackColor = true;
@@ -131,45 +140,50 @@ namespace TokenManager.Forms
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(365, 70);
+            this.checkBox3.Location = new System.Drawing.Point(274, 57);
+            this.checkBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(75, 21);
+            this.checkBox3.Size = new System.Drawing.Size(61, 17);
             this.checkBox3.TabIndex = 9;
             this.checkBox3.Text = "In Main";
             this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(148, 114);
+            this.textBox2.Location = new System.Drawing.Point(111, 93);
+            this.textBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(292, 22);
+            this.textBox2.Size = new System.Drawing.Size(220, 20);
             this.textBox2.TabIndex = 10;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(148, 162);
+            this.textBox3.Location = new System.Drawing.Point(111, 132);
+            this.textBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(292, 22);
+            this.textBox3.Size = new System.Drawing.Size(220, 20);
             this.textBox3.TabIndex = 11;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(148, 211);
+            this.textBox4.Location = new System.Drawing.Point(111, 171);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(292, 22);
+            this.textBox4.Size = new System.Drawing.Size(220, 20);
             this.textBox4.TabIndex = 12;
             // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(148, 71);
+            this.comboBox1.Location = new System.Drawing.Point(111, 58);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(186, 24);
+            this.comboBox1.Size = new System.Drawing.Size(140, 21);
             this.comboBox1.TabIndex = 13;
             // 
             // AddForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox4);
@@ -185,8 +199,9 @@ namespace TokenManager.Forms
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "AddForm";
-            this.Size = new System.Drawing.Size(516, 405);
+            this.Size = new System.Drawing.Size(387, 329);
             this.ResumeLayout(false);
             this.PerformLayout();
 

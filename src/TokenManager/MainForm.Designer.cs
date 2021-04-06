@@ -29,6 +29,7 @@ namespace TokenManager
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.TokensGrid = new TokenManager.UserControls.TokensGrid();
             this.MenuPanel = new TokenManager.UserControls.MenuPanel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
@@ -81,6 +82,7 @@ namespace TokenManager
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.TokensGrid);
             this.Controls.Add(this.MenuPanel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainForm";
             this.Text = "Token Manager";
             this.statusStrip1.ResumeLayout(false);
