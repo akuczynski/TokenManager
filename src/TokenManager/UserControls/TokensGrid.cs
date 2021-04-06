@@ -26,7 +26,8 @@ namespace TokenManager.UserControls
             this.MainGrid.DataSource = TokensGridViewController.GetTokenList(showTokens, showSubTokens, tokenName);
             this.MainGrid.Columns[nameof(TokenViewModel.IsSubToken)].Visible = false;
             this.MainGrid.Columns[nameof(TokenViewModel.Description)].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;            
-            MakeSubtokensGray();
+          
+            UpdateRowsBackgroundColors();
         }
 
         private void MainGrid_SelectionChanged(object sender, System.EventArgs e)
@@ -43,7 +44,7 @@ namespace TokenManager.UserControls
             }
         }
 
-        private void MakeSubtokensGray()
+        private void UpdateRowsBackgroundColors()
         {
             foreach (DataGridViewRow row in this.MainGrid.Rows)
             {

@@ -16,7 +16,7 @@
     
         public string Description { get; set; }
 
-        public string Password { get; set; }
+        public bool IsPassword { get; set; }
 
         public string UserName { get; set; }
 
@@ -25,5 +25,10 @@
         public Action Action { get; set; } 
 
         public bool IsDirty { get; set; }
+    }
+
+    public class EmptyToken : Token
+    {
+
     }
 }

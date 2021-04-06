@@ -36,7 +36,7 @@ namespace TokenManager.Core.DomainServices
 
         public void LoadData()
         {
-            _logger.Info("Load Tokens");
+            _logger.Info("load data");
 
             var rootFolderPath = _configuration.Get("RootFolder");
             _persistanceService.LoadData(rootFolderPath);
@@ -45,12 +45,16 @@ namespace TokenManager.Core.DomainServices
 
         public void SaveData()
         {
+            _logger.Info("save data");
+
             var rootFolderPath = _configuration.Get("MainFolderPath");
             _persistanceService.SaveData(rootFolderPath);
         }
 
         public bool Validate()
         {
+            _logger.Info("validate");
+
             throw new NotImplementedException();
         }
     }

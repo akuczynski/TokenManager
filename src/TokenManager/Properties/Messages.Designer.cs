@@ -70,7 +70,7 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Token {0} is selected..
+        ///   Looks up a localized string similar to {0} is selected..
         /// </summary>
         internal static string TokenSelectionChanged {
             get {

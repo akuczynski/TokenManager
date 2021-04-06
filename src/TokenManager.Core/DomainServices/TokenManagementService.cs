@@ -52,16 +52,26 @@ namespace TokenManager.Core.DomainServices
             var result = new List<EnvironentTokenViewModel>();
             var dataSource = _persistanceService.GetData();
 
-            foreach (var environemnt in dataSource.EnvironmentTokens)
+            foreach (var environemnt in dataSource.GetAllEnvironments())
             {
-                var name = environemnt.Key.Name;
+                if (environemnt.IsRoot)
+                {
+                    // skip value for root environment 
+                    continue;
+                }
+
+                var name = environemnt.Name;
+                var token = dataSource.GetTokenOrDefault(tokenName, environemnt);
+
                 var envViewModel = new EnvironentTokenViewModel
                 {
-                    Environment = name
+                    Environment = name,
+                    Value = token.Value,
+                    UserName = token.UserName
                 };
 
                 result.Add(envViewModel);
-            } 
+            }
 
             return result;
         }
@@ -70,23 +80,35 @@ namespace TokenManager.Core.DomainServices
         {
             _tokens = new HashSet<TokenViewModel>(new TokenViewModelComparer());
             var dataSource = _persistanceService.GetData();
-            foreach (var item in dataSource.EnvironmentTokens)
+
+            var globalTokens = dataSource.GetTokens(dataSource.RootEnvironment);
+            AddToTokensSet(globalTokens, true);
+
+            foreach (var environment in dataSource.GetAllEnvironments())
             {
-                AddToTokensSet(item.Value);
+                if (environment.Equals(dataSource.RootEnvironment))
+                {
+                    continue;
+                }
+
+                var tokens = dataSource.GetTokens(environment);
+                AddToTokensSet(tokens, false);
             }
 
             // subscribe
             // todo: remember about unsubscribe !!! 
         }
 
-        private void AddToTokensSet(IList<Token> tokens)
+        private void AddToTokensSet(IEnumerable<Token> tokens, bool isGlobal)
         {
             foreach (var token in tokens)
             {
                 var tokenViewModel = new TokenViewModel();
                 tokenViewModel.Token = token.Key;
-                tokenViewModel.Value = token.Value;
+                tokenViewModel.Value = (isGlobal)? token.Value : "";
+                tokenViewModel.Description = (isGlobal) ? token.Description : "";
                 tokenViewModel.IsSubToken = token.IsSubToken;
+                tokenViewModel.IsGlobal = isGlobal;
 
                 _tokens.Add(tokenViewModel);
             }

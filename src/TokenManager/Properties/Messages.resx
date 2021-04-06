@@ -121,6 +121,6 @@
     <value>Data loaded successfully.</value>
   </data>
   <data name="TokenSelectionChanged" xml:space="preserve">
-    <value>Token {0} is selected.</value>
+    <value>{0} is selected.</value>
   </data>
 </root>

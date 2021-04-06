@@ -34,9 +34,10 @@ namespace TokenManager.Core.DomainServices
                 {
                     var token = new Token();
                     token.Key = childNode.Attribute("key").Value;
-                    token.Value = childNode.Attribute("value").Value;
-
-                    // todo
+                    token.Value = childNode.Attribute("value")?.Value;
+                    token.IsPassword = childNode.Attribute("password")?.Value == "true";
+                    token.Description = childNode.Attribute("description")?.Value;
+                    token.UserName = childNode.Attribute("userName")?.Value; 
                     result.Add(token);
                 }
             }
@@ -52,9 +53,11 @@ namespace TokenManager.Core.DomainServices
             {
                 var token = new Token { IsSubToken = true };
                 token.Key = childNode.Attribute("key").Value;
-             //   token.Value = childNode.Attribute("value").Value;
+                token.Value = childNode.Attribute("value")?.Value;
+                token.IsPassword = childNode.Attribute("password")?.Value == "true";
+                token.Description = childNode.Attribute("description")?.Value;
+                token.UserName = childNode.Attribute("userName")?.Value;
 
-                // todo
                 result.Add(token);
             }
 
