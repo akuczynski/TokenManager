@@ -62,7 +62,7 @@ namespace TokenManager.Core.DomainServices
         public IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName)
         {
             var result = new List<EnvironentTokenViewModel>();
-            var dataSource = _persistanceService.GetData();
+            var dataSource = _persistanceService.DataSource;
 
             foreach (var environemnt in dataSource.GetAllEnvironments())
             {
@@ -73,7 +73,12 @@ namespace TokenManager.Core.DomainServices
                 }
 
                 var name = environemnt.Name;
-                var token = dataSource.GetTokenOrDefault(tokenName, environemnt);
+                var token = dataSource.GetToken(tokenName, environemnt);
+
+                if (token is EmptyToken)
+                {
+                    continue;
+                }
 
                 var envViewModel = new EnvironentTokenViewModel
                 {
@@ -92,7 +97,7 @@ namespace TokenManager.Core.DomainServices
         {
             _tokens = new HashSet<TokenViewModel>(new TokenViewModelComparer());
             _environments = new List<string>();
-            var dataSource = _persistanceService.GetData();
+            var dataSource = _persistanceService.DataSource;
 
             var globalTokens = dataSource.GetTokens(dataSource.RootEnvironment);
             AddToTokensSet(globalTokens, true);

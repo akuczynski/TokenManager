@@ -38,7 +38,7 @@ namespace TokenManager.Core.Model
             return token;
         }
 
-        private Token GetToken(string tokenName, Environment environment = null)
+        public Token GetToken(string tokenName, Environment environment = null)
         {
             Token token = null;
 

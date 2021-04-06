@@ -9,7 +9,7 @@ namespace TokenManager.Core.DomainServices
     {
         void LoadData(string rootFolderPath);
 
-        DataSource GetData();
+        DataSource DataSource { get; }
 
         void SaveData(string rootFolderPath);
          
@@ -21,7 +21,7 @@ namespace TokenManager.Core.DomainServices
     {
         private IDataSourceLoader _dataSourceLoader { get; set; }
 
-        private DataSource DataSource { get; set; }
+        public DataSource DataSource { get; private set; }
 
         [ImportingConstructor]
         public PersistanceService(IDataSourceLoader dataSourceLoader)
@@ -48,11 +48,6 @@ namespace TokenManager.Core.DomainServices
         public void SaveData(string rootFolderPath)
         {
             throw new System.NotImplementedException();
-        }
-
-        public DataSource GetData()
-        {
-            return DataSource;
         } 
 
         private void AddTokens(string tokenXml, string environmentName, bool isRoot)
