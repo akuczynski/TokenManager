@@ -108,8 +108,8 @@ namespace TokenManager.Core.DomainServices
                 tokenViewModel.Value = (isGlobal)? token.Value : "";
                 tokenViewModel.Description = (isGlobal) ? token.Description : "";
                 tokenViewModel.IsSubToken = token.IsSubToken;
-                tokenViewModel.IsPassword = token.IsPassword; 
-                tokenViewModel.IsGlobal = isGlobal;
+                tokenViewModel.Password = token.IsPassword; 
+                tokenViewModel.Global = isGlobal;
 
                 _tokens.Add(tokenViewModel);
             }
