@@ -29,9 +29,35 @@ namespace TokenManager.UserControls
         /// </summary>
         private void InitializeComponent()
         {
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.MainGrid = new System.Windows.Forms.DataGridView();
+            this.SubGrid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubGrid)).BeginInit();
             this.SuspendLayout();
+            // 
+            // splitContainer1
+            // 
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
+            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer1.Panel1
+            // 
+            this.splitContainer1.Panel1.Controls.Add(this.MainGrid);
+            this.splitContainer1.Panel1MinSize = 60;
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.SubGrid);
+            this.splitContainer1.Size = new System.Drawing.Size(604, 466);
+            this.splitContainer1.SplitterDistance = 325;
+            this.splitContainer1.TabIndex = 2;
             // 
             // MainGrid
             // 
@@ -40,26 +66,43 @@ namespace TokenManager.UserControls
             this.MainGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.MainGrid.Location = new System.Drawing.Point(0, 0);
+            this.MainGrid.MultiSelect = false;
             this.MainGrid.Name = "MainGrid";
             this.MainGrid.ReadOnly = true;
-            this.MainGrid.Size = new System.Drawing.Size(604, 466);
-            this.MainGrid.TabIndex = 0;
+            this.MainGrid.Size = new System.Drawing.Size(604, 325);
+            this.MainGrid.TabIndex = 1;
+            // 
+            // SubGrid
+            // 
+            this.SubGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.SubGrid.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SubGrid.Location = new System.Drawing.Point(0, 0);
+            this.SubGrid.Name = "SubGrid";
+            this.SubGrid.Size = new System.Drawing.Size(604, 137);
+            this.SubGrid.TabIndex = 2;
             // 
             // TokensGrid
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Controls.Add(this.MainGrid);
+            this.Controls.Add(this.splitContainer1);
             this.Name = "TokensGrid";
             this.Size = new System.Drawing.Size(604, 466);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MainGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SubGrid)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
+        private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.DataGridView MainGrid;
+        private System.Windows.Forms.DataGridView SubGrid;
     }
 }

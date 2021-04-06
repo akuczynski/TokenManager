@@ -44,7 +44,6 @@ namespace TokenManager.UserControls
             var tokenName = FilterTxb.Text.Trim();
 
             MainForm.FilterTokenGrid(showTokens, showSubTokens, tokenName);
-        }
-
+        } 
     }
 }

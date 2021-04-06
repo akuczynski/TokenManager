@@ -41,7 +41,7 @@ namespace TokenManager.UserControls
             // 
             // LoadBtn
             // 
-            this.LoadBtn.Location = new System.Drawing.Point(3, 5);
+            this.LoadBtn.Location = new System.Drawing.Point(3, 4);
             this.LoadBtn.Name = "LoadBtn";
             this.LoadBtn.Size = new System.Drawing.Size(75, 23);
             this.LoadBtn.TabIndex = 1;
@@ -61,7 +61,7 @@ namespace TokenManager.UserControls
             // FilterTxb
             // 
             this.FilterTxb.Enabled = false;
-            this.FilterTxb.Location = new System.Drawing.Point(222, 7);
+            this.FilterTxb.Location = new System.Drawing.Point(222, 5);
             this.FilterTxb.Name = "FilterTxb";
             this.FilterTxb.Size = new System.Drawing.Size(357, 20);
             this.FilterTxb.TabIndex = 3;
@@ -99,7 +99,7 @@ namespace TokenManager.UserControls
             // 
             // ValidateBtn
             // 
-            this.ValidateBtn.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.ValidateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ValidateBtn.Enabled = false;
             this.ValidateBtn.Location = new System.Drawing.Point(818, 4);
             this.ValidateBtn.Name = "ValidateBtn";
@@ -110,7 +110,6 @@ namespace TokenManager.UserControls
             // 
             // SaveBtn
             // 
-            this.SaveBtn.Enabled = false;
             this.SaveBtn.Location = new System.Drawing.Point(84, 4);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(75, 23);
@@ -131,7 +130,7 @@ namespace TokenManager.UserControls
             this.Controls.Add(this.FilterLbl);
             this.Controls.Add(this.LoadBtn);
             this.Name = "MenuPanel";
-            this.Size = new System.Drawing.Size(900, 36);
+            this.Size = new System.Drawing.Size(900, 32);
             this.ResumeLayout(false);
             this.PerformLayout();
 

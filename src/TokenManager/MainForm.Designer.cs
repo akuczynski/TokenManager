@@ -29,20 +29,12 @@ namespace TokenManager
         /// </summary>
         private void InitializeComponent()
         {
-            this.TokenEditPanel = new TokenManager.UserControls.TokenEditPanel();
             this.TokensGrid = new TokenManager.UserControls.TokensGrid();
             this.MenuPanel = new TokenManager.UserControls.MenuPanel();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.StatubBarLbl = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // TokenEditPanel
-            // 
-            this.TokenEditPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.TokenEditPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.TokenEditPanel.Location = new System.Drawing.Point(0, 481);
-            this.TokenEditPanel.MainForm = null;
-            this.TokenEditPanel.Name = "TokenEditPanel";
-            this.TokenEditPanel.Size = new System.Drawing.Size(1021, 252);
-            this.TokenEditPanel.TabIndex = 3;
             // 
             // TokensGrid
             // 
@@ -66,24 +58,43 @@ namespace TokenManager
             this.MenuPanel.Size = new System.Drawing.Size(1021, 34);
             this.MenuPanel.TabIndex = 5;
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.StatubBarLbl});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 711);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(1021, 22);
+            this.statusStrip1.TabIndex = 6;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // StatubBarLbl
+            // 
+            this.StatubBarLbl.Name = "StatubBarLbl";
+            this.StatubBarLbl.Size = new System.Drawing.Size(0, 17);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1021, 733);
-            this.Controls.Add(this.TokenEditPanel);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.TokensGrid);
             this.Controls.Add(this.MenuPanel);
             this.Name = "MainForm";
             this.Text = "Token Manager";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-        private UserControls.TokenEditPanel TokenEditPanel;
         private UserControls.MenuPanel MenuPanel;
         private UserControls.TokensGrid TokensGrid;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel StatubBarLbl;
     }
 }
 

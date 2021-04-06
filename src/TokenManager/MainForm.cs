@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
 using TokenManager.Core.Events;
+using TokenManager.Properties;
 
 namespace TokenManager
 {
@@ -17,11 +18,9 @@ namespace TokenManager
             Shell.CompositionContainer.ComposeParts(this);
             Shell.CompositionContainer.ComposeParts(this.MenuPanel);
             Shell.CompositionContainer.ComposeParts(this.TokensGrid);
-            Shell.CompositionContainer.ComposeParts(this.TokenEditPanel);
 
             this.MenuPanel.MainForm = this;
             this.TokensGrid.MainForm = this;
-            this.TokenEditPanel.MainForm = this;
 
             NotyficationService.Subscribe(typeof(ModelHasChangedEvent), this);
             NotyficationService.Subscribe(typeof(ProjectLoadedEvent), this);
@@ -34,6 +33,7 @@ namespace TokenManager
                 MenuPanel.Init();
 
                 TokensGrid.ShowData(true, true, null);
+                StatubBarLbl.Text = Messages.ApplicationLoaded_StatusBar;
             }
         }
 
