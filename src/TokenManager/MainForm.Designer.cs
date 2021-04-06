@@ -78,6 +78,7 @@ namespace TokenManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.MinimumSize = new System.Drawing.Size(1021, 733);
             this.ClientSize = new System.Drawing.Size(1021, 733);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.TokensGrid);
