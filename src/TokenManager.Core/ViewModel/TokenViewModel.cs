@@ -10,8 +10,8 @@
 
         public string Description { get; set; }
 
-        public bool IsPassword { get; set; }
+        public bool Password { get; set; }
 
-        public bool IsGlobal { get; set; }
+        public bool Global { get; set; }
     }
 }
