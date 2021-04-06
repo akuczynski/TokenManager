@@ -101,12 +101,6 @@
     <Compile Include="UserControls\MenuPanel.Designer.cs">
       <DependentUpon>MenuPanel.cs</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\TokenEditPanel.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="UserControls\TokenEditPanel.Designer.cs">
-      <DependentUpon>TokenEditPanel.cs</DependentUpon>
-    </Compile>
     <Compile Include="UserControls\TokensGrid.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -122,9 +116,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\MenuPanel.resx">
       <DependentUpon>MenuPanel.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UserControls\TokenEditPanel.resx">
-      <DependentUpon>TokenEditPanel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\TokensGrid.resx">
       <DependentUpon>TokensGrid.cs</DependentUpon>

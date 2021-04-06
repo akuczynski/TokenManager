@@ -61,11 +61,20 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data loaded successfully.
+        ///   Looks up a localized string similar to Data loaded successfully..
         /// </summary>
-        internal static string ApplicationLoaded_StatusBar {
+        internal static string ApplicationLoaded {
             get {
-                return ResourceManager.GetString("ApplicationLoaded.StatusBar", resourceCulture);
+                return ResourceManager.GetString("ApplicationLoaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Token {0} is selected..
+        /// </summary>
+        internal static string TokenSelectionChanged {
+            get {
+                return ResourceManager.GetString("TokenSelectionChanged", resourceCulture);
             }
         }
     }

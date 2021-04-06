@@ -8,7 +8,7 @@ namespace TokenManager.Core.DomainServices
 {
     public interface IDataSourceLoader
     {
-        IList<Token> ReadTokens(string filePath, bool isRoot);
+        IList<Token> ReadTokens(string filePath);
     }
 
     [Export(typeof(IDataSourceLoader))]
@@ -16,7 +16,7 @@ namespace TokenManager.Core.DomainServices
     {
         private const string SubTokensNodeName = "subtokens";
 
-        public IList<Token> ReadTokens(string filePath, bool isRoot)
+        public IList<Token> ReadTokens(string filePath)
         {
             XDocument tokensXml = XDocument.Load(filePath);
             var result = new List<Token>();
@@ -52,7 +52,7 @@ namespace TokenManager.Core.DomainServices
             {
                 var token = new Token { IsSubToken = true };
                 token.Key = childNode.Attribute("key").Value;
-                token.Value = childNode.Attribute("value").Value;
+             //   token.Value = childNode.Attribute("value").Value;
 
                 // todo
                 result.Add(token);

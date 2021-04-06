@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using TokenManager.Core.Events;
-using TokenManager.Core.DomainServices;
-using TokenManager.Core.ViewModel;
 
 namespace TokenManager.Core.DomainServices
 {
@@ -42,7 +39,7 @@ namespace TokenManager.Core.DomainServices
             _logger.Info("Load Tokens");
 
             var rootFolderPath = _configuration.Get("RootFolder");
-            _persistanceService.LoadData(rootFolderPath, true);
+            _persistanceService.LoadData(rootFolderPath);
             _notyficationService.Publish(new ProjectLoadedEvent());
         }
 

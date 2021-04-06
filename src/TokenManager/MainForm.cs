@@ -33,13 +33,18 @@ namespace TokenManager
                 MenuPanel.Init();
 
                 TokensGrid.ShowData(true, true, null);
-                StatubBarLbl.Text = Messages.ApplicationLoaded_StatusBar;
+                StatubBarLbl.Text = Messages.ApplicationLoaded;
             }
         }
 
         public void FilterTokenGrid(bool showTokens, bool showSubTokens, string tokenName)
         {
             TokensGrid.ShowData(showTokens, showSubTokens, tokenName);
+        }
+
+        public void UpdateMessageOnStatusBar(string text)
+        {
+            StatubBarLbl.Text = text;
         }
     }
 } 
