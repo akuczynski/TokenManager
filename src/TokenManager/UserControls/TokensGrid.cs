@@ -25,8 +25,8 @@ namespace TokenManager.UserControls
         public void ShowData(bool showTokens,bool showSubTokens, string tokenName)
         {
             this.MainGrid.DataSource = TokensGridViewController.GetTokenList(showTokens, showSubTokens, tokenName);
-            this.MainGrid.Columns[nameof(TokenViewModel.IsGlobal)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            this.MainGrid.Columns[nameof(TokenViewModel.IsPassword)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.MainGrid.Columns[nameof(TokenViewModel.Global)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.MainGrid.Columns[nameof(TokenViewModel.Password)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.MainGrid.Columns[nameof(TokenViewModel.IsSubToken)].Visible = false;            
             UpdateRowsBackgroundColors();
 
@@ -52,7 +52,7 @@ namespace TokenManager.UserControls
             if (MainGrid.CurrentRow.Index != _selectedRowIndex)
             {
                 string tokenName = (string)MainGrid.CurrentRow.Cells[0]?.Value;
-                bool isPassword = (bool)MainGrid.CurrentRow.Cells[nameof(TokenViewModel.IsPassword)].Value;
+                bool isPassword = (bool)MainGrid.CurrentRow.Cells[nameof(TokenViewModel.Password)].Value;
 
                 this.SubGrid.DataSource = TokensGridViewController.GetTokenValuesForAllEnvironments(tokenName);
                 this.SubGrid.Columns[nameof(EnvironentTokenViewModel.UserName)].Visible = isPassword;
