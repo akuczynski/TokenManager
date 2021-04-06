@@ -1,8 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Composition.Hosting;
-using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
+using TokenManager.Core.DomainServices;
 
 namespace TokenManager
 {
@@ -29,10 +28,9 @@ namespace TokenManager
         {
             // MEF 
             var catalog = new AggregateCatalog();
-            string myPath = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-            catalog.Catalogs.Add(new DirectoryCatalog(myPath));
 
             catalog.Catalogs.Add(new AssemblyCatalog(typeof(Shell).Assembly));
+            catalog.Catalogs.Add(new AssemblyCatalog(typeof(INotyficationService).Assembly));
             CompositionContainer = new CompositionContainer(catalog);
         }
     }
