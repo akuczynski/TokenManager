@@ -1,4 +1,6 @@
 ﻿
+using System.Windows.Forms;
+
 namespace TokenManager.UserControls
 {
     partial class TokensGrid
@@ -73,10 +75,11 @@ namespace TokenManager.UserControls
             this.MainGrid.Size = new System.Drawing.Size(604, 325);
             this.MainGrid.TabIndex = 1;
             this.MainGrid.SelectionChanged += new System.EventHandler(this.MainGrid_SelectionChanged);
+            this.MainGrid.MouseClick += new MouseEventHandler(this.MainGrid_MouseClick);
             // 
             // SubGrid
             // 
-            this.SubGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.SubGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;            
             this.SubGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.SubGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SubGrid.Location = new System.Drawing.Point(0, 0);
