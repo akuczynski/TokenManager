@@ -8,7 +8,7 @@ namespace TokenManager.Core.DomainServices
 {
     public interface ITokensGridViewController
     {
-        IEnumerable<TokenViewModel> GetTokenList(bool showTokens, bool showSubTokens, string tokenName);
+        IEnumerable<TokenViewModel> GetTokenList(bool showTokens, bool showSubTokens, bool onlyPasswords, string tokenName);
 
         IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName);
     }
@@ -31,7 +31,7 @@ namespace TokenManager.Core.DomainServices
             _notyficationService.Subscribe(typeof(ProjectLoadedEvent), this);
         }
 
-        public IEnumerable<TokenViewModel> GetTokenList(bool showTokens, bool showSubTokens, string tokenName)
+        public IEnumerable<TokenViewModel> GetTokenList(bool showTokens, bool showSubTokens, bool onlyPasswords, string tokenName)
         {
             var result = Enumerable.Empty<TokenViewModel>();
 
@@ -51,6 +51,11 @@ namespace TokenManager.Core.DomainServices
             if (!string.IsNullOrEmpty(tokenName))
             {
                 result = result.Where(x => x.Token.ToLower().Contains(tokenName.ToLower())).ToList();
+            }
+
+            if (onlyPasswords)
+            {
+                result = result.Where(x => x.Password == true).ToList();
             }
 
             return result.OrderBy(token => token.IsSubToken).ToList(); 

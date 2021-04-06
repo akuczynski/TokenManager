@@ -37,6 +37,7 @@ namespace TokenManager.UserControls
             this.SubTokensCbx = new System.Windows.Forms.CheckBox();
             this.ValidateBtn = new System.Windows.Forms.Button();
             this.SaveBtn = new System.Windows.Forms.Button();
+            this.PasswordCbx = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // LoadBtn
@@ -101,7 +102,7 @@ namespace TokenManager.UserControls
             // 
             this.ValidateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.ValidateBtn.Enabled = false;
-            this.ValidateBtn.Location = new System.Drawing.Point(818, 4);
+            this.ValidateBtn.Location = new System.Drawing.Point(889, 4);
             this.ValidateBtn.Name = "ValidateBtn";
             this.ValidateBtn.Size = new System.Drawing.Size(75, 23);
             this.ValidateBtn.TabIndex = 7;
@@ -117,10 +118,22 @@ namespace TokenManager.UserControls
             this.SaveBtn.Text = "Save";
             this.SaveBtn.UseVisualStyleBackColor = true;
             // 
+            // PasswordCbx
+            // 
+            this.PasswordCbx.AutoSize = true;
+            this.PasswordCbx.Enabled = false;
+            this.PasswordCbx.Location = new System.Drawing.Point(806, 9);
+            this.PasswordCbx.Name = "PasswordCbx";
+            this.PasswordCbx.Size = new System.Drawing.Size(72, 17);
+            this.PasswordCbx.TabIndex = 9;
+            this.PasswordCbx.Text = "Password";
+            this.PasswordCbx.UseVisualStyleBackColor = true;
+            // 
             // MenuPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.PasswordCbx);
             this.Controls.Add(this.SaveBtn);
             this.Controls.Add(this.ValidateBtn);
             this.Controls.Add(this.SubTokensCbx);
@@ -130,7 +143,7 @@ namespace TokenManager.UserControls
             this.Controls.Add(this.FilterLbl);
             this.Controls.Add(this.LoadBtn);
             this.Name = "MenuPanel";
-            this.Size = new System.Drawing.Size(900, 32);
+            this.Size = new System.Drawing.Size(971, 32);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -145,5 +158,6 @@ namespace TokenManager.UserControls
         private System.Windows.Forms.CheckBox SubTokensCbx;
         private System.Windows.Forms.Button ValidateBtn;
         private System.Windows.Forms.Button SaveBtn;
+        private System.Windows.Forms.CheckBox PasswordCbx;
     }
 }

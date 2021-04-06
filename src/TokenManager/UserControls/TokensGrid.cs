@@ -22,9 +22,9 @@ namespace TokenManager.UserControls
             InitializeComponent();
         }
 
-        public void ShowData(bool showTokens,bool showSubTokens, string tokenName)
+        public void ShowData(bool showTokens,bool showSubTokens, bool onlyPasswords, string tokenName)
         {
-            this.MainGrid.DataSource = TokensGridViewController.GetTokenList(showTokens, showSubTokens, tokenName);
+            this.MainGrid.DataSource = TokensGridViewController.GetTokenList(showTokens, showSubTokens, onlyPasswords, tokenName);
             this.MainGrid.Columns[nameof(TokenViewModel.Global)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.MainGrid.Columns[nameof(TokenViewModel.Password)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.MainGrid.Columns[nameof(TokenViewModel.IsSubToken)].Visible = false;            

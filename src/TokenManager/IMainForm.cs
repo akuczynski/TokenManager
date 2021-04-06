@@ -4,7 +4,7 @@ namespace TokenManager
 {
     public interface IMainForm
     {
-        void FilterTokenGrid(bool showTokens, bool showSubTokens, string tokenName);
+        void FilterTokenGrid(bool showTokens, bool showSubTokens, bool onlyPasswords, string tokenName);
 
         void UpdateMessageOnStatusBar(string text);
 

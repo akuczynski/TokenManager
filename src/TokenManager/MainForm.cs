@@ -41,14 +41,14 @@ namespace TokenManager
             {
                 MenuPanel.Init();
 
-                TokensGrid.ShowData(true, true, null);
+                TokensGrid.ShowData(true, true, false, null);
                 StatubBarLbl.Text = Messages.ApplicationLoaded;
             }
         }
 
-        public void FilterTokenGrid(bool showTokens, bool showSubTokens, string tokenName)
+        public void FilterTokenGrid(bool showTokens, bool showSubTokens, bool onlyPasswords, string tokenName)
         {
-            TokensGrid.ShowData(showTokens, showSubTokens, tokenName);
+            TokensGrid.ShowData(showTokens, showSubTokens, onlyPasswords, tokenName);
         }
 
         public void UpdateMessageOnStatusBar(string text)
