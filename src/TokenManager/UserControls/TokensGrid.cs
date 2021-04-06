@@ -1,6 +1,8 @@
 ﻿using System.ComponentModel.Composition;
+using System.Linq;
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
+using TokenManager.Core.ViewModel;
 using TokenManager.Properties;
 
 namespace TokenManager.UserControls
@@ -22,6 +24,9 @@ namespace TokenManager.UserControls
         public void ShowData(bool showTokens,bool showSubTokens, string tokenName)
         {
             this.MainGrid.DataSource = TokensGridViewController.GetTokenList(showTokens, showSubTokens, tokenName);
+            this.MainGrid.Columns[nameof(TokenViewModel.IsSubToken)].Visible = false;
+            this.MainGrid.Columns[nameof(TokenViewModel.Description)].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;            
+            MakeSubtokensGray();
         }
 
         private void MainGrid_SelectionChanged(object sender, System.EventArgs e)
@@ -35,6 +40,17 @@ namespace TokenManager.UserControls
 
                 var text = string.Format(Messages.TokenSelectionChanged, tokenName);
                 MainForm.UpdateMessageOnStatusBar(text);
+            }
+        }
+
+        private void MakeSubtokensGray()
+        {
+            foreach (DataGridViewRow row in this.MainGrid.Rows)
+            {
+                if ((bool)row.Cells[nameof(TokenViewModel.IsSubToken)].Value)
+                {
+                    row.DefaultCellStyle.BackColor = System.Drawing.Color.LightGray;
+                }
             }
         }
     }

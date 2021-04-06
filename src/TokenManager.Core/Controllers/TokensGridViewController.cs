@@ -53,7 +53,7 @@ namespace TokenManager.Core.DomainServices
                 result = result.Where(x => x.Token.ToLower().Contains(tokenName.ToLower())).ToList();
             }
 
-            return result;
+            return result.OrderBy(token => token.IsSubToken).ToList(); 
         }
 
         public IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName)

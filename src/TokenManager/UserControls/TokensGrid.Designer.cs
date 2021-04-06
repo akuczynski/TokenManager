@@ -61,7 +61,7 @@ namespace TokenManager.UserControls
             // 
             // MainGrid
             // 
-            this.MainGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.MainGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.MainGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.MainGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
