@@ -35,7 +35,7 @@ namespace TokenManager
             {
                 MenuPanel.Init();
 
-                TokensGrid.ShowData(true, true, false, null);
+                TokensGrid.ShowData(true, true, false, false, null);
                 StatubBarLbl.Text = Messages.DataLoaded;
             }
             else if (appEvent is ModelHasChangedEvent)
@@ -53,9 +53,9 @@ namespace TokenManager
             }
         }
 
-        public void FilterTokenGrid(bool showTokens, bool showSubTokens, bool onlyPasswords, string tokenName)
+        public void FilterTokenGrid(bool showTokens, bool showSubTokens, bool onlyPasswords, bool onlyGlobal, string tokenName)
         {
-            TokensGrid.ShowData(showTokens, showSubTokens, onlyPasswords, tokenName);
+            TokensGrid.ShowData(showTokens, showSubTokens, onlyPasswords, onlyGlobal, tokenName);
         }
 
         public void UpdateMessageOnStatusBar(string text)
