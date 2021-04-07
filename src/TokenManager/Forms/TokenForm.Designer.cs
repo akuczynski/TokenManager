@@ -1,4 +1,6 @@
 ﻿
+using TokenManager.Properties;
+
 namespace TokenManager.Forms
 {
     partial class TokenForm
@@ -6,7 +8,7 @@ namespace TokenManager.Forms
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private System.ComponentModel.IContainer components = null;        
 
         /// <summary>
         /// Clean up any resources being used.
@@ -28,15 +30,15 @@ namespace TokenManager.Forms
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
-        {
+        {            
             this.EnvironmentCbx = new System.Windows.Forms.ComboBox();
             this.UserNameTbx = new System.Windows.Forms.TextBox();
             this.DescriptionTbx = new System.Windows.Forms.TextBox();
             this.ValueTbx = new System.Windows.Forms.TextBox();
             this.GlobalTokenChk = new System.Windows.Forms.CheckBox();
             this.PasswordChk = new System.Windows.Forms.CheckBox();
-            this.userNameLbl = new System.Windows.Forms.Label();
-            this.descriptionLbl = new System.Windows.Forms.Label();
+            this.UserNameLbl = new System.Windows.Forms.Label();
+            this.DescriptionLbl = new System.Windows.Forms.Label();
             this.ValueLbl = new System.Windows.Forms.Label();
             this.EnvironmentLbl = new System.Windows.Forms.Label();
             this.TokenNameLbl = new System.Windows.Forms.Label();
@@ -115,23 +117,23 @@ namespace TokenManager.Forms
             // 
             // userNameLbl
             // 
-            this.userNameLbl.AutoSize = true;
-            this.userNameLbl.Location = new System.Drawing.Point(6, 170);
-            this.userNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.userNameLbl.Name = "userNameLbl";
-            this.userNameLbl.Size = new System.Drawing.Size(57, 13);
-            this.userNameLbl.TabIndex = 21;
-            this.userNameLbl.Text = "UserName";
+            this.UserNameLbl.AutoSize = true;
+            this.UserNameLbl.Location = new System.Drawing.Point(6, 170);
+            this.UserNameLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.UserNameLbl.Name = "userNameLbl";
+            this.UserNameLbl.Size = new System.Drawing.Size(57, 13);
+            this.UserNameLbl.TabIndex = 21;
+            this.UserNameLbl.Text = "UserName";
             // 
             // descriptionLbl
             // 
-            this.descriptionLbl.AutoSize = true;
-            this.descriptionLbl.Location = new System.Drawing.Point(6, 135);
-            this.descriptionLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.descriptionLbl.Name = "descriptionLbl";
-            this.descriptionLbl.Size = new System.Drawing.Size(60, 13);
-            this.descriptionLbl.TabIndex = 20;
-            this.descriptionLbl.Text = "Description";
+            this.DescriptionLbl.AutoSize = true;
+            this.DescriptionLbl.Location = new System.Drawing.Point(6, 135);
+            this.DescriptionLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.DescriptionLbl.Name = "descriptionLbl";
+            this.DescriptionLbl.Size = new System.Drawing.Size(60, 13);
+            this.DescriptionLbl.TabIndex = 20;
+            this.DescriptionLbl.Text = "Description";
             // 
             // ValueLbl
             // 
@@ -220,8 +222,8 @@ namespace TokenManager.Forms
             this.Controls.Add(this.ValueTbx);
             this.Controls.Add(this.GlobalTokenChk);
             this.Controls.Add(this.PasswordChk);
-            this.Controls.Add(this.userNameLbl);
-            this.Controls.Add(this.descriptionLbl);
+            this.Controls.Add(this.UserNameLbl);
+            this.Controls.Add(this.DescriptionLbl);
             this.Controls.Add(this.ValueLbl);
             this.Controls.Add(this.EnvironmentLbl);
             this.Controls.Add(this.TokenNameLbl);
@@ -229,7 +231,7 @@ namespace TokenManager.Forms
             this.Controls.Add(this.TokenNameTbx);
             this.Controls.Add(this.AddBtn);
             this.Name = "TokenForm";
-            this.Text = "Add new Token";
+            this.Text = Messages.AddToken;
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,8 +245,8 @@ namespace TokenManager.Forms
         private System.Windows.Forms.TextBox ValueTbx;
         private System.Windows.Forms.CheckBox GlobalTokenChk;
         private System.Windows.Forms.CheckBox PasswordChk;
-        private System.Windows.Forms.Label userNameLbl;
-        private System.Windows.Forms.Label descriptionLbl;
+        private System.Windows.Forms.Label UserNameLbl;
+        private System.Windows.Forms.Label DescriptionLbl;
         private System.Windows.Forms.Label ValueLbl;
         private System.Windows.Forms.Label EnvironmentLbl;
         private System.Windows.Forms.Label TokenNameLbl;

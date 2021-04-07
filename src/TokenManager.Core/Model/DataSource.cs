@@ -103,7 +103,7 @@ namespace TokenManager.Core.Model
             token.IsDirty = true;
             token.Action = Action.Insert;
 
-            EnvironmentTokens[environment].Add(token);
+        //    EnvironmentTokens[environment].Add(token);
         }
 
         private void Notify(string tokenName, Action action)
