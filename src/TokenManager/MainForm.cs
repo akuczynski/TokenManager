@@ -25,6 +25,7 @@ namespace TokenManager
 
             NotyficationService.Subscribe(typeof(ModelHasChangedEvent), this);
             NotyficationService.Subscribe(typeof(ProjectLoadedEvent), this);
+            NotyficationService.Subscribe(typeof(ProjectSavedEvent), this);
         }          
 
         void IEventHandler.Handle(IEvent appEvent)

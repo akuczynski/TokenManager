@@ -39,6 +39,7 @@ namespace TokenManager.UserControls
             this.PasswordCbx.CheckedChanged += new System.EventHandler(FilterTokenGrid);
 
             NotificationService.Subscribe(typeof(ModelHasChangedEvent), this);
+            NotificationService.Subscribe(typeof(ProjectSavedEvent), this);
         }
 
         private void LoadBtn_Click(object sender, EventArgs e)
