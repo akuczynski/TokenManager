@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
 using TokenManager.Core.ViewModel;
@@ -46,6 +47,18 @@ namespace TokenManager.UserControls
             }
         }
 
+        public void Select(string token)
+        {
+            try
+            {
+                MainGrid.Rows
+                    .OfType<DataGridViewRow>()
+                     .Where(x => (string)x.Cells[0].Value == token)
+                     .ToArray<DataGridViewRow>()[0]
+                     .Selected = true;
+            }catch(Exception) { }
+        }
+
         private void RemoveToken(object sender, EventArgs e)
         {
             var tokenName = GetSelectedToken();
@@ -58,13 +71,13 @@ namespace TokenManager.UserControls
         private void ShowModalWindow(object sender, EventArgs e)
         {
             var menuItem = sender as MenuItem;
-            var tokenName = GetSelectedToken();
             if ("Add".Equals(menuItem?.Text))
             {
                 MainForm.ShowTokenModalWindow(false);
             }
             else
             {
+                var tokenName = GetSelectedToken();
                 MainForm.ShowTokenModalWindow(true, tokenName);
             }
 

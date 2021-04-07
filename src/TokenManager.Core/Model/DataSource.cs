@@ -83,7 +83,6 @@ namespace TokenManager.Core.Model
         public DataSource()
         {
             EnvironmentTokens = new Dictionary<Environment, IList<Token>>();
-            IsDirty = false;
         }
 
         public void Add(Environment environment, IList<Token> tokens)
@@ -108,7 +107,6 @@ namespace TokenManager.Core.Model
 
                     token.Action = Action.Delete;
                     token.IsDirty = true;
-                    this.IsDirty = true;
 
                     modelHasChanged = true;
                 }
@@ -119,6 +117,15 @@ namespace TokenManager.Core.Model
                 var token = new Token { Key = tokenName };
                 Notify(token, Action.Delete, isGlobal);
             }
+        }
+
+        internal void UpdateToken(Token token)
+        {
+            token.IsDirty = true;
+            token.Action = Action.Update;
+
+
+            Notify(token, Action.Update, true);
         }
 
         public void AddToken(Token token, Environment environment)

@@ -72,6 +72,9 @@ namespace TokenManager.Forms
             if (isValid)
             {
                 TokenEditViewController.AddToken(model);
+                var message = string.Format(Messages.NewToken, model.Token);
+                MainForm.UpdateMessageOnStatusBar(message);
+
                 Close();
             }
             else
@@ -82,7 +85,20 @@ namespace TokenManager.Forms
 
         private void UpdateBtn_Click(object sender, System.EventArgs e)
         {
+            var model = new UpdateTokenViewModel
+            {
+                Token = TokenNameTbx.Text,
+              //  IsGlobal = GlobalTokenChk.Checked,
+                Description = DescriptionTbx.Text,
+                Value = ValueTbx.Text,
+                UserName = UserNameTbx.Text
+            };
 
+            TokenEditViewController.UpdateToken(model);
+            var message = string.Format(Messages.UpdateToken, model.Token);
+            MainForm.UpdateMessageOnStatusBar(message);
+
+            Close();
         }
     }
 }

@@ -144,4 +144,10 @@
   <data name="TokenNameIsNotUnique" xml:space="preserve">
     <value>Can't add token, because token name is not unique ! </value>
   </data>
+  <data name="NewToken" xml:space="preserve">
+    <value>{0} was added.</value>
+  </data>
+  <data name="UpdateToken" xml:space="preserve">
+    <value>{0} was updated.</value>
+  </data>
 </root>

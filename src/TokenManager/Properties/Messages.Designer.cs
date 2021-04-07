@@ -106,6 +106,15 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to {0} was added..
+        /// </summary>
+        internal static string NewToken {
+            get {
+                return ResourceManager.GetString("NewToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Can&apos;t add token, because token name is not unique ! .
         /// </summary>
         internal static string TokenNameIsNotUnique {
@@ -138,6 +147,15 @@ namespace TokenManager.Properties {
         internal static string Update {
             get {
                 return ResourceManager.GetString("Update", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} was updated..
+        /// </summary>
+        internal static string UpdateToken {
+            get {
+                return ResourceManager.GetString("UpdateToken", resourceCulture);
             }
         }
     }

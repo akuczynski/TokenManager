@@ -10,6 +10,8 @@ namespace TokenManager.Core.DomainServices
 
         void AddToken(NewTokenViewModel newToken);
 
+        void UpdateToken(UpdateTokenViewModel updateToken);
+
         IEnumerable<string> GetEnvironments();
     }
 
@@ -38,6 +40,11 @@ namespace TokenManager.Core.DomainServices
         {
             var name = tokenName.Trim();
             return _tokenManagementService.IsTokenNameUnique(name);
+        }
+
+        public void UpdateToken(UpdateTokenViewModel updateToken)
+        {
+            _tokenManagementService.UpdateToken(updateToken);
         }
     }
 }

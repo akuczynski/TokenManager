@@ -1,8 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using TokenManager.Core.Events;
 using TokenManager.Core.Model;
 using TokenManager.Core.ViewModel;
@@ -13,7 +11,7 @@ namespace TokenManager.Core.DomainServices
     {
         void AddToken(NewTokenViewModel newToken);
 
-        void UpdateToken();
+        void UpdateToken(UpdateTokenViewModel updateToken);
 
         void RemoveToken(string tokenName);
 
@@ -77,7 +75,19 @@ namespace TokenManager.Core.DomainServices
             var dataSource = _persistanceService.DataSource;
             var environemt = (newToken.IsGlobal) ? dataSource.RootEnvironment : dataSource.GetEnvironment(newToken.Environment);
 
-            _persistanceService.DataSource.AddToken(token, environemt);
+            dataSource.AddToken(token, environemt);
+        }
+
+        public void UpdateToken(UpdateTokenViewModel updateToken)
+        {
+            //todo:
+            var dataSource = _persistanceService.DataSource;
+            var token = dataSource.GetToken(updateToken.Token, dataSource.RootEnvironment);
+            token.Value = updateToken.Value;
+            token.Description = updateToken.Description;
+            token.UserName = updateToken.UserName;
+           
+            dataSource.UpdateToken(token);
         }
 
         public IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName)
@@ -136,12 +146,7 @@ namespace TokenManager.Core.DomainServices
             }
 
             dataSource.ModelChanged += OnModelChanged;
-        }
-
-        public void UpdateToken()
-        {
-            // throw new NotImplementedException();
-        }
+        } 
 
         public void RemoveToken(string tokenName)
         {
@@ -158,7 +163,7 @@ namespace TokenManager.Core.DomainServices
             if (action == Action.Delete)
             {
                 var tokenViewModel = _tokens.SingleOrDefault(x => x.Token.Equals(token.Key));
-                if (token != null)
+                if (tokenViewModel != null)
                 {
                     _tokens.Remove(tokenViewModel);
                     _notificationService.Publish(new ModelHasChangedEvent());
@@ -168,7 +173,17 @@ namespace TokenManager.Core.DomainServices
             {
                 AddToTokensSet(new[] { token }, isGlobal);
                 _notificationService.Publish(new ModelHasChangedEvent());
-                // TODO: selection event 
+                _notificationService.Publish(new SelectTokenEvent() { Token = token.Key });
+            }
+            else if (action == Action.Update)
+            {
+                var tokenViewModel = _tokens.SingleOrDefault(x => x.Token.Equals(token.Key));
+                if (tokenViewModel != null)
+                {
+                    tokenViewModel.Value = token.Value;
+                    tokenViewModel.Description = token.Description; 
+                    _notificationService.Publish(new ModelHasChangedEvent());
+                }
             }
         }
 
@@ -192,5 +207,7 @@ namespace TokenManager.Core.DomainServices
         {
             return !_tokens.Where(x => x.Token.Equals(tokenName)).Any();
         }
+
+      
     }
 }
