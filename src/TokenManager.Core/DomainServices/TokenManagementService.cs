@@ -29,7 +29,6 @@ namespace TokenManager.Core.DomainServices
     [Export(typeof(ITokenManagementService))]
     internal class TokenManagementService : ITokenManagementService, System.IDisposable
     {
-        //todo: add subscribe events 
         private HashSet<TokenViewModel> _tokens;
 
         private IList<string> _environments;
@@ -73,8 +72,10 @@ namespace TokenManager.Core.DomainServices
             token.IsPassword = newToken.IsPassword;
             token.UserName = newToken.UserName;
 
-            //            var environment = newToken.Environment; 
-            _persistanceService.DataSource.AddToken(token, newToken.Environment);
+            var dataSource = _persistanceService.DataSource;
+            var environemt = (newToken.IsGlobal) ? dataSource.RootEnvironment : dataSource.GetEnvironment(newToken.Environment);
+
+            _persistanceService.DataSource.AddToken(token, environemt);
         }
 
         public IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName)
@@ -133,7 +134,6 @@ namespace TokenManager.Core.DomainServices
             }
 
             dataSource.ModelChanged += OnModelChanged;
-            // todo: remember about unsubscribe !!! 
         }
 
         public void UpdateToken()
@@ -151,16 +151,22 @@ namespace TokenManager.Core.DomainServices
             _persistanceService.DataSource.ModelChanged -= OnModelChanged;
         }
 
-        private void OnModelChanged(string tokenName, Action action)
+        private void OnModelChanged(Token token, Action action, bool isGlobal)
         {
             if (action == Action.Delete)
             {
-                var token = _tokens.SingleOrDefault(x => x.Token.Equals(tokenName));
+                var tokenViewModel = _tokens.SingleOrDefault(x => x.Token.Equals(token.Key));
                 if (token != null)
                 {
-                    _tokens.Remove(token);
+                    _tokens.Remove(tokenViewModel);
                     _notificationService.Publish(new ModelHasChangedEvent());
                 }
+            }
+            else if (action == Action.Insert)
+            {
+                AddToTokensSet(new[] { token }, isGlobal);
+                _notificationService.Publish(new ModelHasChangedEvent());
+                // TODO: selection event 
             }
         }
 

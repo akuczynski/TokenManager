@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using TokenManager.Core.ViewModel;
 
 namespace TokenManager.Core.Model
 {
-    public delegate void ModelChangedHandler(string token, Action action);
+    public delegate void ModelChangedHandler(Token token, Action action, bool isGlobal);
 
     public class DataSource
     {
@@ -14,6 +15,11 @@ namespace TokenManager.Core.Model
             return EnvironmentTokens.Keys;
         }
 
+        public Environment GetEnvironment(string name)
+        {
+            return EnvironmentTokens.Keys.SingleOrDefault(x => x.Name.Equals(name));
+        }
+
         public event ModelChangedHandler ModelChanged;
 
         public bool IsDirty { get; private set; }
@@ -22,13 +28,23 @@ namespace TokenManager.Core.Model
         {
             get
             {
-                return EnvironmentTokens.Keys.Where(x => x.IsRoot == true).SingleOrDefault(); 
+                return EnvironmentTokens.Keys.Where(x => x.IsRoot == true).SingleOrDefault();
             }
         }
 
         public IEnumerable<Token> GetTokens(Environment environment)
         {
             return EnvironmentTokens[environment];
+        }
+
+        public void RemoveDeletedTokens(Environment environment)
+        {
+            var deletedTokens = GetTokens(environment).Where(x => x.IsDirty && x.Action == Action.Delete);
+
+            foreach (var token in deletedTokens)
+            {
+                EnvironmentTokens[environment].Remove(token);
+            }
         }
 
         public Token GetTokenOrDefault(string tokenName, Environment environment)
@@ -55,7 +71,7 @@ namespace TokenManager.Core.Model
             {
                 token = EnvironmentTokens[environment].Where(x => x.Key.Equals(tokenName)).SingleOrDefault();
             }
-             
+
             if (token == null)
             {
                 return new EmptyToken();
@@ -77,43 +93,52 @@ namespace TokenManager.Core.Model
 
         public void RemoveToken(string tokenName)
         {
-            var modelHasChanged = false; 
+            var modelHasChanged = false;
+            bool isGlobal = false;
 
-            foreach(var env in GetAllEnvironments())
+            foreach (var env in GetAllEnvironments())
             {
-                var token = FindToken(tokenName, env); 
+                var token = FindToken(tokenName, env);
                 if (token != null)
                 {
+                    if (env == RootEnvironment)
+                    {
+                        isGlobal = true;
+                    }
+
                     token.Action = Action.Delete;
                     token.IsDirty = true;
                     this.IsDirty = true;
-                    
+
                     modelHasChanged = true;
                 }
             }
 
             if (modelHasChanged)
             {
-                Notify(tokenName, Action.Delete);
+                var token = new Token { Key = tokenName };
+                Notify(token, Action.Delete, isGlobal);
             }
         }
 
-        public void AddToken(Token token, string environment)
+        public void AddToken(Token token, Environment environment)
         {
             token.IsDirty = true;
             token.Action = Action.Insert;
 
-        //    EnvironmentTokens[environment].Add(token);
+            EnvironmentTokens[environment].Add(token);
+            var isGlobal = environment == RootEnvironment;
+            Notify(token, Action.Insert, isGlobal);
         }
 
-        private void Notify(string tokenName, Action action)
+        private void Notify(Token token, Action action, bool isGlobal)
         {
-            this.ModelChanged(tokenName, action);
+            this.ModelChanged(token, action, isGlobal);
         }
 
         private Token FindToken(string tokenName, Environment environment)
         {
             return EnvironmentTokens[environment].FirstOrDefault(x => x.Key.Equals(tokenName));
-        } 
+        }
     }
 }

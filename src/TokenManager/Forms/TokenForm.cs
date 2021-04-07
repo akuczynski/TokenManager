@@ -72,7 +72,8 @@ namespace TokenManager.Forms
                 UserName = UserNameTbx.Text
             };
 
-            TokenEditViewController.AddToken(model); 
+            TokenEditViewController.AddToken(model);
+            Close();
         }
 
         private void UpdateBtn_Click(object sender, System.EventArgs e)

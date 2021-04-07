@@ -25,18 +25,62 @@ namespace TokenManager.Core.DomainServices
 
                 foreach (var token in tokens)
                 {
-                    var xmlNode = FindXmlTokenNode(token, tokensXml);
-                    if (xmlNode != null)
+                    if (token.Action == Model.Action.Insert)
                     {
-                        if (token.Action == Model.Action.Delete)
+                        WriteToken(token, tokensXml);
+
+                        token.IsDirty = false;
+                        token.Action = Model.Action.None;
+                    }
+                    else
+                    {
+                        var xmlNode = FindXmlTokenNode(token, tokensXml);
+                        if (xmlNode != null)
                         {
-                            xmlNode.Remove();
+                            if (token.Action == Model.Action.Delete)
+                            {
+                                xmlNode.Remove();
+                            }
+
+                            else if (token.Action == Model.Action.Update)
+                            {
+                                WriteToken(token, tokensXml);
+
+                                token.IsDirty = false;
+                                token.Action = Model.Action.None;
+                            }
                         }
                     }
                 }
 
                 tokensXml.Save(filePath);
             }
+        }
+
+        private void WriteToken(Token token, XDocument tokensXml)
+        {
+           XElement parentNode = (token.IsSubToken)? tokensXml.Element("subtokens") : tokensXml.Element("tokens");
+           XElement node = new XElement("token");
+
+           node.SetAttributeValue("key", token.Key);
+           node.SetAttributeValue("value", token.Value); 
+
+           if(!string.IsNullOrEmpty(token.Description))
+           {
+                node.SetAttributeValue("description", token.Description);
+           }
+
+           if (token.IsPassword)
+            {
+                node.SetAttributeValue("password", "true"); 
+
+                if (!String.IsNullOrEmpty(token.UserName))
+                {
+                    node.SetAttributeValue("userName", token.UserName);
+                }
+           }
+
+           parentNode.Add(node);
         }
 
         private XElement FindXmlTokenNode(Token token, XDocument tokensXml)
