@@ -5,7 +5,7 @@
 		<token key="##Subtoken_BaseDir##" value="##Subtoken_DriveLetter##:\application" description="Application base directory absolute path" />
 	</subtokens>
 
-	<token key="#DataDir#" value="##Subtoken_BaseDir##\data" />
+	<token key="##DataDir##" value="##Subtoken_BaseDir##\data" />
 	<token key="##GoogleApiKey##" value="FA2CF10ADE7E49CA8B9D07F8FA31206E" />
 	<token key="##JiraApiKey##" value="16D701F7BD2D48EF9DD254A2A5F2AA74" />
 	<token key="##Url##" value="https://app-##Env##" />
