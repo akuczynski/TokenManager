@@ -52,7 +52,7 @@ namespace TokenManager.Forms
 
         private void InitForEdit()
         {
-            TokenNameTbx.Enabled = false;
+            TokenNameTbx.ReadOnly = true;
             GlobalTokenChk.Enabled = false;
             SubTokenChk.Enabled = false;
             PasswordChk.Enabled = false;
