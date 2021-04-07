@@ -28,6 +28,7 @@ namespace TokenManager.UserControls
             SubTokensCbx.Checked = true;
             SubTokensCbx.Enabled = true;
             PasswordCbx.Enabled = true;
+            GlobalCbx.Enabled = true;
             FilterTxb.Text = "";
             FilterTxb.Enabled = true;
             ValidateBtn.Enabled = true;
@@ -37,6 +38,7 @@ namespace TokenManager.UserControls
             this.TokensCbx.CheckedChanged += new System.EventHandler(FilterTokenGrid);
             this.SubTokensCbx.CheckedChanged += new System.EventHandler(FilterTokenGrid);
             this.PasswordCbx.CheckedChanged += new System.EventHandler(FilterTokenGrid);
+            this.GlobalCbx.CheckedChanged += new System.EventHandler(FilterTokenGrid);            
 
             NotificationService.Subscribe(typeof(ModelHasChangedEvent), this);
             NotificationService.Subscribe(typeof(ProjectSavedEvent), this);
@@ -57,9 +59,10 @@ namespace TokenManager.UserControls
             var showTokens = TokensCbx.Checked;
             var showSubTokens = SubTokensCbx.Checked;
             var onlyPasswords = PasswordCbx.Checked;
+            var onlyGlobal = GlobalCbx.Checked;
             var tokenName = FilterTxb.Text.Trim();
 
-            MainForm.FilterTokenGrid(showTokens, showSubTokens, onlyPasswords, tokenName);
+            MainForm.FilterTokenGrid(showTokens, showSubTokens, onlyPasswords, onlyGlobal, tokenName);
         }
 
         void IEventHandler.Handle(IEvent appEvent)
