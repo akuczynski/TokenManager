@@ -118,7 +118,7 @@ namespace TokenManager.Forms
             // UserNameLbl
             // 
             this.UserNameLbl.AutoSize = true;
-            this.UserNameLbl.Location = new System.Drawing.Point(8, 209);
+            this.UserNameLbl.Location = new System.Drawing.Point(8, 213);
             this.UserNameLbl.Name = "UserNameLbl";
             this.UserNameLbl.Size = new System.Drawing.Size(75, 17);
             this.UserNameLbl.TabIndex = 21;
@@ -127,7 +127,7 @@ namespace TokenManager.Forms
             // DescriptionLbl
             // 
             this.DescriptionLbl.AutoSize = true;
-            this.DescriptionLbl.Location = new System.Drawing.Point(8, 166);
+            this.DescriptionLbl.Location = new System.Drawing.Point(8, 170);
             this.DescriptionLbl.Name = "DescriptionLbl";
             this.DescriptionLbl.Size = new System.Drawing.Size(79, 17);
             this.DescriptionLbl.TabIndex = 20;
@@ -136,7 +136,7 @@ namespace TokenManager.Forms
             // ValueLbl
             // 
             this.ValueLbl.AutoSize = true;
-            this.ValueLbl.Location = new System.Drawing.Point(8, 123);
+            this.ValueLbl.Location = new System.Drawing.Point(8, 127);
             this.ValueLbl.Name = "ValueLbl";
             this.ValueLbl.Size = new System.Drawing.Size(44, 17);
             this.ValueLbl.TabIndex = 19;
@@ -145,7 +145,7 @@ namespace TokenManager.Forms
             // EnvironmentLbl
             // 
             this.EnvironmentLbl.AutoSize = true;
-            this.EnvironmentLbl.Location = new System.Drawing.Point(11, 98);
+            this.EnvironmentLbl.Location = new System.Drawing.Point(8, 80);
             this.EnvironmentLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EnvironmentLbl.Name = "EnvironmentLbl";
             this.EnvironmentLbl.Size = new System.Drawing.Size(72, 17);
@@ -155,7 +155,7 @@ namespace TokenManager.Forms
             // TokenNameLbl
             // 
             this.TokenNameLbl.AutoSize = true;
-            this.TokenNameLbl.Location = new System.Drawing.Point(8, 14);
+            this.TokenNameLbl.Location = new System.Drawing.Point(8, 17);
             this.TokenNameLbl.Name = "TokenNameLbl";
             this.TokenNameLbl.Size = new System.Drawing.Size(85, 17);
             this.TokenNameLbl.TabIndex = 17;
@@ -226,7 +226,7 @@ namespace TokenManager.Forms
             this.Controls.Add(this.TokenNameTbx);
             this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.UpdateBtn);
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "TokenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add new Token";

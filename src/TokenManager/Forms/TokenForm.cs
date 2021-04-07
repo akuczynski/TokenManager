@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
 using TokenManager.Core.ViewModel;
+using TokenManager.Properties;
 
 namespace TokenManager.Forms
 {
@@ -32,11 +33,6 @@ namespace TokenManager.Forms
                 InitForEdit();
             }
 
-            
-            EnvironmentCbx.Enabled = GlobalTokenChk.Checked;
-
-            AddBtn.Visible = !isEdit;
-            UpdateBtn.Visible = isEdit;
         }
 
         private void PasswordChk_CheckedChanged(object sender, System.EventArgs e)
@@ -55,7 +51,7 @@ namespace TokenManager.Forms
             GlobalTokenChk.Enabled = false;
             SubTokenChk.Enabled = false;
             PasswordChk.Enabled = false;
-         //   this.Text = Messages.EditToken;
+            this.Text = Messages.EditToken;
         }
 
         private void AddBtn_Click(object sender, System.EventArgs e)
