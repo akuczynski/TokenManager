@@ -16,18 +16,18 @@ namespace TokenManager.UserControls
         public IMainForm MainForm { get; set; }
 
         private int _selectedRowIndex = -1;
-        
+
         public TokensGrid()
         {
             InitializeComponent();
         }
 
-        public void ShowData(bool showTokens,bool showSubTokens, bool onlyPasswords, string tokenName)
+        public void ShowData(bool showTokens, bool showSubTokens, bool onlyPasswords, string tokenName)
         {
             this.MainGrid.DataSource = TokensGridViewController.GetTokenList(showTokens, showSubTokens, onlyPasswords, tokenName);
             this.MainGrid.Columns[nameof(TokenViewModel.Global)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.MainGrid.Columns[nameof(TokenViewModel.Password)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            this.MainGrid.Columns[nameof(TokenViewModel.IsSubToken)].Visible = false;            
+            this.MainGrid.Columns[nameof(TokenViewModel.IsSubToken)].Visible = false;
             UpdateRowsBackgroundColors();
 
             this.SubGrid.Columns[nameof(EnvironentTokenViewModel.Environment)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -40,10 +40,19 @@ namespace TokenManager.UserControls
                 ContextMenu m = new ContextMenu();
                 m.MenuItems.Add("Add", ShowModalWindow);
                 m.MenuItems.Add("Edit", ShowModalWindow);
-                m.MenuItems.Add(new MenuItem("Remove"));
+                m.MenuItems.Add("Remove", RemoveToken);
 
                 m.Show(this.MainGrid, new Point(e.X, e.Y));
             }
+        }
+
+        private void RemoveToken(object sender, EventArgs e)
+        {
+            var tokenName = GetSelectedToken();
+            TokensGridViewController.RemoveToken(tokenName);
+
+            var message = string.Format(Messages.TokenRemoved, tokenName);
+            MainForm.UpdateMessageOnStatusBar(message);
         }
 
         private void ShowModalWindow(object sender, EventArgs e)

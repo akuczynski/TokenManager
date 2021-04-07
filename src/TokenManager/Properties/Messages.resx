@@ -122,9 +122,15 @@
   </data>
   <data name="AddToken" xml:space="preserve">
     <value>Add new Token</value>
-  </data>
-  <data name="ApplicationLoaded" xml:space="preserve">
+  </data>  
+  <data name="DataLoaded" xml:space="preserve">
     <value>Data loaded successfully.</value>
+  </data>
+  <data name="DataSaved" xml:space="preserve">
+    <value>Data was saved.</value>
+  </data>
+  <data name="TokenRemoved" xml:space="preserve">
+    <value>{0} was deleted.</value>
   </data>
   <data name="EditToken" xml:space="preserve">
     <value>Edit Token</value>

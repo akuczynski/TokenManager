@@ -11,24 +11,25 @@ namespace TokenManager.Core.DomainServices
         IEnumerable<TokenViewModel> GetTokenList(bool showTokens, bool showSubTokens, bool onlyPasswords, string tokenName);
 
         IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName);
+        void RemoveToken(string tokenName);
     }
 
     [Export(typeof(ITokensGridViewController))]
     internal class TokensGridViewController : ITokensGridViewController, IEventHandler
     {
-        private readonly INotyficationService _notyficationService;
+        private readonly INotificationService _notificationService;
 
         private readonly ITokenManagementService _tokenManagementService;
 
         [ImportingConstructor]
         public TokensGridViewController(
             ITokenManagementService tokenManagementService,
-            INotyficationService notyficationService)
+            INotificationService notificationService)
         {
-            _notyficationService = notyficationService;
+            _notificationService = notificationService;
             _tokenManagementService = tokenManagementService;
 
-            _notyficationService.Subscribe(typeof(ProjectLoadedEvent), this);
+            _notificationService.Subscribe(typeof(ProjectLoadedEvent), this);
         }
 
         public IEnumerable<TokenViewModel> GetTokenList(bool showTokens, bool showSubTokens, bool onlyPasswords, string tokenName)
@@ -72,6 +73,11 @@ namespace TokenManager.Core.DomainServices
             {
                 _tokenManagementService.Init();
             }
+        }
+
+        public void RemoveToken(string tokenName)
+        {
+            _tokenManagementService.RemoveToken(tokenName);
         }
     }
 }

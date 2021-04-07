@@ -3,15 +3,20 @@ using System.Linq;
 
 namespace TokenManager.Core.Model
 {
+    public delegate void ModelChangedHandler(string token, Action action);
+
     public class DataSource
     {
         private Dictionary<Environment, IList<Token>> EnvironmentTokens { get; set; }
-
 
         public IEnumerable<Environment> GetAllEnvironments()
         {
             return EnvironmentTokens.Keys;
         }
+
+        public event ModelChangedHandler ModelChanged;
+
+        public bool IsDirty { get; private set; }
 
         public Environment RootEnvironment
         {
@@ -62,11 +67,45 @@ namespace TokenManager.Core.Model
         public DataSource()
         {
             EnvironmentTokens = new Dictionary<Environment, IList<Token>>();
+            IsDirty = false;
         }
 
         public void Add(Environment environment, IList<Token> tokens)
         {
             EnvironmentTokens.Add(environment, tokens);
         }
+
+        public void RemoveToken(string tokenName)
+        {
+            var modelHasChanged = false; 
+
+            foreach(var env in GetAllEnvironments())
+            {
+                var token = FindToken(tokenName, env); 
+                if (token != null)
+                {
+                    token.Action = Action.Delete;
+                    token.IsDirty = true;
+                    this.IsDirty = true;
+                    
+                    modelHasChanged = true;
+                }
+            }
+
+            if (modelHasChanged)
+            {
+                Notify(tokenName, Action.Delete);
+            }
+        }
+
+        private void Notify(string tokenName, Action action)
+        {
+            this.ModelChanged(tokenName, action);
+        }
+
+        private Token FindToken(string tokenName, Environment environment)
+        {
+            return EnvironmentTokens[environment].FirstOrDefault(x => x.Key.Equals(tokenName));
+        } 
     }
 }

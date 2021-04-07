@@ -2,13 +2,17 @@
 using System.ComponentModel.Composition;
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
+using TokenManager.Core.Events;
 
 namespace TokenManager.UserControls
 {
-    public partial class MenuPanel : UserControl 
+    public partial class MenuPanel : UserControl , IEventHandler
     {
         [Import]
         public IMainViewController MainViewController { get; set; }
+
+        [Import]
+        INotificationService NotificationService { get; set; }
 
         public IMainForm MainForm { get; set; }
 
@@ -27,17 +31,26 @@ namespace TokenManager.UserControls
             FilterTxb.Text = "";
             FilterTxb.Enabled = true;
             ValidateBtn.Enabled = true;
+            SaveBtn.Enabled = false;
 
             this.FilterTxb.TextChanged += new System.EventHandler(FilterTokenGrid);
             this.TokensCbx.CheckedChanged += new System.EventHandler(FilterTokenGrid);
             this.SubTokensCbx.CheckedChanged += new System.EventHandler(FilterTokenGrid);
             this.PasswordCbx.CheckedChanged += new System.EventHandler(FilterTokenGrid);
+
+            NotificationService.Subscribe(typeof(ModelHasChangedEvent), this);
+            NotificationService.Subscribe(typeof(ProjectSavedEvent), this);
         }
 
         private void LoadBtn_Click(object sender, EventArgs e)
         {
             MainViewController.LoadData();
         } 
+
+        public void ReloadTokenGrid()
+        {
+            FilterTokenGrid(null, null);
+        }
 
         private void FilterTokenGrid(object sender, EventArgs e)
         {
@@ -47,6 +60,23 @@ namespace TokenManager.UserControls
             var tokenName = FilterTxb.Text.Trim();
 
             MainForm.FilterTokenGrid(showTokens, showSubTokens, onlyPasswords, tokenName);
-        } 
+        }
+
+        void IEventHandler.Handle(IEvent appEvent)
+        {
+            if (appEvent is ModelHasChangedEvent)
+            {
+                SaveBtn.Enabled = true;
+            }
+            else if (appEvent is ProjectSavedEvent)
+            {
+                SaveBtn.Enabled = false;
+            }
+        }
+
+        private void SaveBtn_Click(object sender, EventArgs e)
+        {
+            MainViewController.SaveData();
+        }
     }
 }

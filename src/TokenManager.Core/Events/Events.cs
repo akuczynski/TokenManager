@@ -2,4 +2,6 @@
 {
     public class ModelHasChangedEvent : IEvent  { }
     public class ProjectLoadedEvent : IEvent { }
+    public class ProjectSavedEvent : IEvent { }
+
 }

@@ -18,14 +18,14 @@ namespace TokenManager.Core.DomainServices
     {
         private ILogger _logger { get;  set; }
         private IConfiguration _configuration { get;  set; }
-        private INotyficationService _notyficationService { get; set; }
+        private INotificationService _notyficationService { get; set; }
         private IPersistanceService _persistanceService { get; set; }
 
         [ImportingConstructor]
         public MainViewController(
             ILogger logger,
             IConfiguration configuration,
-            INotyficationService notyficationService,
+            INotificationService notyficationService,
             IPersistanceService persistanceController)
         {
             _logger = logger;
@@ -40,15 +40,20 @@ namespace TokenManager.Core.DomainServices
 
             var rootFolderPath = _configuration.Get("RootFolder");
             _persistanceService.LoadData(rootFolderPath);
+
             _notyficationService.Publish(new ProjectLoadedEvent());
         }
 
         public void SaveData()
         {
+            // TODO: call validation ?
+
             _logger.Info("save data");
 
-            var rootFolderPath = _configuration.Get("MainFolderPath");
+            var rootFolderPath = _configuration.Get("RootFolder");
             _persistanceService.SaveData(rootFolderPath);
+
+            _notyficationService.Publish(new ProjectSavedEvent());
         }
 
         public bool Validate()
