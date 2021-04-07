@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.Composition;
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
+using TokenManager.Properties;
 
 namespace TokenManager.Forms
 {
@@ -20,9 +21,15 @@ namespace TokenManager.Forms
         {
             EnvironmentCbx.DataSource = TokenEditViewController.GetEnvironments();
             TokenNameTbx.Text = token ?? string.Empty;
-            TokenNameTbx.Enabled = !isEdit;
             UserNameTbx.Enabled = PasswordChk.Checked;
-            EnvironmentCbx.Enabled = GlobalTokenChk.Checked;
+            EnvironmentCbx.Enabled = !GlobalTokenChk.Checked;
+
+            if (isEdit)
+            {
+                InitForEdit();
+            }
+
+            
         }
 
         private void PasswordChk_CheckedChanged(object sender, System.EventArgs e)
@@ -32,7 +39,16 @@ namespace TokenManager.Forms
 
         private void GlobalTokenChk_CheckedChanged(object sender, System.EventArgs e)
         {
-            EnvironmentCbx.Enabled = GlobalTokenChk.Checked;
+            EnvironmentCbx.Enabled = !GlobalTokenChk.Checked;
+        }
+
+        private void InitForEdit()
+        {
+            TokenNameTbx.Enabled = false;
+            GlobalTokenChk.Enabled = false;
+            SubTokenChk.Enabled = false;
+            PasswordChk.Enabled = false;
+            this.Text = Messages.EditToken;
         }
     }
 }

@@ -61,6 +61,24 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Add.
+        /// </summary>
+        internal static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add new Token.
+        /// </summary>
+        internal static string AddToken {
+            get {
+                return ResourceManager.GetString("AddToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Data loaded successfully..
         /// </summary>
         internal static string ApplicationLoaded {
@@ -70,11 +88,29 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Edit Token.
+        /// </summary>
+        internal static string EditToken {
+            get {
+                return ResourceManager.GetString("EditToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to {0} is selected..
         /// </summary>
         internal static string TokenSelectionChanged {
             get {
                 return ResourceManager.GetString("TokenSelectionChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update.
+        /// </summary>
+        internal static string Update {
+            get {
+                return ResourceManager.GetString("Update", resourceCulture);
             }
         }
     }

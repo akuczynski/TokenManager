@@ -117,10 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>Add</value>
+  </data>
+  <data name="AddToken" xml:space="preserve">
+    <value>Add new Token</value>
+  </data>
   <data name="ApplicationLoaded" xml:space="preserve">
     <value>Data loaded successfully.</value>
   </data>
+  <data name="EditToken" xml:space="preserve">
+    <value>Edit Token</value>
+  </data>
   <data name="TokenSelectionChanged" xml:space="preserve">
     <value>{0} is selected.</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>Update</value>
   </data>
 </root>
