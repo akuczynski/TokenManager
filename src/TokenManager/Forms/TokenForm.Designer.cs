@@ -30,176 +30,183 @@ namespace TokenManager.Forms
         private void InitializeComponent()
         {
             this.EnvironmentCbx = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.userNameTbx = new System.Windows.Forms.TextBox();
+            this.descriptionTbx = new System.Windows.Forms.TextBox();
+            this.valueTbx = new System.Windows.Forms.TextBox();
+            this.globalTokenChk = new System.Windows.Forms.CheckBox();
+            this.passwordChk = new System.Windows.Forms.CheckBox();
+            this.userNameLbl = new System.Windows.Forms.Label();
+            this.descriptionLbl = new System.Windows.Forms.Label();
+            this.ValueLbl = new System.Windows.Forms.Label();
+            this.DefinedInLbl = new System.Windows.Forms.Label();
+            this.TokenNameLbl = new System.Windows.Forms.Label();
+            this.subTokenChk = new System.Windows.Forms.CheckBox();
+            this.tokenNameTbx = new System.Windows.Forms.TextBox();
+            this.submitButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EnvironmentCbx
             // 
+            this.EnvironmentCbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.EnvironmentCbx.FormattingEnabled = true;
-            this.EnvironmentCbx.Location = new System.Drawing.Point(103, 65);
-            this.EnvironmentCbx.Margin = new System.Windows.Forms.Padding(2);
+            this.EnvironmentCbx.Location = new System.Drawing.Point(137, 80);
+            this.EnvironmentCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EnvironmentCbx.Name = "EnvironmentCbx";
-            this.EnvironmentCbx.Size = new System.Drawing.Size(146, 21);
+            this.EnvironmentCbx.Size = new System.Drawing.Size(330, 24);
             this.EnvironmentCbx.TabIndex = 27;
             // 
-            // textBox4
+            // userNameTbx
             // 
-            this.textBox4.Location = new System.Drawing.Point(103, 171);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(392, 20);
-            this.textBox4.TabIndex = 26;
+            this.userNameTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.userNameTbx.Location = new System.Drawing.Point(137, 210);
+            this.userNameTbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.userNameTbx.Name = "userNameTbx";
+            this.userNameTbx.Size = new System.Drawing.Size(521, 22);
+            this.userNameTbx.TabIndex = 26;
             // 
-            // textBox3
+            // descriptionTbx
             // 
-            this.textBox3.Location = new System.Drawing.Point(103, 136);
-            this.textBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(392, 20);
-            this.textBox3.TabIndex = 25;
+            this.descriptionTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.descriptionTbx.Location = new System.Drawing.Point(137, 167);
+            this.descriptionTbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.descriptionTbx.Name = "descriptionTbx";
+            this.descriptionTbx.Size = new System.Drawing.Size(521, 22);
+            this.descriptionTbx.TabIndex = 25;
             // 
-            // textBox2
+            // valueTbx
             // 
-            this.textBox2.Location = new System.Drawing.Point(103, 101);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(392, 20);
-            this.textBox2.TabIndex = 24;
+            this.valueTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.valueTbx.Location = new System.Drawing.Point(137, 124);
+            this.valueTbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.valueTbx.Name = "valueTbx";
+            this.valueTbx.Size = new System.Drawing.Size(521, 22);
+            this.valueTbx.TabIndex = 24;
             // 
-            // checkBox3
+            // globalTokenChk
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Checked = true;
-            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox3.Location = new System.Drawing.Point(103, 35);
-            this.checkBox3.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(90, 17);
-            this.checkBox3.TabIndex = 23;
-            this.checkBox3.Text = "Global Token";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.globalTokenChk.AutoSize = true;
+            this.globalTokenChk.Checked = true;
+            this.globalTokenChk.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.globalTokenChk.Location = new System.Drawing.Point(137, 43);
+            this.globalTokenChk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.globalTokenChk.Name = "globalTokenChk";
+            this.globalTokenChk.Size = new System.Drawing.Size(115, 21);
+            this.globalTokenChk.TabIndex = 23;
+            this.globalTokenChk.Text = "Global Token";
+            this.globalTokenChk.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // passwordChk
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(307, 35);
-            this.checkBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(72, 17);
-            this.checkBox2.TabIndex = 22;
-            this.checkBox2.Text = "Password";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.passwordChk.AutoSize = true;
+            this.passwordChk.Location = new System.Drawing.Point(409, 43);
+            this.passwordChk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.passwordChk.Name = "passwordChk";
+            this.passwordChk.Size = new System.Drawing.Size(91, 21);
+            this.passwordChk.TabIndex = 22;
+            this.passwordChk.Text = "Password";
+            this.passwordChk.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // userNameLbl
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 170);
-            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 13);
-            this.label5.TabIndex = 21;
-            this.label5.Text = "UserName";
+            this.userNameLbl.AutoSize = true;
+            this.userNameLbl.Location = new System.Drawing.Point(8, 209);
+            this.userNameLbl.Name = "userNameLbl";
+            this.userNameLbl.Size = new System.Drawing.Size(75, 17);
+            this.userNameLbl.TabIndex = 21;
+            this.userNameLbl.Text = "UserName";
             // 
-            // label4
+            // descriptionLbl
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(6, 135);
-            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(60, 13);
-            this.label4.TabIndex = 20;
-            this.label4.Text = "Description";
+            this.descriptionLbl.AutoSize = true;
+            this.descriptionLbl.Location = new System.Drawing.Point(8, 166);
+            this.descriptionLbl.Name = "descriptionLbl";
+            this.descriptionLbl.Size = new System.Drawing.Size(79, 17);
+            this.descriptionLbl.TabIndex = 20;
+            this.descriptionLbl.Text = "Description";
             // 
-            // label3
+            // ValueLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 100);
-            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(34, 13);
-            this.label3.TabIndex = 19;
-            this.label3.Text = "Value";
+            this.ValueLbl.AutoSize = true;
+            this.ValueLbl.Location = new System.Drawing.Point(8, 123);
+            this.ValueLbl.Name = "ValueLbl";
+            this.ValueLbl.Size = new System.Drawing.Size(44, 17);
+            this.ValueLbl.TabIndex = 19;
+            this.ValueLbl.Text = "Value";
             // 
-            // label2
+            // DefinedInLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 65);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(55, 13);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Defined in";
+            this.DefinedInLbl.AutoSize = true;
+            this.DefinedInLbl.Location = new System.Drawing.Point(8, 80);
+            this.DefinedInLbl.Name = "DefinedInLbl";
+            this.DefinedInLbl.Size = new System.Drawing.Size(72, 17);
+            this.DefinedInLbl.TabIndex = 18;
+            this.DefinedInLbl.Text = "Defined in";
             // 
-            // label1
+            // TokenNameLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 11);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 17;
-            this.label1.Text = "TokenName";
+            this.TokenNameLbl.AutoSize = true;
+            this.TokenNameLbl.Location = new System.Drawing.Point(8, 14);
+            this.TokenNameLbl.Name = "TokenNameLbl";
+            this.TokenNameLbl.Size = new System.Drawing.Size(85, 17);
+            this.TokenNameLbl.TabIndex = 17;
+            this.TokenNameLbl.Text = "TokenName";
             // 
-            // checkBox1
+            // subTokenChk
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(212, 35);
-            this.checkBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(76, 17);
-            this.checkBox1.TabIndex = 16;
-            this.checkBox1.Text = "SubToken";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.subTokenChk.AutoSize = true;
+            this.subTokenChk.Location = new System.Drawing.Point(283, 43);
+            this.subTokenChk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.subTokenChk.Name = "subTokenChk";
+            this.subTokenChk.Size = new System.Drawing.Size(95, 21);
+            this.subTokenChk.TabIndex = 16;
+            this.subTokenChk.Text = "SubToken";
+            this.subTokenChk.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tokenNameTbx
             // 
-            this.textBox1.Location = new System.Drawing.Point(103, 11);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(392, 20);
-            this.textBox1.TabIndex = 15;
+            this.tokenNameTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tokenNameTbx.Location = new System.Drawing.Point(137, 14);
+            this.tokenNameTbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tokenNameTbx.Name = "tokenNameTbx";
+            this.tokenNameTbx.Size = new System.Drawing.Size(521, 22);
+            this.tokenNameTbx.TabIndex = 15;
             // 
-            // button1
+            // submitButton
             // 
-            this.button1.Location = new System.Drawing.Point(405, 216);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(90, 29);
-            this.button1.TabIndex = 14;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
+            this.submitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.submitButton.Location = new System.Drawing.Point(538, 267);
+            this.submitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.submitButton.Name = "submitButton";
+            this.submitButton.Size = new System.Drawing.Size(120, 36);
+            this.submitButton.TabIndex = 14;
+            this.submitButton.Text = "Add";
+            this.submitButton.UseVisualStyleBackColor = true;
             // 
             // TokenForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(500, 253);
+            this.ClientSize = new System.Drawing.Size(670, 314);
             this.Controls.Add(this.EnvironmentCbx);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.userNameTbx);
+            this.Controls.Add(this.descriptionTbx);
+            this.Controls.Add(this.valueTbx);
+            this.Controls.Add(this.globalTokenChk);
+            this.Controls.Add(this.passwordChk);
+            this.Controls.Add(this.userNameLbl);
+            this.Controls.Add(this.descriptionLbl);
+            this.Controls.Add(this.ValueLbl);
+            this.Controls.Add(this.DefinedInLbl);
+            this.Controls.Add(this.TokenNameLbl);
+            this.Controls.Add(this.subTokenChk);
+            this.Controls.Add(this.tokenNameTbx);
+            this.Controls.Add(this.submitButton);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "TokenForm";
             this.Text = "Add new Token";
             this.ResumeLayout(false);
@@ -210,18 +217,18 @@ namespace TokenManager.Forms
         #endregion
 
         private System.Windows.Forms.ComboBox EnvironmentCbx;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox userNameTbx;
+        private System.Windows.Forms.TextBox descriptionTbx;
+        private System.Windows.Forms.TextBox valueTbx;
+        private System.Windows.Forms.CheckBox globalTokenChk;
+        private System.Windows.Forms.CheckBox passwordChk;
+        private System.Windows.Forms.Label userNameLbl;
+        private System.Windows.Forms.Label descriptionLbl;
+        private System.Windows.Forms.Label ValueLbl;
+        private System.Windows.Forms.Label DefinedInLbl;
+        private System.Windows.Forms.Label TokenNameLbl;
+        private System.Windows.Forms.CheckBox subTokenChk;
+        private System.Windows.Forms.TextBox tokenNameTbx;
+        private System.Windows.Forms.Button submitButton;
     }
 }

@@ -18,7 +18,6 @@ namespace TokenManager.Forms
 
         public void Init(bool isEdit, string token)
         {
-
             EnvironmentCbx.DataSource = TokenEditViewController.GetEnvironments();
         }
     }
