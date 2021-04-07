@@ -27,12 +27,21 @@ namespace TokenManager.Forms
             AddBtn.Visible = !isEdit;
             UpdateBtn.Visible = isEdit;
             EnvironmentCbx.Enabled = !GlobalTokenChk.Checked;
+            Text = Messages.AddToken;
 
             if (isEdit)
             {
                 InitForEdit();
             }
+        }
 
+        private void InitForEdit()
+        {
+            TokenNameTbx.Enabled = false;
+            GlobalTokenChk.Enabled = false;
+            SubTokenChk.Enabled = false;
+            PasswordChk.Enabled = false;
+            this.Text = Messages.EditToken;
         }
 
         private void PasswordChk_CheckedChanged(object sender, System.EventArgs e)
@@ -43,15 +52,6 @@ namespace TokenManager.Forms
         private void GlobalTokenChk_CheckedChanged(object sender, System.EventArgs e)
         {
             EnvironmentCbx.Enabled = !GlobalTokenChk.Checked;
-        }
-
-        private void InitForEdit()
-        {
-            TokenNameTbx.Enabled = false;
-            GlobalTokenChk.Enabled = false;
-            SubTokenChk.Enabled = false;
-            PasswordChk.Enabled = false;
-            this.Text = Messages.EditToken;
         }
 
         private void AddBtn_Click(object sender, System.EventArgs e)
@@ -68,8 +68,16 @@ namespace TokenManager.Forms
                 UserName = UserNameTbx.Text
             };
 
-            TokenEditViewController.AddToken(model);
-            Close();
+            var isValid = TokenEditViewController.IsTokenNameUnique(model.Token);
+            if (isValid)
+            {
+                TokenEditViewController.AddToken(model);
+                Close();
+            }
+            else
+            {
+                MainForm.UpdateMessageOnStatusBar(Messages.TokenNameIsNotUnique);
+            }
         }
 
         private void UpdateBtn_Click(object sender, System.EventArgs e)

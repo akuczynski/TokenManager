@@ -39,7 +39,7 @@ namespace TokenManager.Core.Model
 
         public void RemoveDeletedTokens(Environment environment)
         {
-            var deletedTokens = GetTokens(environment).Where(x => x.IsDirty && x.Action == Action.Delete);
+            var deletedTokens = GetTokens(environment).Where(x => x.IsDirty && x.Action == Action.Delete).ToList();
 
             foreach (var token in deletedTokens)
             {

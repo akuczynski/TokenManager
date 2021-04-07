@@ -121,8 +121,8 @@
     <value>Add</value>
   </data>
   <data name="AddToken" xml:space="preserve">
-    <value>Add new Token</value>
-  </data>  
+    <value>Add Token</value>
+  </data>
   <data name="DataLoaded" xml:space="preserve">
     <value>Data loaded successfully.</value>
   </data>
@@ -140,5 +140,8 @@
   </data>
   <data name="Update" xml:space="preserve">
     <value>Update</value>
+  </data>
+  <data name="TokenNameIsNotUnique" xml:space="preserve">
+    <value>Can't add token, because token name is not unique ! </value>
   </data>
 </root>

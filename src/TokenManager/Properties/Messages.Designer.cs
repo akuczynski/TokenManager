@@ -70,7 +70,7 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add new Token.
+        ///   Looks up a localized string similar to Add Token.
         /// </summary>
         internal static string AddToken {
             get {
@@ -97,20 +97,29 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to {0} was deleted..
-        /// </summary>
-        internal static string TokenRemoved {
-            get {
-                return ResourceManager.GetString("TokenRemoved", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Edit Token.
         /// </summary>
         internal static string EditToken {
             get {
                 return ResourceManager.GetString("EditToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can&apos;t add token, because token name is not unique ! .
+        /// </summary>
+        internal static string TokenNameIsNotUnique {
+            get {
+                return ResourceManager.GetString("TokenNameIsNotUnique", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} was deleted..
+        /// </summary>
+        internal static string TokenRemoved {
+            get {
+                return ResourceManager.GetString("TokenRemoved", resourceCulture);
             }
         }
         

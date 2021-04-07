@@ -24,6 +24,8 @@ namespace TokenManager.Core.DomainServices
         IEnumerable<TokenViewModel> Tokens { get; }
 
         IEnumerable<string> Environments { get; }
+
+        bool IsTokenNameUnique(string tokenName);
     }
 
     [Export(typeof(ITokenManagementService))]
@@ -186,5 +188,9 @@ namespace TokenManager.Core.DomainServices
             }
         }
 
+        public bool IsTokenNameUnique(string tokenName)
+        {
+            return !_tokens.Where(x => x.Token.Equals(tokenName)).Any();
+        }
     }
 }

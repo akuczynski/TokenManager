@@ -6,6 +6,8 @@ namespace TokenManager.Core.DomainServices
 {
     public interface ITokenEditViewController
     {
+        bool IsTokenNameUnique(string tokenName);
+
         void AddToken(NewTokenViewModel newToken);
 
         IEnumerable<string> GetEnvironments();
@@ -30,6 +32,12 @@ namespace TokenManager.Core.DomainServices
         public IEnumerable<string> GetEnvironments()
         {
             return _tokenManagementService.Environments;
+        }
+
+        public bool IsTokenNameUnique(string tokenName)
+        {
+            var name = tokenName.Trim();
+            return _tokenManagementService.IsTokenNameUnique(name);
         }
     }
 }
