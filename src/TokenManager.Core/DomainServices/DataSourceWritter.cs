@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 using TokenManager.Core.Model;
+using  Xml = TokenManager.Core.DomainServices.XmlConstants;
 
 namespace TokenManager.Core.DomainServices
 {
@@ -16,23 +14,7 @@ namespace TokenManager.Core.DomainServices
 
     [Export(typeof(IDataSourceWritter))]
     internal class DataSourceWritter : IDataSourceWritter
-    {
-        private const string SubTokensNodeName = "subtokens";
-
-        private const string TokensNodeName = "tokens";
-
-        private const string TokenNodeName = "token";
-
-        private const string KeyAttributeName = "key";
-
-        private const string ValueAttributeName = "value";
-
-        private const string DescriptionAttributeName = "description";
-
-        private const string PasswordAttributeName = "password";
-
-        private const string UserNameAttributeName = "userName";
-
+    { 
         public void WriteTokens(IEnumerable<Token> tokens, string filePath)
         {
             if (tokens.Any())
@@ -75,24 +57,24 @@ namespace TokenManager.Core.DomainServices
 
         private void WriteToken(Token token, XDocument tokensXml)
         {
-           XElement parentNode = (token.IsSubToken)? tokensXml.Descendants(SubTokensNodeName).First() : tokensXml.Element(TokensNodeName);
-           XElement node = new XElement(TokenNodeName);
+           XElement parentNode = (token.IsSubToken)? tokensXml.Descendants(Xml.SubTokensNodeName).First() : tokensXml.Element(Xml.TokensNodeName);
+           XElement node = new XElement(Xml.TokenNodeName);
 
-           node.SetAttributeValue(KeyAttributeName, token.Key);
-           node.SetAttributeValue(ValueAttributeName, token.Value); 
+           node.SetAttributeValue(Xml.KeyAttributeName, token.Key);
+           node.SetAttributeValue(Xml.ValueAttributeName, token.Value); 
 
            if(!string.IsNullOrEmpty(token.Description))
            {
-                node.SetAttributeValue(DescriptionAttributeName, token.Description);
+                node.SetAttributeValue(Xml.DescriptionAttributeName, token.Description);
            }
 
            if (token.IsPassword)
             {
-                node.SetAttributeValue(PasswordAttributeName, "true"); 
+                node.SetAttributeValue(Xml.PasswordAttributeName, "true"); 
 
                 if (!string.IsNullOrEmpty(token.UserName))
                 {
-                    node.SetAttributeValue(UserNameAttributeName, token.UserName);
+                    node.SetAttributeValue(Xml.UserNameAttributeName, token.UserName);
                 }
            }
 
@@ -101,8 +83,8 @@ namespace TokenManager.Core.DomainServices
 
         private XElement FindXmlTokenNode(Token token, XDocument tokensXml)
         {
-            return tokensXml.Descendants(TokenNodeName)
-                .Where(x => token.Key.Equals(x?.Attribute(KeyAttributeName)?.Value))
+            return tokensXml.Descendants(Xml.TokenNodeName)
+                .Where(x => token.Key.Equals(x?.Attribute(Xml.KeyAttributeName)?.Value))
                 .SingleOrDefault();
         }
     }

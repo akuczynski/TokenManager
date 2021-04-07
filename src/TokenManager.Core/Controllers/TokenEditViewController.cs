@@ -39,6 +39,11 @@ namespace TokenManager.Core.DomainServices
         public bool IsTokenNameUnique(string tokenName)
         {
             var name = tokenName.Trim();
+            if (string.IsNullOrEmpty(name))
+            {
+                return false;
+            }
+
             return _tokenManagementService.IsTokenNameUnique(name);
         }
 

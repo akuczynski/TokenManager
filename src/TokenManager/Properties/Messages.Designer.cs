@@ -115,7 +115,7 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Can&apos;t add token, because token name is not unique ! .
+        ///   Looks up a localized string similar to Can&apos;t add token, because token name is not valid or unique ! .
         /// </summary>
         internal static string TokenNameIsNotUnique {
             get {

@@ -142,7 +142,7 @@
     <value>Update</value>
   </data>
   <data name="TokenNameIsNotUnique" xml:space="preserve">
-    <value>Can't add token, because token name is not unique ! </value>
+    <value>Can't add token, because token name is not valid or unique ! </value>
   </data>
   <data name="NewToken" xml:space="preserve">
     <value>{0} was added.</value>
