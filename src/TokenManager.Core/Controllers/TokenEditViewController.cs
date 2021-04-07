@@ -1,10 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
+using TokenManager.Core.ViewModel;
 
 namespace TokenManager.Core.DomainServices
 {
     public interface ITokenEditViewController
     {
+        void AddToken(NewTokenViewModel newToken);
+
         IEnumerable<string> GetEnvironments();
     }
 
@@ -17,6 +20,11 @@ namespace TokenManager.Core.DomainServices
         public TokenEditViewController(ITokenManagementService tokenManagementService)
         {
             _tokenManagementService = tokenManagementService;
+        }
+
+        public void AddToken(NewTokenViewModel newToken)
+        {
+            _tokenManagementService.AddToken(newToken);
         }
 
         public IEnumerable<string> GetEnvironments()
