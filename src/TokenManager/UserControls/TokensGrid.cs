@@ -39,12 +39,21 @@ namespace TokenManager.UserControls
             if (e.Button == MouseButtons.Right)
             {
                 ContextMenu m = new ContextMenu();
-                m.MenuItems.Add("Add", ShowModalWindow);
-                m.MenuItems.Add("Edit", ShowModalWindow);
-                m.MenuItems.Add("Remove", RemoveToken);
+                m.MenuItems.Add("Add", ShowTokenForm);
+                if (IsAnyRowSelected())
+                {
+                    m.MenuItems.Add("Edit", ShowTokenForm);
+                    m.MenuItems.Add("Remove", RemoveToken);
+                }
+                
 
                 m.Show(this.MainGrid, new Point(e.X, e.Y));
             }
+        }
+
+        private bool IsAnyRowSelected()
+        {
+            return MainGrid.CurrentRow != null;
         }
 
         public void Select(string token)
@@ -62,26 +71,15 @@ namespace TokenManager.UserControls
             }
         }
 
-        private void RemoveToken(object sender, EventArgs e)
+        private void SubGrid_MouseClick(object sender, MouseEventArgs e)
         {
-            var tokenName = GetSelectedToken();
-            TokensGridViewController.RemoveToken(tokenName);
-
-            var message = string.Format(Messages.TokenRemoved, tokenName);
-            MainForm.UpdateMessageOnStatusBar(message);
-        }
-
-        private void ShowModalWindow(object sender, EventArgs e)
-        {
-            var menuItem = sender as MenuItem;
-            if ("Add".Equals(menuItem?.Text))
+            if (e.Button == MouseButtons.Right)
             {
-                MainForm.ShowTokenModalWindow(false);
-            }
-            else
-            {
-                var tokenName = GetSelectedToken();
-                MainForm.ShowTokenModalWindow(true, tokenName);
+                ContextMenu m = new ContextMenu();                
+                m.MenuItems.Add("Edit", ShowEnvironmentForm);
+                m.MenuItems.Add("Remove", RemoveToken);
+
+                m.Show(this.SubGrid, new Point(e.X, e.Y));
             }
         }
 
@@ -101,6 +99,35 @@ namespace TokenManager.UserControls
                 MainForm.UpdateMessageOnStatusBar(text);
             }
         }
+
+        private void RemoveToken(object sender, EventArgs e)
+        {
+            var tokenName = GetSelectedToken();
+            TokensGridViewController.RemoveToken(tokenName);
+
+            var message = string.Format(Messages.TokenRemoved, tokenName);
+            MainForm.UpdateMessageOnStatusBar(message);
+        }
+
+        private void ShowTokenForm(object sender, EventArgs e)
+        {
+            var menuItem = sender as MenuItem;
+            if ("Add".Equals(menuItem?.Text))
+            {
+                MainForm.ShowTokenModalWindow(false);
+            }
+            else
+            {
+                var tokenName = GetSelectedToken();
+                MainForm.ShowTokenModalWindow(true, tokenName);
+            }
+        }
+        
+        private void ShowEnvironmentForm(object sender, EventArgs e)
+        {
+            MainForm.ShowEnvironmentModalWindow();
+        }
+
 
         private string GetSelectedToken()
         {

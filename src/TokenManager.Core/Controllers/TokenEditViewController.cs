@@ -13,6 +13,7 @@ namespace TokenManager.Core.DomainServices
         void UpdateToken(UpdateTokenViewModel updateToken);
 
         IEnumerable<string> GetEnvironments();
+        TokenViewModel GetToken(string tokenName);
     }
 
     [Export(typeof(ITokenEditViewController))]
@@ -24,6 +25,11 @@ namespace TokenManager.Core.DomainServices
         public TokenEditViewController(ITokenManagementService tokenManagementService)
         {
             _tokenManagementService = tokenManagementService;
+        }
+
+        public TokenViewModel GetToken(string tokenName)
+        {
+            return _tokenManagementService.GetToken(tokenName);
         }
 
         public void AddToken(NewTokenViewModel newToken)

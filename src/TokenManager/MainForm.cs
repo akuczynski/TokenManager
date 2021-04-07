@@ -71,6 +71,15 @@ namespace TokenManager
             modalWindow.MainForm = this;
             modalWindow.Init(isEdit, token);
             modalWindow.ShowDialog(this);
-        } 
+        }
+
+        public void ShowEnvironmentModalWindow()
+        {
+            var modalWindow = new EnvironmentForm();
+            Shell.CompositionContainer.ComposeParts(modalWindow);
+            
+
+            modalWindow.ShowDialog(this);
+        }
     }
 } 
