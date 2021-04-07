@@ -9,5 +9,7 @@ namespace TokenManager
         void UpdateMessageOnStatusBar(string text);
 
         void ShowTokenModalWindow(bool isEdit, string token = null);
+
+        void ShowEnvironmentModalWindow();
     }
 }

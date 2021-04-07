@@ -26,6 +26,7 @@ namespace TokenManager.Core.DomainServices
         IEnumerable<string> Environments { get; }
 
         bool IsTokenNameUnique(string tokenName);
+        TokenViewModel GetToken(string tokenName);
     }
 
     [Export(typeof(ITokenManagementService))]
@@ -62,6 +63,11 @@ namespace TokenManager.Core.DomainServices
         {
             _persistanceService = persistanceService;
             _notificationService = notificationService;
+        }
+
+        public TokenViewModel GetToken(string tokenName)
+        {
+            return Tokens.First(token => token.Token == tokenName);
         }
 
         public void AddToken(NewTokenViewModel newToken)
@@ -112,7 +118,7 @@ namespace TokenManager.Core.DomainServices
             }
 
             return result;
-        }
+        }  
 
         public void Init()
         {

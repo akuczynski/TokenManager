@@ -87,6 +87,7 @@ namespace TokenManager.UserControls
             this.SubGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.SubGrid.Size = new System.Drawing.Size(604, 137);
             this.SubGrid.TabIndex = 2;
+            this.SubGrid.MouseClick += new MouseEventHandler(this.SubGrid_MouseClick);
             // 
             // TokensGrid
             // 

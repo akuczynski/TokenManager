@@ -9,7 +9,7 @@ namespace TokenManager.Forms
     public partial class TokenForm : Form
     {
         [Import]
-        public ITokenEditViewController TokenEditViewController { get; set; }
+        public ITokenEditViewController TokenEditViewController { get; set; }        
 
         public IMainForm MainForm { get; set; }
 
@@ -21,9 +21,14 @@ namespace TokenManager.Forms
         public void Init(bool isEdit, string token)
         {
             EnvironmentCbx.DataSource = TokenEditViewController.GetEnvironments();
-            TokenNameTbx.Text = token ?? string.Empty;
-            UserNameTbx.Enabled = PasswordChk.Checked;
 
+            if (!string.IsNullOrEmpty(token))
+            {
+                var tokenViewModel = TokenEditViewController.GetToken(token);
+                PopulateFields(tokenViewModel);
+            }            
+
+            UserNameTbx.Enabled = PasswordChk.Checked;
             AddBtn.Visible = !isEdit;
             UpdateBtn.Visible = isEdit;
             EnvironmentCbx.Enabled = !GlobalTokenChk.Checked;
@@ -33,6 +38,16 @@ namespace TokenManager.Forms
             {
                 InitForEdit();
             }
+        }
+
+        private void PopulateFields(TokenViewModel tokenViewModel)
+        {
+            TokenNameTbx.Text = tokenViewModel.Token;
+            GlobalTokenChk.Checked = tokenViewModel.Global;
+            SubTokenChk.Checked = tokenViewModel.IsSubToken;
+            PasswordChk.Checked = tokenViewModel.Password;
+            ValueTbx.Text = tokenViewModel.Value;
+            DescriptionTbx.Text = tokenViewModel.Description;
         }
 
         private void InitForEdit()
