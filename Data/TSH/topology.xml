@@ -1,0 +1,58 @@
+<Platform>
+  <Environments>
+    <Environment name="TSH">
+      <appServer name="10.155.40.22">
+        <AppTier name="AccUI" />
+        <AppTier name="WebsiteDown" />
+      </appServer>
+      <appServer name="10.155.40.23">
+        <AppTier name="AccUI" />
+        <AppTier name="WebsiteDown" />
+      </appServer>
+      <appServer name="10.155.44.192">
+        <AppTier name="AccAppAsync" />
+        <AppTier name="AccAppServices" />
+        <AppTier name="PrintServices" />
+        <AppTier name="TestApp" />
+      </appServer>
+      <appServer name="10.155.44.193">
+        <AppTier name="AccAppAsync" />
+        <AppTier name="AccAppServices" />
+        <AppTier name="PrintServices" />
+        <AppTier name="TestApp" />
+      </appServer>
+      <appServer name="10.155.115.25">
+        <AppTier name="PrintSvc" />
+      </appServer>
+      <appServer name="10.155.115.61">
+        <AppTier name="PrintSvc" />
+      </appServer>
+      <appServer name="10.155.44.184">
+        <AppTier name="Cache" />
+      </appServer>
+      <appServer name="10.155.44.185">
+        <AppTier name="Cache" />
+      </appServer>
+	  <appServer name="10.155.107.139">
+        <AppTier name="AccLFRepo" />
+      </appServer>
+      <sqlServer name="10.155.107.47\PLATFORM">
+        <SQLTier name="PlatformSQL" />
+      </sqlServer>
+      <Databases>
+        <DatabaseServer name="10.155.107.47\PLATFORM" />
+      </Databases>
+      <Settings>
+        <Setting key="DeploymentRootPath" value="d:\Deployment" />
+        <Setting key="IsStagingEnvironment" value="false" />
+        <Setting key="DatabaseServer" value="10.155.107.47\PLATFORM" />
+      </Settings>
+    </Environment>
+  </Environments>
+  <skips>
+    <Packages>
+    </Packages>
+    <MSIs>
+    </MSIs>
+  </skips>
+</Platform>

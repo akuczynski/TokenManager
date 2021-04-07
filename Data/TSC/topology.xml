@@ -1,0 +1,39 @@
+<Platform>
+  <Environments>
+    <Environment name="TSC">
+      <appServer name="10.155.115.56">
+        <AppTier name="AccUI" />
+      </appServer>
+      <appServer name="10.155.107.223">
+        <AppTier name="AccAppAsync" />
+        <AppTier name="AccAppServices" />
+        <AppTier name="PrintServices" />
+        <AppTier name="TestApp" />
+      </appServer>
+	    <appServer name="10.155.107.144">
+        <AppTier name="Cache" />
+      </appServer>
+      <sqlServer name="10.155.107.244\PLATFORM">
+        <Instance Name="" Model="" ExecScripts="" />
+        <Instance Name="" Model="" ExecScripts="">
+          <SqlCmdVariables>
+            <SqlCmdVariable Name="" Value="" />
+          </SqlCmdVariables>
+        </Instance>
+        <Instance Name="" Model="" ExecScripts="" />
+      </sqlServer>
+      <Databases>
+        <DatabaseServer name="10.155.107.244\PLATFORM" />
+      </Databases>
+      <Settings>
+        <Setting key="DeploymentRootPath" value="c:\Deployment" />
+        <Setting key="IsStagingEnvironment" value="false" />
+        <Setting key="DatabaseServer" value="10.155.107.244\PLATFORM" />
+      </Settings>
+    </Environment>
+  </Environments>
+  <skips>
+    <Packages>
+    </Packages>
+  </skips>
+</Platform>

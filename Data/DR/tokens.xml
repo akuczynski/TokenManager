@@ -1,11 +1,248 @@
 <?xml version="1.0"?>
 <tokens>
-	<subtokens>
-		<token key="##Env##" value="DR" />
-		<token key="##Subtoken_DB_User##" />
-		<token key="##Subtoken_DB_Password##" value="P@ssw0rd" password="true" />
-    <token key="##Subtoken_DB_Server##" value="192.168.0.2" />
-    <token key="##Subtoken_DB_Database##" value="catalog" />
-	</subtokens>
-	<token key="##ConnectionString##" value="Server=##Subtoken_DB_Server##;Database=##Subtoken_DB_Database##;User Id=##Subtoken_DB_User##;Password=##Subtoken_DB_Password##;" />
+  <subtokens>
+    <token key="##Env##" value="" />
+    <token key="##Subtoken_Correspondence_Front_Office_Short_Url##" value="https://dr-www.platformservices.co.uk/Sites/1/{theme_name}" />
+    <token key="##Subtoken_Correspondence_Front_Office_Activation_Url##" value="https://dr-activate.platformservices.co.uk/{theme_name}" />
+    <token key="##Subtoken_ACCELERATOR_BOT_CONNECTION_STRING_FOR_WEB_BackOfficeToolsWebEntities_Password##" value="1gaB3efA!bacf1dgB" password="true" />
+    <token key="##Subtoken_ACCELERATOR_BOT_CONNECTION_STRING_FOR_WEB_BackOfficeToolsWebEntities_User##" value="BackOfficeInternalBot" />
+    <token key="##Subtoken_ACCELERATOR_CERTIFICATE_PASSWORD##" value="Sandy123" password="true" />
+    <token key="##Subtoken_ACCELERATOR_CONNECTION_STRING_CommonModelEntities_Password##" value="lkdgh2Hdf9Jsdio*Ek1" password="true" />
+    <token key="##Subtoken_ACCELERATOR_CONNECTION_STRING_CommonModelEntities_User##" value="PlatformSharedService" />
+    <token key="##Subtoken_ACCELERATOR_CONNECTION_STRING_LoggingConnection_Password##" value="xunUZahudraTe6re" password="true" />
+    <token key="##Subtoken_ACCELERATOR_CONNECTION_STRING_LoggingConnection_User##" value="PlatformLogging" />
+    <token key="##Subtoken_ACCELERATOR_CORRESPONDENCE_CONNECTION_STRING_CorrespondenceEntities_Password##" value="S@D*U4qvkk9Hu^YS" password="true" />
+    <token key="##Subtoken_ACCELERATOR_CORRESPONDENCE_CONNECTION_STRING_CorrespondenceEntities_User##" value="PlatformCorrespondence" />
+    <token key="##Subtoken_ACCELERATOR_DASHBOARD_CONNECTION_STRING_DashboardEntities_Password##" value="7tuqUyaqa6aswu75" password="true" />
+    <token key="##Subtoken_ACCELERATOR_DASHBOARD_CONNECTION_STRING_DashboardEntities_User##" value="PlatformDashboard" />
+    <token key="##Subtoken_ACCELERATOR_DATABASE_DEPLOYMENT_ROOT_PATH##" value="\\10.155.70.175\deployment\" />
+    <token key="##Subtoken_ACCELERATOR_Dealing_CONNECTION_STRING_DealingEntities_Password##" value="BxGhSSx27bGK5Wg6" password="true" />
+    <token key="##Subtoken_ACCELERATOR_Dealing_CONNECTION_STRING_DealingEntities_User##" value="PlatformDealing" />
+    <token key="##Subtoken_ACCELERATOR_FUNDTRANSFER_SERVICES_CONNECTION_STRING_Password##" value="feSw5sustaf65Peg" password="true" />
+    <token key="##Subtoken_ACCELERATOR_FUNDTRANSFER_SERVICES_CONNECTION_STRING_User##" value="PlatformFTGService" />
+    <token key="##Subtoken_ACCELERATOR_IMPORT_SERVICE_WINDOWSSERVICE_PASSWORD##" value="6ruqucHu" password="true" />
+    <token key="##Subtoken_ACCELERATOR_IMPORT_SERVICE_WINDOWSSERVICE_USER##" value="RLG\srvFDLFImport" />
+    <token key="##Subtoken_ACCELERATOR_LASERFICHE_BUSGATEWAY_AD_GROUP##" value="RLG\DL_FD_BusGatewayServiceUsers" />
+    <token key="##Subtoken_ACCELERATOR_LASERFICHE_WORKFLOWSERVICE_AD_GROUP##" value="RLG\GG_FD_LFWorkflowServiceUsers" />
+    <token key="##Subtoken_ACCELERATOR_INVESTOR_CONNECTION_STRING_InvestorModelEntities_Password##" value="gbmThypr!br230dr" password="true" />
+    <token key="##Subtoken_ACCELERATOR_INVESTOR_CONNECTION_STRING_InvestorModelEntities_User##" value="PlatformInvestor" />
+    <token key="##Subtoken_ACCELERATOR_INVESTOR_CONNECTION_STRING_InvestorSearchModelEntities_Password##" value="gbmThypr!br230dr" password="true" />
+    <token key="##Subtoken_ACCELERATOR_INVESTOR_CONNECTION_STRING_InvestorSearchModelEntities_User##" value="PlatformInvestor" />
+    <token key="##Subtoken_ACCELERATOR_LASERFICHE_DOMAIN##" value="RLG" />
+    <token key="##Subtoken_ACCELERATOR_LASERFICHE_BACKOFFICEINTERNAL_CONNECTION_STRING_Password##" value="JWrFuLjnzxa4GmgG" password="true" />
+    <token key="##Subtoken_ACCELERATOR_LASERFICHE_BACKOFFICEINTERNAL_CONNECTION_STRING_User##" value="BackOfficeInternalLaserfiche" />
+    <token key="##Subtoken_ACCELERATOR_LASERFICHE_REPOSITORY##" value="AscentricPRD" />
+    <token key="##Subtoken_ACCELERATOR_LASERFICHE_SERVER##" value="VCPRDFDSMLFA01.royallondongroup.com" />
+    <token key="##Subtoken_ACCELERATOR_MP_CONNECTION_STRING_ModelPortfolioEntities_Password##" value="gAdaxecajez3q6ca" password="true" />
+    <token key="##Subtoken_ACCELERATOR_MP_CONNECTION_STRING_ModelPortfolioEntities_User##" value="PlatformModel" />
+    <token key="##Subtoken_ACCELERATOR_MP_CONNECTION_STRING_QueuingEntitiesForModelPortfolio_Password##" value="gAdaxecajez3q6ca" password="true" />
+    <token key="##Subtoken_ACCELERATOR_MP_CONNECTION_STRING_QueuingEntitiesForModelPortfolio_User##" value="PlatformModel" />
+    <token key="##Subtoken_ACCELERATOR_NSERVICEBUS_CONNECTION_STRING_Persistence_Password##" value="6ctBPY11pmAG" password="true" />
+    <token key="##Subtoken_ACCELERATOR_NSERVICEBUS_CONNECTION_STRING_Persistence_User##" value="NServiceBus" />
+    <token key="##Subtoken_ACCELERATOR_NSERVICEBUS_CONNECTION_STRING_Transport_Password##" value="6ctBPY11pmAG" password="true" />
+    <token key="##Subtoken_ACCELERATOR_NSERVICEBUS_CONNECTION_STRING_Transport_User##" value="NServiceBus" />
+    <token key="##Subtoken_ACCELERATOR_OCS_CONNECTION_STRING_OnlineClientSetupEntities_Password##" value="gAdaxecajez3q6ca" password="true" />
+    <token key="##Subtoken_ACCELERATOR_OCS_CONNECTION_STRING_OnlineClientSetupEntities_User##" value="PlatformOcs" />
+    <token key="##Subtoken_ACCELERATOR_OS_CONNECTION_STRING_OrganisationStructureEntities_Password##" value="cuphewu6aqecRadu" password="true" />
+    <token key="##Subtoken_ACCELERATOR_OS_CONNECTION_STRING_OrganisationStructureEntities_User##" value="PlatformOs" />
+    <token key="##Subtoken_ACCELERATOR_PRINT_SERVICE_CONNECTION_STRING_Password##" value="feSw5sustaf65Pep" password="true" />
+    <token key="##Subtoken_ACCELERATOR_PRINT_SERVICE_CONNECTION_STRING_User##" value="PrintServicesPrintService" />
+    <token key="##Subtoken_ACCELERATOR_PRINT_SERVICE_ODS_CONNECTION_STRING_Password##" value="K5*F6cv0@FG#4" password="true" />
+    <token key="##Subtoken_ACCELERATOR_PRINT_SERVICE_ODS_CONNECTION_STRING_User##" value="CorrespondenceLogin" />
+    <token key="##Subtoken_ACCELERATOR_PRINT_SERVICE_PLATFORM_CONNECTION_STRING_Password##" value="S@D*U4qvkk9Hu^YS" password="true" />
+    <token key="##Subtoken_ACCELERATOR_PRINT_SERVICE_PLATFORM_CONNECTION_STRING_User##" value="PlatformCorrespondence" />
+    <token key="##Subtoken_ACCELERATOR_QUEUING_CONNECTION_STRING_QueuingEntities_Password##" value="zMarQu!drbr42vsa" password="true" />
+    <token key="##Subtoken_ACCELERATOR_QUEUING_CONNECTION_STRING_QueuingEntities_User##" value="PlatformQueuing" />
+    <token key="##Subtoken_ACCELERATOR_QUEUING_CONNECTION_STRING_QueuingModelPortfolioEntities_Password##" value="zMarQu!drbr42vsa" password="true" />
+    <token key="##Subtoken_ACCELERATOR_QUEUING_CONNECTION_STRING_QueuingModelPortfolioEntities_User##" value="PlatformQueuing" />
+    <token key="##Subtoken_ACCELERATOR_RAPIDCUB_CONNECTION_STRING_Password##" value="feSw5sustaf65Peg" password="true" />
+    <token key="##Subtoken_ACCELERATOR_RAPIDCUB_CONNECTION_STRING_User##" value="PlatformFTGService" />
+    <token key="##Subtoken_ACCELERATOR_SAML_IDENTITYPROVIDER_CERTIFICATE_THUMBRINT##" value="9104e531a0fb91722f19605b315033470f6ed25f" password="true" />
+    <token key="##Subtoken_ACCELERATOR_SAML_SERVICEPROVIDER_CERTIFICATE_THUMBRINT##" value="8d5e176cff52331a6efa5a066c8c0314ab15fb8a" password="true" />
+    <token key="##Subtoken_ACCELERATOR_SAML_SONATA_CERTIFICATE_THUMBRINT##" value="b9d208cbe3916d88975f47895ea1e6f28d08abd5" password="true" />
+    <token key="##Subtoken_ACCELERATOR_SEARCH_CONNECTION_STRING_DashboardSearchEntities_Password##" value="7tuqUyaqa6aswu75" password="true" />
+    <token key="##Subtoken_ACCELERATOR_SEARCH_CONNECTION_STRING_DashboardSearchEntities_User##" value="PlatformDashboard" />
+    <token key="##Subtoken_ACCELERATOR_SEARCH_CONNECTION_STRING_ModelPortfolioSearchEntities_Password##" value="gAdaxecajez3q6ca" password="true" />
+    <token key="##Subtoken_ACCELERATOR_SEARCH_CONNECTION_STRING_ModelPortfolioSearchEntities_User##" value="PlatformModel" />
+    <token key="##Subtoken_ACCELERATOR_SHAREDSERVICES_CONNECTION_STRING_PlatformSharedServiceEntities_Password##" value="lkdgh2Hdf9Jsdio*Ek1" password="true" />
+    <token key="##Subtoken_ACCELERATOR_SHAREDSERVICES_CONNECTION_STRING_PlatformSharedServiceEntities_User##" value="PlatformSharedService" />
+    <token key="##Subtoken_ACCELERATOR_SIL_CONNECTION_STRING_ODSEntities_Password##" value="Objectivity1*" password="true" />
+    <token key="##Subtoken_ACCELERATOR_SIL_CONNECTION_STRING_ODSEntities_User##" value="ObjectivityUser" />
+    <token key="##Subtoken_ACCELERATOR_SIL_CONNECTION_STRING_ODSReportsEntities_Password##" value="Bigcr4ne" password="true" />
+    <token key="##Subtoken_ACCELERATOR_SIL_CONNECTION_STRING_ODSReportsEntities_User##" value="SSRSBOReports" />
+    <token key="##Subtoken_ODS_REPORTS_DB_Name##" value="ODSReports" />
+    <token key="##Subtoken_ACCELERATOR_SONATA_ENABLE_EVENTING##" value="true" />
+    <token key="##Subtoken_ACCELERATOR_SONATA_ORACLEQUEUE_DBNOTIFICATIONPORT##" value="1201" />
+    <token key="##Subtoken_ACCELERATOR_Sso_CONNECTION_STRING_SsoModelContainer_Password##" value="s4A6epruta7HApup" password="true" />
+    <token key="##Subtoken_ACCELERATOR_Sso_CONNECTION_STRING_SsoModelContainer_User##" value="PlatformSso" />
+    <token key="##Subtoken_ACCLERATOR_SECRET_TOKEN_BackofficeToolsRestrictedAccessUserRole##" value="RLG\DL_FD_ISINSuppressionUsers" />
+    <token key="##Subtoken_ACCLERATOR_SECRET_TOKEN_DunstanThomasToken##" value="dtmrC9TaREuP0WIc+oLApJ7Z4+hsS/Nt5XQn7ucgLWxQB5V5i9sw9GXjFWXm/SM4U7jfrqXIcAH+f0XK8v1GVUfN64HaqQavJdDg9NbRmVCA9Ti3o/NR7KbOVqZ65f00" password="true" />
+    <token key="##Subtoken_BACKOFFICE_DECRYPTIONKEY##" value="1CF2D5701740D793AB6C3B50A7A20D9339034178A0F0EF0B" password="true" />
+    <token key="##Subtoken_BACKOFFICE_VALIDATIONKEY##" value="8F2A8EAA694B864BFABE58B2F1F61A5A29AA15805D93C0C24C43B98BA7602446F3026AFE8C530118593C7C37F7B5075A1210CD55ECEDAF94B0C094896F11522A" password="true" />
+    <token key="##Subtoken_FRONTOFFICE_DECRYPTIONKEY##" value="F5356D4561432254C6E21C74042FEDD0CFF3FCB3ADB892C5" password="true" />
+    <token key="##Subtoken_FRONTOFFICE_VALIDATIONKEY##" value="1C5F5FD4131C70F919245E46AACA802F0ED0F0B415E3901D2209775E6F8B3EC238E4F400171E1429A4015B0897D5C7173421E961A33FF3D3ADBA7B84CFED6F90" password="true" />
+    <token key="##Subtoken_BOHost_Address##" value="dr-dealing.rlpsbackoffice.co.uk" />
+    <token key="##Subtoken_BO_SqlServer##" value="CCPRDFDAOSQL04" />
+    <token key="##Subtoken_CREATE_LOCAL_FOLDERS##" value="false" />
+    <token key="##Subtoken_CertificateName##" value="IFDL1" />
+    <token key="##Subtoken_ConnectRetryInterval##" value="10" />
+    <token key="##Subtoken_Counter_Party_Address##" value="127.0.0.1" />
+    <token key="##Subtoken_EMX_SHARE_READ_WRITE_GROUP##" value="GSFDObjDevelopers" />
+    <token key="##Subtoken_FileServer##" value="royallondongroup.com\shares" />
+    <token key="##Subtoken_GLOBAL_DOCS_Protocol##" value="https" />
+    <token key="##Subtoken_GLOBAL_DOCS_SERVICE_HOST##" value="dr-documents.platformservices.co.uk" />
+    <token key="##Subtoken_INTEGRATION_TESTHARNESS_ENVIRONMENTNAME##" value="" />
+    <token key="##Subtoken_IP_Services##" value="10.155.122.4" />
+    <token key="##Subtoken_IP_SqlServer##" value="CCPRDFDAOSQL03" />
+    <token key="##Subtoken_IP_TestHarness_Services##" value="10.155.71.159" />
+    <token key="##Subtoken_Install_SqlServer_IntegrationTestPassword##" value="" password="true" />
+    <token key="##Subtoken_Install_SqlServer_IntegrationTestUser##" value="" />
+    <token key="##Subtoken_Install_SqlServer_Password##" value="" password="true" />
+    <token key="##Subtoken_Install_SqlServer_User##" value="" />
+    <token key="##Subtoken_Distribution_Technology_Receive_External_Alerts_Address##" value="https://www-platform.distribution-technology.com/PSPNext/Secure/API/Restful.Facade/Services/Origo/ReceiveExternalAlert.svc?id=659821b3-d5f7-48cc-b143-8e93ca731fd1" />
+    <token key="##Subtoken_LF_SqlServer##" value="CCPRDFDAOSQL03" />
+    <token key="##Subtoken_Laserfiche_DatabaseLogin##" value="PlatformRepoRead" />
+    <token key="##Subtoken_Laserfiche_DatabaseName##" value="AscentricLFRepo" />
+    <token key="##Subtoken_Laserfiche_DatabasePassword##" value="feSw5sustaf65Peg" password="true" />
+    <token key="##Subtoken_Laserfiche_Repository_Proxy_IP##" value="10.155.71.149" />
+    <token key="##Subtoken_ODS_CONNECTION_STRING_Password##" value="Objectivity1*" password="true" />
+    <token key="##Subtoken_ODS_CONNECTION_STRING_User##" value="ObjectivityUser" />
+    <token key="##Subtoken_ODS_DB_Name##" value="ODSReports" />
+    <token key="##Subtoken_ODS_SqlServer##" value="SQLPRDWPODS" />
+    <token key="##Subtoken_ORCHARD_BACKOFFICE_CONNECTION_STRING_Password##" value="A123456*" password="true" />
+    <token key="##Subtoken_ORCHARD_BACKOFFICE_CONNECTION_STRING_User##" value="Backofficeuser" />
+    <token key="##Subtoken_ORCHARD_FRONTOFFICE_CONNECTION_STRING_Password##" value="A123456*" password="true" />
+    <token key="##Subtoken_ORCHARD_FRONTOFFICE_CONNECTION_STRING_User##" value="Frontofficeuser" />
+    <token key="##Subtoken_OnBehalfOfCompID##" value="IFDL1" />
+    <token key="##Subtoken_OrchardHost##" value="dr-www.platformservices.co.uk" />
+    <token key="##Subtoken_PLATFORM_DATABASE_SHARED_FOLDER##" value="" />
+    <token key="##Subtoken_PartyName##" value="IFDL" />
+    <token key="##Subtoken_Party_Address##" value="127.0.0.1" />
+    <token key="##Subtoken_PlatformIntegration_SqlServer_Password##" value="gAdaxecajez3q6ca" password="true" />
+    <token key="##Subtoken_PlatformIntegration_SqlServer_User##" value="PlatformIntegration" />
+    <token key="##Subtoken_SonataOracleAudit_IP##" value="10.155.20.203" />
+    <token key="##Subtoken_SonataOracleAudit_Password##" value="evtprd01sau" password="true" />
+    <token key="##Subtoken_SonataOracleAudit_Port##" value="1550" />
+    <token key="##Subtoken_SonataOracleAudit_SID##" value="EVTPRD01" />
+    <token key="##Subtoken_SonataOracleAudit_User##" value="SONATA_AUDIT_USER" />
+    <token key="##Subtoken_SonataOracleEventingData_IP##" value="10.155.20.203" />
+    <token key="##Subtoken_SonataOracleEventingData_Password##" value="evtprd01sedu" password="true" />
+    <token key="##Subtoken_SonataOracleEventingData_Port##" value="1550" />
+    <token key="##Subtoken_SonataOracleEventingData_SID##" value="EVTPRD01" />
+    <token key="##Subtoken_SonataOracleEventingData_User##" value="SONATA_EVENTING_DATA_USER" />
+    <token key="##Subtoken_SonataOracleQueue_IP##" value="10.155.20.202" />
+    <token key="##Subtoken_SonataOracleQueue_Password##" value="sonprd01mb" password="true" />
+    <token key="##Subtoken_SonataOracleQueue_Port##" value="1550" />
+    <token key="##Subtoken_SonataOracleQueue_SID##" value="SONPRD01" />
+    <token key="##Subtoken_SonataOracleQueue_User##" value="MESSAGEBRIDGE" />
+    <token key="##Subtoken_SonataServices_IP##" value="10.155.159.5" />
+    <token key="##Subtoken_SonataWeb_Host_Address##" value="dr-opus.platformservices.co.uk" />
+    <token key="##Subtoken_SonataWeb_IP##" value="dr-opus.platformservices.co.uk" />
+    <token key="##Subtoken_SonataWeb_Port##" value="443" />
+    <token key="##Subtoken_SonataWeb_Protocol##" value="https" />
+    <token key="##Subtoken_TableauWeb_Protocol##" value="https" />
+    <token key="##Subtoken_TableauWeb_Port##" value="444" description="Indicates on which port Tableau Arr Security application is enabled via http" />
+    <token key="##Subtoken_UIHost_Address##" value="dr-www.platformservices.co.uk" />
+    <token key="##Subtoken_UIServicesHost_Address##" value="dr-services.platformservices.co.uk" />
+    <token key="##Subtoken_TableauWeb_Address##" value="dr-analysis.platformservices.co.uk" />
+    <token key="##Subtoken_FOAUTH_COOKIE_DOMAIN##" value="platformservices.co.uk" />
+    <token key="##Subtoken_Correspondence_Thunderhead_Server_Sync##" value="http://10.155.159.7:8080" />
+    <token key="##Subtoken_Correspondence_Thunderhead_Server_Async##" value="http://10.155.159.6:8080" />
+    <token key="##Subtoken_Correspondence_Thunderhead_ProjectId##" value="0" />
+    <token key="##Subtoken_TABLEAU_TICKET_SERVER_URL##" value="10.155.71.133" />
+    <token key="##Subtoken_Tableau_SSL_Flag##" value="True" />
+    <token key="##Subtoken_Integration_Testharness_Protocol##" value="https" />
+    <token key="##Subtoken_FO_Reports_IP##" value="CCPRDFDAOSQL03" />
+    <token key="##Subtoken_ACCELERATOR_SERVICEBUS_LASERFICHE_USER##" value="RLG\srvFD_LFSBus" />
+    <!--uncomment when Prod is really Prod!-->
+    <!--<token key="##Subtoken_Tableau_SSL_Certificate##" value="dr-analysis.platformservices.co.uk"   />-->
+    <token key="##Subtoken_Print_Service_LocalPrinterTarget##" value="Local" />
+    <token key="##Subtoken_Print_Service_GeneralPrinterTarget##" value="Central (General)" />
+    <token key="##Subtoken_Print_Service_OverseasPrinterTarget##" value="Central (Overseas)" />
+    <token key="##Subtoken_Print_Service_SpecialDeliveryPrinterTarget##" value="Central (Special Delivery)" />
+    <token key="##Subtoken_Print_Service_RecordedDeliveryPrinterTarget##" value="Central (Recorded Delivery)" />
+    <token key="##Subtoken_Print_Service_ReturnEnclosurePrinterTarget##" value="Central (Return Enclosure)" />
+    <token key="##Subtoken_Print_Service_PlatformOneTarget##" value="Central (Platform One)" />
+    <token key="##Subtoken_Print_Service_CorporateActionsPrinterTarget##" value="Central (Corporate Actions)" />
+    <token key="##Subtoken_Print_Service_BureauPrinterTarget##" value="target" />
+    <token key="##Subtoken_Print_Service_LocalPrinterOwner##" value="local" />
+    <token key="##Subtoken_Print_Service_GeneralPrinterOwner##" value="CentralGeneral" />
+    <token key="##Subtoken_Print_Service_OverseasPrinterOwner##" value="CentralOverseas" />
+    <token key="##Subtoken_Print_Service_SpecialDeliveryPrinterOwner##" value="centralspecialdelivery" />
+    <token key="##Subtoken_Print_Service_RecordedDeliveryPrinterOwner##" value="CentralRecordedDelivery" />
+    <token key="##Subtoken_Print_Service_ReturnEnclosurePrinterOwner##" value="Centralreturnenclosure" />
+    <token key="##Subtoken_Print_Service_PlatformOneOwner##" value="CentralPlatformOne" />
+    <token key="##Subtoken_Print_Service_CorporateActionsPrinterOwner##" value="CentralCorporateActions" />
+    <token key="##Subtoken_Print_Service_BureauPrinterOwner##" value="owner" />
+    <token key="##Subtoken_Print_Service_RedactionDocumentIdForWelcomeLetterUrlAndUserId##" value="28" />
+    <token key="##Subtoken_Print_Service_RedactionDocumentIdForWelcomeLetterActivationCode##" value="28" />
+    <token key="##Subtoken_Print_Service_RedactionDocumentIdForUserActivationCode##" value="28" />
+    <token key="##Subtoken_BOTSPOracleConnection_User##" value="sonata_bot_user" />
+    <token key="##Subtoken_BOTSPOracleConnection_Password##" value="sonprd01sbou" password="true" />
+    <token key="##Subtoken_BOTSPOracleConnection_Port##" value="1550" />
+    <token key="##Subtoken_BOTSPOracleConnection_IP##" value="10.155.20.202" />
+    <token key="##Subtoken_BOTSPOracleConnection_SID##" value="SONPRD01" />
+    <token key="##Subtokent_Smtp_Server_Ip##" value="10.10.2.3" />
+    <token key="##Subtokent_Smtp_Server_Port##" value="25" />
+    <token key="##Subtoken_Notification_Hub_HSBC_ACK_DestinationAddress##" value="hsbc_alerting@ascentric.co.uk" />
+    <token key="##Subtoken_Notification_Hub_HSBC_ACK_ERROR_DestinationAddress##" value="Accelerator-Payments@ascentric.co.uk" />
+    <token key="##Subtoken_Notification_Hub_NewBusiness_DestinationAddress##" value="Accelerator-NewBusiness@ascentric.co.uk" />
+    <token key="##Subtoken_Notification_Hub_FTG_MERR_DestinationAddress##" value="Dealing@ascentric.co.uk" />
+    <token key="##Subtoken_Notification_Hub_TopUp_DestinationAddress##" value="Accelerator-NewBusiness@ascentric.co.uk" />
+    <token key="##Subtoken_Notification_Hub_FINEX_Price_File_Exclusions_DestinationAddress##" value="funds@ascentric.co.uk" />
+    <token key="##Subtoken_Notification_Hub_DFM_CHARGE_DECREASE_FAILURE_REPORT_DestinationAddress##" value="investmentpartnerships@ascentric.co.uk" />
+    <token key="##Subtoken_PLATFORM_POST_DEPLOY_OPTION##" description="Post deploy option: full = Run full post deploy, including branding override, branding = just override branding, normal = run full script and maintaine branding, dashboard = clean and deploy dashboard" value="normal" />
+	<token key="##Subtoken_Proquote_OnBehalfOfCompID##" value="IFUDGBKA" />
+    <token key="##Subtoken_Proquote_PartyName##" value="ASCENTRIC1" />
+    <token key="##Subtoken_Proquote_PartyAddress##" value="127.0.0.1" />
+    <token key="##Subtoken_Proquote_PartyPortTCP##" value="9001" />
+    <token key="##Subtoken_Proquote_CounterPartyName##" value="PTPLIVE1" />
+    <token key="##Subtoken_Proquote_CounterPartyAddress##" value="195.26.26.174" />
+    <token key="##Subtoken_Proquote_CounterPartyPortTCP##" value="50143"  />
+	  <token key="##Subtoken_ACCELERATOR_SAML_COBALT_CERTIFICATE_THUMBRINT##" description="Subtoken containing the Thumbprint of Certificate required for Cobalt's SSO purpose" value="8d5e176cff52331a6efa5a066c8c0314ab15fb8a" password="true" />
+  </subtokens>
+  <!-- Temporary overide tokens -->
+  <token key="##ACCELERATOR_SONATA_DATABASE_IDENTIFIER##" value="SONPRD01" />
+  <token key="##ACCELERATOR_ELRF_DUNSTANTHOMAS_HOSTNAME##" value="https://ascentricfo.dthomas.co.uk/imago" />
+  <token key="##DUNSTANTHOMAS_TOKEN_SERVICE##" value="https://ascentricfo.dthomas.co.uk/FrontOfficeLegacy/sso.asmx" />
+  <token key="##ACCELERATOR_LASERFICHEREPOSITORYPROXY_IPSECURITY_ALLOW_UNLISTED##" value="false" description="IIS IP Security allowUnlisted attribute" />
+  <token key="##ACCELERATOR_LASERFICHEREPOSITORYPROXY_IPSECURITY_ALLOWED_IP_ADDRESSES##" value="10.155.44.153,10.155.44.154,10.155.44.155,10.155.44.156,10.155.44.157,10.155.71.159,10.155.71.167,10.155.71.121,10.155.71.132,10.155.71.149" description="List of IP adresses allowed to connect" />
+  <token key="##CORRESPONDENCE_POST_OUTPUT_LOCATION##" value="\\rlpsbthsrv54.rlps.local\Hotfolder" />
+  <token key="##CORRESPONDENCE_DOCUMENT_EDITOR_APPLICATION_URL##" value="http://backofficetools.platformservices.co.uk" />
+  <token key="##ACCELERATOR_LASERFICHE_DMS_USERNAME_FOR_ACTIVEDIRECTORY##" value="SRVLFicheFDBasicAuth" />
+  <token key="##SSRS_REPORTS_USERNAME##" description="User name of ReportExecutionService user"  value="srvSSRSProdView" />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount1##"  description="Laserfiche Account"  value="srvFDFOLFView1"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount10##" description="Laserfiche Account"  value="srvFDFOLFView10"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount11##" description="Laserfiche Account"  value="srvFDDRSLFView1"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount12##" description="Laserfiche Account"  value="srvFDDRSLFView2"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount13##" description="Laserfiche Account"  value="srvFDDRSLFView3"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount14##" description="Laserfiche Account"  value="srvFDDRSLFView4"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount15##" description="Laserfiche Account"  value="srvFDDRSLFView5"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount16##" description="Laserfiche Account"  value="srvFDDRSLFView6"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount17##" description="Laserfiche Account"  value="srvFDDRSLFView7"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount18##" description="Laserfiche Account"  value="srvFDDRSLFView8"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount19##" description="Laserfiche Account"  value="srvFDDRSLFView9"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount2##"  description="Laserfiche Account"  value="srvFDFOLFView2"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount20##" description="Laserfiche Account"  value="srvFDDRSLFView10"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount21##" description="Laserfiche Account"  value="srvFDLFAttUp1"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount22##" description="Laserfiche Account"  value="srvFDLFAttUp2"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount23##" description="Laserfiche Account"  value="SRVFDLFIMPORT"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount24##" description="Laserfiche Account"  value="Srvfdlfdocind"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount3##"  description="Laserfiche Account"  value="srvFDFOLFView3"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount4##"  description="Laserfiche Account"  value="srvFDFOLFView4"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount5##"  description="Laserfiche Account"  value="srvFDFOLFView5"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount6##"  description="Laserfiche Account"  value="srvFDFOLFView6"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount7##"  description="Laserfiche Account"  value="srvFDFOLFView7"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount8##"  description="Laserfiche Account"  value="srvFDFOLFView8"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_LaserficheAccount9##"  description="Laserfiche Account"  value="srvFDFOLFView9"  />
+  <token key="##ACCELERATOR_BACKOFFICETOOLS_WINDOWSSERVICE_USER##" value="RLG\srvFDBOTools" description="Account that the service runs under"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_GlobalDocsFileShareUsernameValue##" value="srvFDGDocs" description="The username of the account used for accessing file share value."  />
+  <token key="##ACCELERATOR_GLOBALDOCS_APPPOOL_USER##" value="RLG\srvFDGDocsCMS" description="account that the app pool runs under"  />
+  <token key="##ACCELERATOR_WEB_GLOBALDOCS_FILESHARE_PATH##" value="\\royallondongroup.com\shares\Accelerator\GlobalDocs\" description="Global Docs File Share Path"  />
+  <token key="##ACCELERATOR_WEB_GLOBALDOCS_INNER_FILESHARE_PATH##" value="\\royallondongroup.com\Accelerator\GlobalDocs\" description="Global Docs File Share Path for Inner DMZ"  />
+  <token key="##ACCLERATOR_SECRET_TOKEN_GlobalDocsFileShareDomainValue##" value="RLG" description="The domain of the account used for accessing file share value."  />
+  <token key="##ACCELERATOR_SERVICEBUS_BACKOFFICETOOLS_USER##" value="RLG\srvFDSBusBOTools" description="Account that the service runs under"  />
+  <!-- Real Endpoints -->
+  <!--comment out real endpoints while PRD is used for test-->
+  <!--<token key="##INTEGRATION_ENDPOINT_RECEIVE_ALERT_SERVICE_DISTRIBUTION_TECHNOLOGY##" value="https://www.distribution-technology.com/Secure/API/Restful.Facade/Services/Origo/ReceiveExternalAlert.svc?id=659821b3-d5f7-48cc-b143-8e93ca731fd1" />-->
 </tokens>

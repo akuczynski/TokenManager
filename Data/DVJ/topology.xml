@@ -1,0 +1,33 @@
+<Platform>
+  <Environments>
+    <Environment name="TSU">
+      <appServer name="VCDVJFDSMWEB02.testroyallondongroup.com">
+        <AppTier name="AccUI" />
+      </appServer>
+      <appServer name="VCDVJFDSMAPP02.testroyallondongroup.com">
+        <AppTier name="AccAppAsync" />
+        <AppTier name="AccAppServices" />
+        <AppTier name="TestApp" />
+        <AppTier name="PrintServices" />
+      </appServer>      
+	    <appServer name="VCDVAFDSMCAC02.testroyallondongroup.com">
+        <AppTier name="Cache" />
+      </appServer>     
+      <sqlServer name="10.155.115.155\Platform">
+        <SQLTier name="PlatformSQL" />
+      </sqlServer>
+      <Databases>
+        <DatabaseServer name="10.155.115.155\Platform" />
+      </Databases>
+      <Settings>
+        <Setting key="DeploymentRootPath" value="d:\Deployment" />
+        <Setting key="IsStagingEnvironment" value="false" />
+        <Setting key="DatabaseServer" value="10.155.115.155\Platform" />
+      </Settings>
+    </Environment>
+  </Environments>
+  <skips>
+    <Packages>
+    </Packages>
+  </skips>
+</Platform>

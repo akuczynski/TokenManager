@@ -40,11 +40,19 @@ namespace TokenManager.UserControls
             {
                 ContextMenu m = new ContextMenu();
                 m.MenuItems.Add("Add", ShowTokenForm);
-                m.MenuItems.Add("Edit", ShowTokenForm);
-                m.MenuItems.Add("Remove", RemoveToken);
+                if (IsAnyRowSelected())
+                {
+                    m.MenuItems.Add("Edit", ShowTokenForm);
+                    m.MenuItems.Add("Remove", RemoveToken);
+                }                
 
                 m.Show(this.MainGrid, new Point(e.X, e.Y));
             }
+        }
+
+        private bool IsAnyRowSelected()
+        {
+            return  MainGrid.CurrentRow != null;
         }
 
         public void Select(string token)

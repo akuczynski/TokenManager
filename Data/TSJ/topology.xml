@@ -1,0 +1,49 @@
+<Platform>
+  <Environments>
+    <Environment name="TSJ">
+      <appServer name="10.155.44.82">
+        <AppTier name="AccUI" />
+      </appServer>
+      <appServer name="10.155.44.83">
+        <AppTier name="AccUI" />
+      </appServer>
+      <appServer name="10.155.44.162">
+        <AppTier name="AccAppAsync" />
+        <AppTier name="AccAppServices" />
+        <AppTier name="TestApp" />
+      </appServer>
+      <appServer name="10.155.44.163">
+        <AppTier name="AccAppAsync" />
+        <AppTier name="AccAppServices" />
+      </appServer>
+      <appServer name="10.155.107.25">
+        <AppTier name="PrintServices" />
+      </appServer>
+      <appServer name="10.155.107.111">
+        <AppTier name="PrintServices" />
+      </appServer>
+      <appServer name="10.155.44.184">
+        <AppTier name="Cache" />
+      </appServer>
+      <appServer name="10.155.44.185">
+        <AppTier name="Cache" />
+      </appServer>
+
+      <sqlServer name="10.155.107.15\Platform">
+        <SQLTier name="PlatformSQL" />
+      </sqlServer>
+      <Databases>
+        <DatabaseServer name="10.155.107.15\Platform" />
+      </Databases>
+      <Settings>
+        <Setting key="DeploymentRootPath" value="c:\Deployment" />
+        <Setting key="IsStagingEnvironment" value="false" />
+        <Setting key="DatabaseServer" value="10.155.107.15\Platform" />
+      </Settings>
+    </Environment>
+  </Environments>
+  <skips>
+    <Packages>
+    </Packages>
+  </skips>
+</Platform>

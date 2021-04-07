@@ -1,0 +1,36 @@
+<Platform>
+  <Environments>
+    <Environment name="DVF">      
+      <appServer name="10.155.107.65">
+        <AppTier name="AccUI" />
+      </appServer>
+      <appServer name="10.155.107.242">
+        <AppTier name="AccAppAsync" />
+        <AppTier name="AccAppServices" />
+        <AppTier name="TestApp" />
+      </appServer>
+	    <appServer name="10.155.107.144">
+        <AppTier name="Cache" />
+      </appServer>
+      <appServer name="10.155.107.142">
+        <AppTier name="PrintServices" />
+      </appServer>
+      <sqlServer name="10.155.107.164\ACCELERATOR">
+        <SQLTier name="PlatformSQL" />
+      </sqlServer>
+      <Databases>
+        <DatabaseServer name="10.155.107.164\ACCELERATOR" />
+      </Databases>
+      <Settings>
+        <Setting key="DeploymentRootPath" value="d:\Deployment" />
+        <Setting key="IsStagingEnvironment" value="false" />
+        <Setting key="DatabaseServer" value="10.155.107.164\ACCELERATOR" />
+      </Settings>
+    </Environment>
+  </Environments>
+  <skips>
+    <Packages>
+
+    </Packages>
+  </skips>
+</Platform>

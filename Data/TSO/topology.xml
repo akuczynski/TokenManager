@@ -1,0 +1,38 @@
+<Platform>
+  <Environments>
+    <Environment name="TSO">
+      <appServer name="10.155.44.49">
+        <AppTier name="AccUI" />
+      </appServer>
+      <appServer name="10.155.44.180">
+        <AppTier name="AccAppAsync" />
+        <AppTier name="AccAppServices" />
+        <AppTier name="TestApp" />
+      </appServer>
+      <appServer name="10.155.115.7">
+        <AppTier name="PrintServices" />
+      </appServer>
+	    <appServer name="10.155.44.184">
+        <AppTier name="Cache" />
+      </appServer>
+      <appServer name="10.155.44.185">
+        <AppTier name="Cache" />
+      </appServer>
+      <sqlServer name="10.155.115.5\Platform">
+        <SQLTier name="PlatformSQL" />
+      </sqlServer>
+      <Databases>
+        <DatabaseServer name="10.155.115.5\Platform" />
+      </Databases>
+      <Settings>
+        <Setting key="DeploymentRootPath" value="d:\Deployment" />
+        <Setting key="IsStagingEnvironment" value="false" />
+        <Setting key="DatabaseServer" value="10.155.115.5\Platform" />
+      </Settings>
+    </Environment>
+  </Environments>
+  <skips>
+    <Packages>
+    </Packages>
+  </skips>
+</Platform>
