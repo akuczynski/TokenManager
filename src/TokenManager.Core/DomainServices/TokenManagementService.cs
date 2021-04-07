@@ -67,7 +67,7 @@ namespace TokenManager.Core.DomainServices
 
         public TokenViewModel GetToken(string tokenName)
         {
-            return Tokens.First(token => token.Token == tokenName);
+            return Tokens.First(token => token.Token.Equals(tokenName));
         }
 
         public void AddToken(NewTokenViewModel newToken)
