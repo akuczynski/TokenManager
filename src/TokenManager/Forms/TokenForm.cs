@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.Composition;
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
-using TokenManager.Properties;
+using TokenManager.Core.ViewModel;
 
 namespace TokenManager.Forms
 {
@@ -22,6 +22,9 @@ namespace TokenManager.Forms
             EnvironmentCbx.DataSource = TokenEditViewController.GetEnvironments();
             TokenNameTbx.Text = token ?? string.Empty;
             UserNameTbx.Enabled = PasswordChk.Checked;
+
+            AddBtn.Visible = !isEdit;
+            UpdateBtn.Visible = isEdit;
             EnvironmentCbx.Enabled = !GlobalTokenChk.Checked;
 
             if (isEdit)
@@ -30,6 +33,10 @@ namespace TokenManager.Forms
             }
 
             
+            EnvironmentCbx.Enabled = GlobalTokenChk.Checked;
+
+            AddBtn.Visible = !isEdit;
+            UpdateBtn.Visible = isEdit;
         }
 
         private void PasswordChk_CheckedChanged(object sender, System.EventArgs e)
@@ -48,7 +55,29 @@ namespace TokenManager.Forms
             GlobalTokenChk.Enabled = false;
             SubTokenChk.Enabled = false;
             PasswordChk.Enabled = false;
-            this.Text = Messages.EditToken;
+         //   this.Text = Messages.EditToken;
+        }
+
+        private void AddBtn_Click(object sender, System.EventArgs e)
+        {
+            var model = new NewTokenViewModel
+            {
+                Token = TokenNameTbx.Text,
+                IsSubToken = SubTokenChk.Checked, 
+                IsPassword = PasswordChk.Checked, 
+                IsGlobal = GlobalTokenChk.Checked,
+                Environment = EnvironmentCbx.Text,
+                Description = DescriptionTbx.Text, 
+                Value = ValueTbx.Text,
+                UserName = UserNameTbx.Text
+            };
+
+            TokenEditViewController.AddToken(model); 
+        }
+
+        private void UpdateBtn_Click(object sender, System.EventArgs e)
+        {
+
         }
     }
 }

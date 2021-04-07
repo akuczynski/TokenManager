@@ -44,7 +44,8 @@ namespace TokenManager.Forms
             this.TokenNameLbl = new System.Windows.Forms.Label();
             this.SubTokenChk = new System.Windows.Forms.CheckBox();
             this.TokenNameTbx = new System.Windows.Forms.TextBox();
-            this.SubmitButton = new System.Windows.Forms.Button();
+            this.AddBtn = new System.Windows.Forms.Button();
+            this.UpdateBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // EnvironmentCbx
@@ -55,7 +56,7 @@ namespace TokenManager.Forms
             this.EnvironmentCbx.Location = new System.Drawing.Point(137, 80);
             this.EnvironmentCbx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.EnvironmentCbx.Name = "EnvironmentCbx";
-            this.EnvironmentCbx.Size = new System.Drawing.Size(330, 24);
+            this.EnvironmentCbx.Size = new System.Drawing.Size(329, 24);
             this.EnvironmentCbx.TabIndex = 27;
             // 
             // UserNameTbx
@@ -105,7 +106,7 @@ namespace TokenManager.Forms
             // PasswordChk
             // 
             this.PasswordChk.AutoSize = true;
-            this.PasswordChk.Location = new System.Drawing.Point(409, 43);
+            this.PasswordChk.Location = new System.Drawing.Point(361, 43);
             this.PasswordChk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.PasswordChk.Name = "PasswordChk";
             this.PasswordChk.Size = new System.Drawing.Size(91, 21);
@@ -144,7 +145,8 @@ namespace TokenManager.Forms
             // EnvironmentLbl
             // 
             this.EnvironmentLbl.AutoSize = true;
-            this.EnvironmentLbl.Location = new System.Drawing.Point(8, 80);
+            this.EnvironmentLbl.Location = new System.Drawing.Point(11, 98);
+            this.EnvironmentLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EnvironmentLbl.Name = "EnvironmentLbl";
             this.EnvironmentLbl.Size = new System.Drawing.Size(72, 17);
             this.EnvironmentLbl.TabIndex = 18;
@@ -162,8 +164,8 @@ namespace TokenManager.Forms
             // SubTokenChk
             // 
             this.SubTokenChk.AutoSize = true;
-            this.SubTokenChk.Location = new System.Drawing.Point(283, 43);
-            this.SubTokenChk.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.SubTokenChk.Location = new System.Drawing.Point(259, 43);
+            this.SubTokenChk.Margin = new System.Windows.Forms.Padding(4, 2, 4, 2);
             this.SubTokenChk.Name = "SubTokenChk";
             this.SubTokenChk.Size = new System.Drawing.Size(95, 21);
             this.SubTokenChk.TabIndex = 16;
@@ -180,22 +182,35 @@ namespace TokenManager.Forms
             this.TokenNameTbx.Size = new System.Drawing.Size(521, 22);
             this.TokenNameTbx.TabIndex = 15;
             // 
-            // SubmitButton
+            // AddBtn
             // 
-            this.SubmitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SubmitButton.Location = new System.Drawing.Point(538, 267);
-            this.SubmitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.SubmitButton.Name = "SubmitButton";
-            this.SubmitButton.Size = new System.Drawing.Size(120, 36);
-            this.SubmitButton.TabIndex = 14;
-            this.SubmitButton.Text = "Add";
-            this.SubmitButton.UseVisualStyleBackColor = true;
+            this.AddBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AddBtn.Location = new System.Drawing.Point(539, 267);
+            this.AddBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.AddBtn.Name = "AddBtn";
+            this.AddBtn.Size = new System.Drawing.Size(120, 36);
+            this.AddBtn.TabIndex = 14;
+            this.AddBtn.Text = "Add";
+            this.AddBtn.UseVisualStyleBackColor = true;
+            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
+            // 
+            // UpdateBtn
+            // 
+            this.UpdateBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.UpdateBtn.Location = new System.Drawing.Point(539, 267);
+            this.UpdateBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.UpdateBtn.Name = "UpdateBtn";
+            this.UpdateBtn.Size = new System.Drawing.Size(120, 36);
+            this.UpdateBtn.TabIndex = 28;
+            this.UpdateBtn.Text = "Update";
+            this.UpdateBtn.UseVisualStyleBackColor = true;
+            this.UpdateBtn.Click += new System.EventHandler(this.UpdateBtn_Click);
             // 
             // TokenForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(670, 314);
+            this.ClientSize = new System.Drawing.Size(669, 314);
             this.Controls.Add(this.EnvironmentCbx);
             this.Controls.Add(this.UserNameTbx);
             this.Controls.Add(this.DescriptionTbx);
@@ -209,8 +224,9 @@ namespace TokenManager.Forms
             this.Controls.Add(this.TokenNameLbl);
             this.Controls.Add(this.SubTokenChk);
             this.Controls.Add(this.TokenNameTbx);
-            this.Controls.Add(this.SubmitButton);
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Controls.Add(this.AddBtn);
+            this.Controls.Add(this.UpdateBtn);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.Name = "TokenForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Add new Token";
@@ -234,6 +250,7 @@ namespace TokenManager.Forms
         private System.Windows.Forms.Label TokenNameLbl;
         private System.Windows.Forms.CheckBox SubTokenChk;
         private System.Windows.Forms.TextBox TokenNameTbx;
-        private System.Windows.Forms.Button SubmitButton;
+        private System.Windows.Forms.Button AddBtn;
+        private System.Windows.Forms.Button UpdateBtn;
     }
 }

@@ -60,6 +60,7 @@
     <Compile Include="Services\NotyficationService.cs" />
     <Compile Include="DomainServices\TokenManagementService.cs" />
     <Compile Include="ViewModel\EnvironentTokenViewModel.cs" />
+    <Compile Include="ViewModel\NewTokenViewModel.cs" />
     <Compile Include="ViewModel\TokenViewModel.cs" />
     <Compile Include="ViewModel\TokenViewModelComparer.cs" />
   </ItemGroup>

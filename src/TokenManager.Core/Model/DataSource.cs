@@ -98,6 +98,14 @@ namespace TokenManager.Core.Model
             }
         }
 
+        public void AddToken(Token token, string environment)
+        {
+            token.IsDirty = true;
+            token.Action = Action.Insert;
+
+        //    EnvironmentTokens[environment].Add(token);
+        }
+
         private void Notify(string tokenName, Action action)
         {
             this.ModelChanged(tokenName, action);

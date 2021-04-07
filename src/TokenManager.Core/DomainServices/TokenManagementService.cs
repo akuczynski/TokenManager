@@ -11,7 +11,7 @@ namespace TokenManager.Core.DomainServices
 {
     public interface ITokenManagementService
     {
-        void AddToken();
+        void AddToken(NewTokenViewModel newToken);
 
         void UpdateToken();
 
@@ -63,9 +63,18 @@ namespace TokenManager.Core.DomainServices
             _notificationService = notificationService;
         }
 
-        public void AddToken()
+        public void AddToken(NewTokenViewModel newToken)
         {
-            //throw new NotImplementedException();
+            var token = new Token();
+            token.Key = newToken.Token;
+            token.Value = newToken.Value;
+            token.Description = newToken.Description;
+            token.IsSubToken = newToken.IsSubToken;
+            token.IsPassword = newToken.IsPassword;
+            token.UserName = newToken.UserName;
+
+            //            var environment = newToken.Environment; 
+            _persistanceService.DataSource.AddToken(token, newToken.Environment);
         }
 
         public IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName)
