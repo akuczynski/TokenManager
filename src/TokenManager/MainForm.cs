@@ -10,15 +10,7 @@ namespace TokenManager
     public partial class MainForm : Form, IEventHandler, IMainForm
     {
         [Import]
-        public INotyficationService NotyficationService { get; set; }
-
-        public IWin32Window Window
-        {
-            get
-            {
-                return this;
-            }
-        }
+        public INotificationService NotyficationService { get; set; }
 
         public MainForm()
         {
@@ -42,7 +34,15 @@ namespace TokenManager
                 MenuPanel.Init();
 
                 TokensGrid.ShowData(true, true, false, null);
-                StatubBarLbl.Text = Messages.ApplicationLoaded;
+                StatubBarLbl.Text = Messages.DataLoaded;
+            }
+            else if (appEvent is ModelHasChangedEvent)
+            {
+                MenuPanel.ReloadTokenGrid(); 
+            }
+            else if (appEvent is ProjectSavedEvent)
+            {
+                UpdateMessageOnStatusBar(Messages.DataSaved);
             }
         }
 
@@ -64,6 +64,6 @@ namespace TokenManager
             modalWindow.MainForm = this;
             modalWindow.Init(isEdit, token);
             modalWindow.ShowDialog(this);
-        }
+        } 
     }
 } 

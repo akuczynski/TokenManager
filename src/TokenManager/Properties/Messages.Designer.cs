@@ -63,9 +63,27 @@ namespace TokenManager.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Data loaded successfully..
         /// </summary>
-        internal static string ApplicationLoaded {
+        internal static string DataLoaded {
             get {
-                return ResourceManager.GetString("ApplicationLoaded", resourceCulture);
+                return ResourceManager.GetString("DataLoaded", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Data was saved..
+        /// </summary>
+        internal static string DataSaved {
+            get {
+                return ResourceManager.GetString("DataSaved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {0} was deleted..
+        /// </summary>
+        internal static string TokenRemoved {
+            get {
+                return ResourceManager.GetString("TokenRemoved", resourceCulture);
             }
         }
         

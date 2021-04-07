@@ -5,15 +5,15 @@ using TokenManager.Core.Events;
 
 namespace TokenManager.Core.DomainServices
 {
-    public interface INotyficationService
+    public interface INotificationService
     {
         void Subscribe(Type eventType, IEventHandler handler);
 
         void Publish(IEvent appEvent);
     }
 
-    [Export(typeof(INotyficationService))]
-    internal class NotyficationService : INotyficationService
+    [Export(typeof(INotificationService))]
+    internal class NotyficationService : INotificationService
     {
         private Dictionary<Type, IList<IEventHandler>> _eventHandlers { get; set; }
 

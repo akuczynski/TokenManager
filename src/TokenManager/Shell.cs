@@ -30,7 +30,7 @@ namespace TokenManager
             var catalog = new AggregateCatalog();
 
             catalog.Catalogs.Add(new AssemblyCatalog(typeof(Shell).Assembly));
-            catalog.Catalogs.Add(new AssemblyCatalog(typeof(INotyficationService).Assembly));
+            catalog.Catalogs.Add(new AssemblyCatalog(typeof(INotificationService).Assembly));
             CompositionContainer = new CompositionContainer(catalog);
         }
     }

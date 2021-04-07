@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.Composition;
+﻿using System.Collections.Generic;
+using System.ComponentModel.Composition;
 using System.IO;
 using System.Linq;
 using TokenManager.Core.Model;
@@ -21,12 +22,15 @@ namespace TokenManager.Core.DomainServices
     {
         private IDataSourceLoader _dataSourceLoader { get; set; }
 
+        private IDataSourceWritter _dataSourceWritter;
+
         public DataSource DataSource { get; private set; }
 
         [ImportingConstructor]
-        public PersistanceService(IDataSourceLoader dataSourceLoader)
+        public PersistanceService(IDataSourceLoader dataSourceLoader, IDataSourceWritter dataSourceWritter)
         {
             _dataSourceLoader = dataSourceLoader;
+            _dataSourceWritter = dataSourceWritter;
         }
 
         public void LoadData(string rootFolderPath)
@@ -47,8 +51,13 @@ namespace TokenManager.Core.DomainServices
         
         public void SaveData(string rootFolderPath)
         {
-            throw new System.NotImplementedException();
-        } 
+            foreach(var env in DataSource.GetAllEnvironments())
+            {
+                var dirtyTokens = DataSource.GetTokens(env).Where(x => x.IsDirty);
+                _dataSourceWritter.WriteTokens(dirtyTokens, env.Source);
+            }
+        }
+
 
         private void AddTokens(string tokenXml, string environmentName, bool isRoot)
         {
