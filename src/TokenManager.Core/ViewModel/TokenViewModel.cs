@@ -10,6 +10,8 @@
 
         public string Description { get; set; }
 
+        public string UserName { get; set; }
+
         public bool Password { get; set; }
 
         public bool Global { get; set; }

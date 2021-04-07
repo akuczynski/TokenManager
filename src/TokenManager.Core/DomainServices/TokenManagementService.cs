@@ -86,7 +86,6 @@ namespace TokenManager.Core.DomainServices
 
         public void UpdateToken(UpdateTokenViewModel updateToken)
         {
-            //todo:
             var dataSource = _persistanceService.DataSource;
             var token = dataSource.GetToken(updateToken.Token, dataSource.RootEnvironment);
             token.Value = updateToken.Value;
@@ -187,7 +186,9 @@ namespace TokenManager.Core.DomainServices
                 if (tokenViewModel != null)
                 {
                     tokenViewModel.Value = token.Value;
-                    tokenViewModel.Description = token.Description; 
+                    tokenViewModel.Description = token.Description;
+                    tokenViewModel.UserName = token.UserName; 
+
                     _notificationService.Publish(new ModelHasChangedEvent());
                 }
             }
@@ -201,6 +202,7 @@ namespace TokenManager.Core.DomainServices
                 tokenViewModel.Token = token.Key;
                 tokenViewModel.Value = (isGlobal)? token.Value : "";
                 tokenViewModel.Description = (isGlobal) ? token.Description : "";
+                tokenViewModel.UserName = (isGlobal) ? token.UserName : "";
                 tokenViewModel.IsSubToken = token.IsSubToken;
                 tokenViewModel.Password = token.IsPassword; 
                 tokenViewModel.Global = isGlobal;
@@ -212,8 +214,6 @@ namespace TokenManager.Core.DomainServices
         public bool IsTokenNameUnique(string tokenName)
         {
             return !_tokens.Where(x => x.Token.Equals(tokenName)).Any();
-        }
-
-      
+        }      
     }
 }

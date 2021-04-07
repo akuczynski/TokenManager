@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
-using System.Xml;
+using System.Linq;
 using System.Xml.Linq;
 using TokenManager.Core.Model;
+using Xml = TokenManager.Core.DomainServices.XmlConstants;
 
 namespace TokenManager.Core.DomainServices
 {
@@ -14,8 +15,6 @@ namespace TokenManager.Core.DomainServices
     [Export(typeof(IDataSourceLoader))]
     internal class DataSourceLoader : IDataSourceLoader
     {
-        private const string SubTokensNodeName = "subtokens";
-
         public IList<Token> ReadTokens(string filePath)
         {
             XDocument tokensXml = XDocument.Load(filePath);
@@ -23,7 +22,7 @@ namespace TokenManager.Core.DomainServices
         
             foreach (var childNode in tokensXml.Root.Elements())
             {
-                if (childNode.Name.LocalName.Equals(SubTokensNodeName))
+                if (childNode.Name.LocalName.Equals(Xml.SubTokensNodeName))
                 {
                     var subTokens = ReadSubTokens(childNode);
                     result.AddRange(subTokens);
@@ -33,11 +32,13 @@ namespace TokenManager.Core.DomainServices
                 else
                 {
                     var token = new Token();
-                    token.Key = childNode.Attribute("key").Value;
-                    token.Value = childNode.Attribute("value")?.Value;
-                    token.IsPassword = childNode.Attribute("password")?.Value == "true";
-                    token.Description = childNode.Attribute("description")?.Value;
-                    token.UserName = childNode.Attribute("userName")?.Value; 
+
+                    token.Key = ReadAttribute(childNode, Xml.KeyAttributeName);
+                    token.Value = ReadAttribute(childNode, Xml.ValueAttributeName);
+                    token.IsPassword = ReadAttribute(childNode, Xml.PasswordAttributeName) == "true";
+                    token.Description = ReadAttribute(childNode, Xml.DescriptionAttributeName);
+                    token.UserName = ReadAttribute(childNode, Xml.UserNameAttributeName); 
+
                     result.Add(token);
                 }
             }
@@ -52,16 +53,22 @@ namespace TokenManager.Core.DomainServices
             foreach (var childNode in subTokensNode.Elements())
             {
                 var token = new Token { IsSubToken = true };
-                token.Key = childNode.Attribute("key").Value;
-                token.Value = childNode.Attribute("value")?.Value;
-                token.IsPassword = childNode.Attribute("password")?.Value == "true";
-                token.Description = childNode.Attribute("description")?.Value;
-                token.UserName = childNode.Attribute("userName")?.Value;
+
+                token.Key = ReadAttribute(childNode, Xml.KeyAttributeName);
+                token.Value = ReadAttribute(childNode, Xml.ValueAttributeName);
+                token.IsPassword = ReadAttribute(childNode, Xml.PasswordAttributeName) == "true";
+                token.Description = ReadAttribute(childNode, Xml.DescriptionAttributeName);
+                token.UserName = ReadAttribute(childNode, Xml.UserNameAttributeName);
 
                 result.Add(token);
             }
 
             return result;
+        }
+
+        private string ReadAttribute(XElement xElement, string attributeName)
+        {
+            return xElement.Attributes().Where(x => x.Name.LocalName.Equals(attributeName, System.StringComparison.OrdinalIgnoreCase)).SingleOrDefault()?.Value;
         }
     }
 }

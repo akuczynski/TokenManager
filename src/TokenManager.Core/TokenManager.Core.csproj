@@ -45,6 +45,7 @@
     <Compile Include="Controllers\MainViewController.cs" />
     <Compile Include="Controllers\TokenEditViewController.cs" />
     <Compile Include="DomainServices\DataSourceWritter.cs" />
+    <Compile Include="DomainServices\XmlConstants.cs" />
     <Compile Include="Events\Events.cs" />
     <Compile Include="DomainServices\PersistanceService.cs" />
     <Compile Include="Controllers\TokensGridViewController.cs" />

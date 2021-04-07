@@ -61,11 +61,14 @@ namespace TokenManager.UserControls
             try
             {
                 MainGrid.Rows
-                    .OfType<DataGridViewRow>()
+                     .OfType<DataGridViewRow>()
                      .Where(x => (string)x.Cells[0].Value == token)
-                     .ToArray<DataGridViewRow>()[0]
+                     .ToArray()[0]
                      .Selected = true;
-            }catch(Exception) { }
+            }catch(Exception)
+            {
+                // gets here when row is hidden
+            }
         }
 
         private void SubGrid_MouseClick(object sender, MouseEventArgs e)
@@ -128,7 +131,7 @@ namespace TokenManager.UserControls
 
         private string GetSelectedToken()
         {
-            return (string)MainGrid.CurrentRow.Cells[0]?.Value;
+            return (string)MainGrid.SelectedRows[0]?.Cells[0]?.Value; 
         }
 
         private void UpdateRowsBackgroundColors()
