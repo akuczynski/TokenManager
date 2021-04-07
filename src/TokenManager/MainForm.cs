@@ -26,7 +26,8 @@ namespace TokenManager
             NotyficationService.Subscribe(typeof(ModelHasChangedEvent), this);
             NotyficationService.Subscribe(typeof(ProjectLoadedEvent), this);
             NotyficationService.Subscribe(typeof(ProjectSavedEvent), this);
-        }          
+            NotyficationService.Subscribe(typeof(SelectTokenEvent), this);
+        }
 
         void IEventHandler.Handle(IEvent appEvent)
         {
@@ -40,6 +41,11 @@ namespace TokenManager
             else if (appEvent is ModelHasChangedEvent)
             {
                 MenuPanel.ReloadTokenGrid(); 
+            }
+            else if (appEvent is SelectTokenEvent)
+            {
+                var token = (appEvent as SelectTokenEvent).Token;
+                TokensGrid.Select(token);
             }
             else if (appEvent is ProjectSavedEvent)
             {
