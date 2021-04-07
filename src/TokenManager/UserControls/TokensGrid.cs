@@ -65,9 +65,12 @@ namespace TokenManager.UserControls
                      .Where(x => (string)x.Cells[0].Value == token)
                      .ToArray()[0]
                      .Selected = true;
-            }catch(Exception)
+
+                SelectDataGridRow(MainGrid.SelectedRows[0]);
+            }
+            catch(Exception)
             {
-                // gets here when row is hidden
+                // it can happern when row is hidden
             }
         }
 
@@ -87,17 +90,22 @@ namespace TokenManager.UserControls
         {
             if (MainGrid.CurrentRow.Index != _selectedRowIndex)
             {
-                string tokenName = GetSelectedToken();
-                bool isPassword = (bool)MainGrid.CurrentRow.Cells[nameof(TokenViewModel.Password)].Value;
-
-                this.SubGrid.DataSource = TokensGridViewController.GetTokenValuesForAllEnvironments(tokenName);
-                this.SubGrid.Columns[nameof(EnvironentTokenViewModel.UserName)].Visible = isPassword;
-
-                _selectedRowIndex = MainGrid.CurrentRow.Index;
-
-                var text = string.Format(Messages.TokenSelectionChanged, tokenName);
-                MainForm.UpdateMessageOnStatusBar(text);
+                SelectDataGridRow(MainGrid.CurrentRow); 
             }
+        }
+
+        private void SelectDataGridRow(DataGridViewRow row)
+        {
+            string tokenName = (string) row.Cells[0]?.Value;  
+            bool isPassword = (bool)row.Cells[nameof(TokenViewModel.Password)].Value;
+
+            this.SubGrid.DataSource = TokensGridViewController.GetTokenValuesForAllEnvironments(tokenName);
+            this.SubGrid.Columns[nameof(EnvironentTokenViewModel.UserName)].Visible = isPassword;
+
+            _selectedRowIndex = row.Index;
+
+            var text = string.Format(Messages.TokenSelectionChanged, tokenName);
+            MainForm.UpdateMessageOnStatusBar(text);
         }
 
         private void RemoveToken(object sender, EventArgs e)

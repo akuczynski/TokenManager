@@ -15,7 +15,6 @@ namespace TokenManager.Core.DomainServices
 
         void RemoveToken(string tokenName);
 
-        //TODO: maybe move this to different class ?! 
         IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName);
         void Init();
 
@@ -177,6 +176,7 @@ namespace TokenManager.Core.DomainServices
             else if (action == Action.Insert)
             {
                 AddToTokensSet(new[] { token }, isGlobal);
+
                 _notificationService.Publish(new ModelHasChangedEvent());
                 _notificationService.Publish(new SelectTokenEvent() { Token = token.Key });
             }

@@ -15,6 +15,6 @@ namespace TokenManager.Core.DomainServices
         public const string ValueAttributeName = "value";
         public const string DescriptionAttributeName = "description";
         public const string PasswordAttributeName = "password";
-        public const string UserNameAttributeName = "userName";
+        public const string UserNameAttributeName = "username";
     }
 }
