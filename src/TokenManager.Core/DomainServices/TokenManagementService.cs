@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
+using System.Xml.Linq;
 using TokenManager.Core.Events;
 using TokenManager.Core.Model;
 using TokenManager.Core.ViewModel;
@@ -28,11 +29,12 @@ namespace TokenManager.Core.DomainServices
         bool IsTokenNameUnique(string tokenName);
         
         TokenViewModel GetToken(string tokenName);
-
+        XElement GetTokenXml(string tokenName);
+        
         void AssignValue(string token, EnvironmentTokenViewModel model);
     }
 
-    [Export(typeof(ITokenManagementService))]
+     [Export(typeof(ITokenManagementService))]
     internal class TokenManagementService : ITokenManagementService, System.IDisposable
     {
         private HashSet<TokenViewModel> _tokens;
@@ -72,6 +74,11 @@ namespace TokenManager.Core.DomainServices
         {
             return Tokens.First(token => token.Token.Equals(tokenName));
         }     
+
+        public XElement GetTokenXml(string tokenName)
+        {
+            return _persistanceService.DataSource.GetToken(tokenName).Xml;
+        }
 
         public void AddToken(NewTokenViewModel newToken)
         {

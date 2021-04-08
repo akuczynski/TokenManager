@@ -51,14 +51,16 @@ namespace TokenManager.UserControls
             {
                 ContextMenu m = new ContextMenu();
                 m.MenuItems.Add("Add Token", ShowAddTokenForm);
-                m.MenuItems.Add("Add Subtoken", ShowAddSubtokenForm);
+                m.MenuItems.Add("Add Sub-token", ShowAddSubtokenForm);
 
                 if (IsAnyRowSelected(this.MainGrid))
                 {
                     m.MenuItems.Add("Edit", ShowEditTokenForm);
                     m.MenuItems.Add("Remove", RemoveToken);
-                }
-                
+                    m.MenuItems.Add("-");
+                    m.MenuItems.Add("Copy name", CopyTokenNameToClipboard);
+                    m.MenuItems.Add("Copy xml", CopyTokenXml);
+                }                
 
                 m.Show(this.MainGrid, new Point(e.X, e.Y));
             }
@@ -153,7 +155,18 @@ namespace TokenManager.UserControls
             var tokenName = GetSelectedToken();
             MainForm.ShowTokenModalWindow(true, token: tokenName);
         }
-        
+
+        private void CopyTokenNameToClipboard(object sender, EventArgs e)
+        {
+            Clipboard.SetText(GetSelectedToken());
+        }
+
+        private void CopyTokenXml(object sender, EventArgs e)
+        {
+            var xml = TokensGridViewController.GetTokenXml(GetSelectedToken());
+            Clipboard.SetText(xml.ToString());
+        }
+
         private void ShowEnvironmentForm(object sender, EventArgs e)
         {
             var token = GetSelectedToken();
