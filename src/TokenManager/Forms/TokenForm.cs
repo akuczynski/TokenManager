@@ -18,7 +18,7 @@ namespace TokenManager.Forms
             InitializeComponent();
         }
 
-        public void Init(bool isEdit, string token)
+        public void Init(bool isEdit, bool isSubtoken, string token)
         {
             EnvironmentCbx.DataSource = TokenEditViewController.GetEnvironments();
 
@@ -26,8 +26,9 @@ namespace TokenManager.Forms
             {
                 var tokenViewModel = TokenEditViewController.GetToken(token);
                 PopulateFields(tokenViewModel);
-            }            
+            }
 
+            SubTokenChk.Checked = isSubtoken;
             UserNameTbx.Enabled = PasswordChk.Checked;
             AddBtn.Visible = !isEdit;
             UpdateBtn.Visible = isEdit;
@@ -57,6 +58,14 @@ namespace TokenManager.Forms
             GlobalTokenChk.Enabled = false;
             SubTokenChk.Enabled = false;
             PasswordChk.Enabled = false;
+            EnvironmentCbx.Hide();
+            EnvironmentLbl.Hide();
+            if (!PasswordChk.Checked)
+            {
+                UserNameTbx.Hide();
+                UserNameLbl.Hide();
+            }
+
             this.Text = Messages.EditToken;
         }
 

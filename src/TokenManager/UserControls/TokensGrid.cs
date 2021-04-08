@@ -46,10 +46,12 @@ namespace TokenManager.UserControls
             if (e.Button == MouseButtons.Right)
             {
                 ContextMenu m = new ContextMenu();
-                m.MenuItems.Add("Add", ShowTokenForm);
-                if (IsAnyRowSelected())
+                m.MenuItems.Add("Add Token", ShowAddTokenForm);
+                m.MenuItems.Add("Add Subtoken", ShowAddSubtokenForm);
+
+                if (IsAnyRowSelected(this.MainGrid))
                 {
-                    m.MenuItems.Add("Edit", ShowTokenForm);
+                    m.MenuItems.Add("Edit", ShowEditTokenForm);
                     m.MenuItems.Add("Remove", RemoveToken);
                 }
                 
@@ -58,10 +60,7 @@ namespace TokenManager.UserControls
             }
         }
 
-        private bool IsAnyRowSelected()
-        {
-            return MainGrid.CurrentRow != null;
-        }
+        
 
         public void Select(string token)
         {
@@ -85,9 +84,12 @@ namespace TokenManager.UserControls
         {
             if (e.Button == MouseButtons.Right)
             {
-                ContextMenu m = new ContextMenu();                
+                ContextMenu m = new ContextMenu();                           
                 m.MenuItems.Add("Edit", ShowEnvironmentForm);
-                m.MenuItems.Add("Remove", RemoveToken);
+                if (IsAnyRowSelected(this.SubGrid))
+                {
+                    m.MenuItems.Add("Remove", RemoveToken); 
+                }
 
                 m.Show(this.SubGrid, new Point(e.X, e.Y));
             }
@@ -128,18 +130,20 @@ namespace TokenManager.UserControls
             MainForm.UpdateMessageOnStatusBar(message);
         }
 
-        private void ShowTokenForm(object sender, EventArgs e)
+        private void ShowAddTokenForm(object sender, EventArgs e)
         {
-            var menuItem = sender as MenuItem;
-            if ("Add".Equals(menuItem?.Text))
-            {
-                MainForm.ShowTokenModalWindow(false);
-            }
-            else
-            {
-                var tokenName = GetSelectedToken();
-                MainForm.ShowTokenModalWindow(true, tokenName);
-            }
+            MainForm.ShowTokenModalWindow(false, false);
+        }
+
+        private void ShowAddSubtokenForm(object sender, EventArgs e)
+        {
+            MainForm.ShowTokenModalWindow(false, true);
+        }
+
+        private void ShowEditTokenForm(object sender, EventArgs e)
+        {
+            var tokenName = GetSelectedToken();
+            MainForm.ShowTokenModalWindow(true, token: tokenName);
         }
         
         private void ShowEnvironmentForm(object sender, EventArgs e)
@@ -166,6 +170,11 @@ namespace TokenManager.UserControls
                     row.DefaultCellStyle.BackColor = Color.LightGray;
                 }
             }
+        }
+
+        private bool IsAnyRowSelected(DataGridView grid)
+        {
+            return grid.SelectedRows.Count > 0;
         }
     }
 }

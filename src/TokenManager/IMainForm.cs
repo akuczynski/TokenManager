@@ -6,7 +6,7 @@
 
         void UpdateMessageOnStatusBar(string text);
 
-        void ShowTokenModalWindow(bool isEdit, string token = null);
+        void ShowTokenModalWindow(bool isEdit, bool isSubtoken = false, string token = null);
 
         void ShowEnvironmentModalWindow(string token, string environment);
     }
