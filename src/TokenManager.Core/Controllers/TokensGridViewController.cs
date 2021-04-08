@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
+using System.Xml.Linq;
 using TokenManager.Core.Events;
 using TokenManager.Core.ViewModel;
 
@@ -12,6 +13,7 @@ namespace TokenManager.Core.DomainServices
 
         IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName);
         void RemoveToken(string tokenName);
+        XElement GetTokenXml(string tokenName);
     }
 
     [Export(typeof(ITokensGridViewController))]
@@ -67,6 +69,11 @@ namespace TokenManager.Core.DomainServices
 
 
             return result.OrderBy(token => token.IsSubToken).ToList(); 
+        }
+
+        public XElement GetTokenXml(string tokenName)
+        {
+            return _tokenManagementService.GetTokenXml(tokenName);
         }
 
         public IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName)

@@ -37,7 +37,8 @@ namespace TokenManager.Core.DomainServices
                     token.Value = ReadAttribute(childNode, Xml.ValueAttributeName);
                     token.IsPassword = ReadAttribute(childNode, Xml.PasswordAttributeName) == "true";
                     token.Description = ReadAttribute(childNode, Xml.DescriptionAttributeName);
-                    token.UserName = ReadAttribute(childNode, Xml.UserNameAttributeName); 
+                    token.UserName = ReadAttribute(childNode, Xml.UserNameAttributeName);
+                    token.Xml = childNode;
 
                     result.Add(token);
                 }
@@ -59,6 +60,7 @@ namespace TokenManager.Core.DomainServices
                 token.IsPassword = ReadAttribute(childNode, Xml.PasswordAttributeName) == "true";
                 token.Description = ReadAttribute(childNode, Xml.DescriptionAttributeName);
                 token.UserName = ReadAttribute(childNode, Xml.UserNameAttributeName);
+                token.Xml = childNode;
 
                 result.Add(token);
             }

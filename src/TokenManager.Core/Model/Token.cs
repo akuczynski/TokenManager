@@ -1,4 +1,6 @@
-﻿namespace TokenManager.Core.Model
+﻿using System.Xml.Linq;
+
+namespace TokenManager.Core.Model
 {
     public enum Action
     {
@@ -25,6 +27,7 @@
         public Action Action { get; set; } 
 
         public bool IsDirty { get; set; }
+        public XElement Xml{ get; set; }
     }
 
     public class EmptyToken : Token

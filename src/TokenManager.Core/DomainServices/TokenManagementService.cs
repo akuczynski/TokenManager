@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
+using System.Xml.Linq;
 using TokenManager.Core.Events;
 using TokenManager.Core.Model;
 using TokenManager.Core.ViewModel;
@@ -24,6 +25,7 @@ namespace TokenManager.Core.DomainServices
 
         bool IsTokenNameUnique(string tokenName);
         TokenViewModel GetToken(string tokenName);
+        XElement GetTokenXml(string tokenName);
     }
 
     [Export(typeof(ITokenManagementService))]
@@ -66,6 +68,11 @@ namespace TokenManager.Core.DomainServices
         {
             return Tokens.First(token => token.Token.Equals(tokenName));
         }     
+
+        public XElement GetTokenXml(string tokenName)
+        {
+            return _persistanceService.DataSource.GetToken(tokenName).Xml;
+        }
 
         public void AddToken(NewTokenViewModel newToken)
         {
