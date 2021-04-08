@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Xml.Linq;
@@ -42,7 +43,7 @@ namespace TokenManager.Core.DomainServices
 
                             else if (token.Action == Model.Action.Update)
                             {
-                                WriteToken(token, tokensXml);
+                                UpdateToken(token, xmlNode);
 
                                 token.IsDirty = false;
                                 token.Action = Model.Action.None;
@@ -52,6 +53,36 @@ namespace TokenManager.Core.DomainServices
                 }
 
                 tokensXml.Save(filePath);
+            }
+        }
+
+        private void UpdateToken(Token token, XElement node)
+        {
+            node.SetAttributeValue(Xml.ValueAttributeName, token.Value);
+
+            var oldDescriptionValue = ReadAttribute(node, Xml.DescriptionAttributeName); 
+            if (!string.IsNullOrEmpty(token.Description))
+            {
+                node.SetAttributeValue(Xml.DescriptionAttributeName, token.Description);
+            }
+            else if (!string.IsNullOrEmpty(oldDescriptionValue))
+            {
+                // todo: maybe remove this attribute 
+                node.SetAttributeValue(Xml.DescriptionAttributeName, "");
+            }
+
+            if (token.IsPassword)
+            {
+                var oldUserNameValue = ReadAttribute(node, Xml.UserNameAttributeName);
+                if (!string.IsNullOrEmpty(token.UserName))
+                {
+                    node.SetAttributeValue(Xml.UserNameAttributeName, token.UserName);
+                }
+                else if (!string.IsNullOrEmpty(oldUserNameValue))
+                {
+                    // todo: maybe remove this attribute 
+                    node.SetAttributeValue(Xml.UserNameAttributeName, "");
+                }
             }
         }
 
@@ -86,6 +117,11 @@ namespace TokenManager.Core.DomainServices
             return tokensXml.Descendants(Xml.TokenNodeName)
                 .Where(x => token.Key.Equals(x?.Attribute(Xml.KeyAttributeName)?.Value))
                 .SingleOrDefault();
+        }
+
+        private string ReadAttribute(XElement xElement, string attributeName)
+        {
+            return xElement.Attributes().Where(x => x.Name.LocalName.Equals(attributeName, System.StringComparison.OrdinalIgnoreCase)).SingleOrDefault()?.Value;
         }
     }
 }
