@@ -48,6 +48,7 @@ namespace TokenManager.Forms
             PasswordChk.Checked = tokenViewModel.Password;
             ValueTbx.Text = tokenViewModel.Value;
             DescriptionTbx.Text = tokenViewModel.Description;
+            UserNameTbx.Text = tokenViewModel.UserName;
         }
 
         private void InitForEdit()
