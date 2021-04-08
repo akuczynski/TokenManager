@@ -42,6 +42,7 @@ namespace TokenManager.UserControls
             this.GlobalCbx.CheckedChanged += new System.EventHandler(FilterTokenGrid);            
 
             NotificationService.Subscribe(typeof(ModelHasChangedEvent), this);
+            NotificationService.Subscribe(typeof(TokenValueAssignChangedEvent), this);
             NotificationService.Subscribe(typeof(ProjectSavedEvent), this);
         }
 
@@ -68,7 +69,7 @@ namespace TokenManager.UserControls
 
         void IEventHandler.Handle(IEvent appEvent)
         {
-            if (appEvent is ModelHasChangedEvent)
+            if (appEvent is ModelHasChangedEvent || appEvent is TokenValueAssignChangedEvent)
             {
                 SaveBtn.Enabled = true;
             }

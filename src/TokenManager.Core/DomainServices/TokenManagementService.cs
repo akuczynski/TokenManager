@@ -26,7 +26,10 @@ namespace TokenManager.Core.DomainServices
         IEnumerable<string> Environments { get; }
 
         bool IsTokenNameUnique(string tokenName);
+        
         TokenViewModel GetToken(string tokenName);
+
+        void AssignValue(string token, EnvironmentTokenViewModel model);
     }
 
     [Export(typeof(ITokenManagementService))]
@@ -224,6 +227,10 @@ namespace TokenManager.Core.DomainServices
                     _notificationService.Publish(new ModelHasChangedEvent());
                 }
             }
+            else if (action == Action.TokenValueAssigment)
+            {
+                _notificationService.Publish(new TokenValueAssignChangedEvent());
+            }
         }
 
         private void AddToTokensSet(IEnumerable<Token> tokens, bool isGlobal)
@@ -246,6 +253,39 @@ namespace TokenManager.Core.DomainServices
         public bool IsTokenNameUnique(string tokenName)
         {
             return !_tokens.Where(x => x.Token.Equals(tokenName)).Any();
-        }      
+        }
+
+        public void AssignValue(string tokenName, EnvironmentTokenViewModel model)
+        {
+            var dataSource = _persistanceService.DataSource;
+            var environment = dataSource.GetEnvironment(model.Environment);
+
+            var token = dataSource.GetToken(tokenName, environment);
+            if (!(token is EmptyToken))
+            {
+                // update 
+                token.Description = model.Description;
+                token.Value = model.Value;
+                token.UserName = model.UserName;
+
+                dataSource.UpdateTokenAssigment(token);
+            }
+            else
+            {
+                // new token value assigment 
+                var tokenViewModel = _tokens.SingleOrDefault(x => x.Token.Equals(tokenName));
+
+                token = new Token();
+                token.Key = tokenName;
+                token.Value = model.Value;
+                token.Description = model.Description;
+                token.IsSubToken = tokenViewModel.IsSubToken;
+                token.IsPassword = tokenViewModel.Password;
+                token.UserName = model.UserName;
+
+                 dataSource.AddTokenAssigment(token, environment);
+            }
+
+        }
     }
 }

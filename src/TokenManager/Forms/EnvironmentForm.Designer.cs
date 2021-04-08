@@ -35,7 +35,7 @@ namespace TokenManager.Forms
             this.ValueTbx = new System.Windows.Forms.TextBox();
             this.UserNameLbl = new System.Windows.Forms.Label();
             this.UserNameTbx = new System.Windows.Forms.TextBox();
-            this.SubmitBtn = new System.Windows.Forms.Button();
+            this.AssignBtn = new System.Windows.Forms.Button();
             this.DescriptionLbl = new System.Windows.Forms.Label();
             this.DescriptionTbx = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
@@ -93,15 +93,16 @@ namespace TokenManager.Forms
             this.UserNameTbx.Size = new System.Drawing.Size(230, 20);
             this.UserNameTbx.TabIndex = 5;
             // 
-            // SubmitBtn
+            // AssignBtn
             // 
-            this.SubmitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SubmitBtn.Location = new System.Drawing.Point(250, 119);
-            this.SubmitBtn.Name = "SubmitBtn";
-            this.SubmitBtn.Size = new System.Drawing.Size(75, 23);
-            this.SubmitBtn.TabIndex = 6;
-            this.SubmitBtn.Text = "Assign";
-            this.SubmitBtn.UseVisualStyleBackColor = true;
+            this.AssignBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.AssignBtn.Location = new System.Drawing.Point(250, 119);
+            this.AssignBtn.Name = "AssignBtn";
+            this.AssignBtn.Size = new System.Drawing.Size(75, 23);
+            this.AssignBtn.TabIndex = 6;
+            this.AssignBtn.Text = "Assign";
+            this.AssignBtn.UseVisualStyleBackColor = true;
+            this.AssignBtn.Click += new System.EventHandler(this.AssignBtn_Click);
             // 
             // DescriptionLbl
             // 
@@ -130,7 +131,7 @@ namespace TokenManager.Forms
             this.ClientSize = new System.Drawing.Size(335, 153);
             this.Controls.Add(this.DescriptionTbx);
             this.Controls.Add(this.DescriptionLbl);
-            this.Controls.Add(this.SubmitBtn);
+            this.Controls.Add(this.AssignBtn);
             this.Controls.Add(this.UserNameTbx);
             this.Controls.Add(this.UserNameLbl);
             this.Controls.Add(this.ValueTbx);
@@ -153,7 +154,7 @@ namespace TokenManager.Forms
         private System.Windows.Forms.TextBox ValueTbx;
         private System.Windows.Forms.Label UserNameLbl;
         private System.Windows.Forms.TextBox UserNameTbx;
-        private System.Windows.Forms.Button SubmitBtn;
+        private System.Windows.Forms.Button AssignBtn;
         private System.Windows.Forms.Label DescriptionLbl;
         private System.Windows.Forms.TextBox DescriptionTbx;
     }

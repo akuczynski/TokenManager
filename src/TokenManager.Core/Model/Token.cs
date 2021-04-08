@@ -5,7 +5,9 @@
         None, 
         Insert,
         Update, 
-        Delete
+        Delete,
+
+        TokenValueAssigment
     }
 
     public class Token

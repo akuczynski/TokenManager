@@ -36,7 +36,7 @@ namespace TokenManager.Forms
 
         private void EnvironmentCbx_SelectionChanged(object sender, System.EventArgs e)
         {
-            var selectedEnvironment = (string)EnvironmentCbx.SelectedValue;
+            var selectedEnvironment = GetSelectedEnvironment();
             var model = EnvironmentEditViewController.GetData(_token, selectedEnvironment);
             PopulateField(model);
         }
@@ -60,6 +60,25 @@ namespace TokenManager.Forms
             }
             
             DescriptionTbx.Text = model.Description;
+        }
+
+        private void AssignBtn_Click(object sender, System.EventArgs e)
+        {
+            var model = new EnvironmentTokenViewModel
+            {
+                Value = ValueTbx.Text,
+                Environment = GetSelectedEnvironment(),
+                UserName = UserNameTbx.Text, 
+                Description = DescriptionTbx.Text
+            };
+
+            EnvironmentEditViewController.AssingValue(_token, model);
+            Close();
+        }
+
+        private string GetSelectedEnvironment()
+        {
+            return (string)EnvironmentCbx.SelectedValue;
         }
     }
 }

@@ -142,13 +142,20 @@ namespace TokenManager.Core.Model
             }
         }
 
-        internal void UpdateToken(Token token)
+        public void UpdateToken(Token token)
         {
             token.IsDirty = true;
             token.Action = Action.Update;
 
-
             Notify(token, Action.Update, true);
+        }
+
+        public void UpdateTokenAssigment(Token token)
+        {
+            token.IsDirty = true;
+            token.Action = Action.Update;
+
+            Notify(token, Action.TokenValueAssigment, true);
         }
 
         public void AddToken(Token token, Environment environment)
@@ -159,6 +166,15 @@ namespace TokenManager.Core.Model
             EnvironmentTokens[environment].Add(token);
             var isGlobal = environment == RootEnvironment;
             Notify(token, Action.Insert, isGlobal);
+        }
+
+        public void AddTokenAssigment(Token token, Environment environment)
+        {
+            token.IsDirty = true;
+            token.Action = Action.Insert;
+
+            EnvironmentTokens[environment].Add(token);
+            Notify(token, Action.TokenValueAssigment, false);
         }
 
         private void Notify(Token token, Action action, bool isGlobal)

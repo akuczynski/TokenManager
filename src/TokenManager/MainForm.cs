@@ -31,6 +31,7 @@ namespace TokenManager
             NotyficationService.Subscribe(typeof(ProjectSavedEvent), this);
             NotyficationService.Subscribe(typeof(SelectTokenEvent), this);
             NotyficationService.Subscribe(typeof(ProjectIsInvalidEvent), this);
+            NotyficationService.Subscribe(typeof(TokenValueAssignChangedEvent), this);
 
             this.FormClosing += OnApplicationExit;
         }
@@ -48,6 +49,10 @@ namespace TokenManager
             {
                 MenuPanel.ReloadTokenGrid();
             }
+            else if (appEvent is TokenValueAssignChangedEvent)
+            {
+                TokensGrid.ReloadSubGrid();
+            }
             else if (appEvent is SelectTokenEvent)
             {
                 var token = (appEvent as SelectTokenEvent).Token;
@@ -60,7 +65,7 @@ namespace TokenManager
             else if (appEvent is ProjectIsInvalidEvent)
             {
                 MessageBox.Show(Messages.SaveFailedMsg, Messages.SaveFailedTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            } 
         }
 
         public void FilterTokenGrid(bool showTokens, bool showSubTokens, bool onlyPasswords, bool onlyGlobal, string tokenName)
@@ -73,13 +78,13 @@ namespace TokenManager
             StatubBarLbl.Text = text;
         }
 
-        public void ShowTokenModalWindow(bool isEdit, string token)
+        public void ShowTokenModalWindow(bool isEdit, bool isSubtoken, string token)
         {
             var modalWindow = new TokenForm();
             Shell.CompositionContainer.ComposeParts(modalWindow);
 
             modalWindow.MainForm = this;
-            modalWindow.Init(isEdit, token);
+            modalWindow.Init(isEdit, isSubtoken, token);
             modalWindow.ShowDialog(this);
         }
 
