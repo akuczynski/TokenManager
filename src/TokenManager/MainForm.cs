@@ -2,7 +2,6 @@
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
 using TokenManager.Core.Events;
-using TokenManager.Core.ViewModel;
 using TokenManager.Forms;
 using TokenManager.Properties;
 
@@ -12,6 +11,9 @@ namespace TokenManager
     {
         [Import]
         public INotificationService NotyficationService { get; set; }
+
+        [Import]
+        public IMainViewController MainViewController { get; set; }
 
         public MainForm()
         {
@@ -29,6 +31,8 @@ namespace TokenManager
             NotyficationService.Subscribe(typeof(ProjectSavedEvent), this);
             NotyficationService.Subscribe(typeof(SelectTokenEvent), this);
             NotyficationService.Subscribe(typeof(ProjectIsInvalidEvent), this);
+
+            this.FormClosing += OnApplicationExit;
         }
 
         void IEventHandler.Handle(IEvent appEvent)
@@ -88,5 +92,23 @@ namespace TokenManager
             modalWindow.Init(token, environment);
             modalWindow.ShowDialog(this);
         }
+
+        private void OnApplicationExit(object sender, FormClosingEventArgs e)
+        {
+            //In case windows is trying to shut down, don't hold the process up
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            if (MainViewController.HasUnsavedChanges())
+            {
+                switch (MessageBox.Show(this, Messages.UnsavedChanges, Messages.ApplicationExitTitle, MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    case DialogResult.No:
+                        e.Cancel = true;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
-} 
+}

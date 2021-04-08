@@ -79,6 +79,15 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Unsaved changes .
+        /// </summary>
+        internal static string ApplicationExitTitle {
+            get {
+                return ResourceManager.GetString("ApplicationExitTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Data loaded successfully..
         /// </summary>
         internal static string DataLoaded {
@@ -174,6 +183,15 @@ namespace TokenManager.Properties {
         internal static string TokenSelectionChanged {
             get {
                 return ResourceManager.GetString("TokenSelectionChanged", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Do you really want to close application ?.
+        /// </summary>
+        internal static string UnsavedChanges {
+            get {
+                return ResourceManager.GetString("UnsavedChanges", resourceCulture);
             }
         }
         

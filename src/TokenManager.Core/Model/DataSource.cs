@@ -57,7 +57,7 @@ namespace TokenManager.Core.Model
             return result;
         }
 
-        public void RemoveDeletedTokens(Environment environment)
+        public void Clean(Environment environment)
         {
             var deletedTokens = GetTokens(environment).Where(x => x.IsDirty && x.Action == Action.Delete).ToList();
 
@@ -65,6 +65,8 @@ namespace TokenManager.Core.Model
             {
                 EnvironmentTokens[environment].Remove(token);
             }
+
+            IsDirty = false;
         }
 
         public Token GetTokenOrDefault(string tokenName, Environment environment)
@@ -103,6 +105,7 @@ namespace TokenManager.Core.Model
         public DataSource()
         {
             EnvironmentTokens = new Dictionary<Environment, IList<Token>>();
+            IsDirty = false;
         }
 
         public void Add(Environment environment, IList<Token> tokens)
@@ -160,6 +163,7 @@ namespace TokenManager.Core.Model
 
         private void Notify(Token token, Action action, bool isGlobal)
         {
+            IsDirty = true;
             this.ModelChanged(token, action, isGlobal);
         }
 

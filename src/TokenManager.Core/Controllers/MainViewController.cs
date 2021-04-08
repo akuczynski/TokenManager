@@ -12,6 +12,8 @@ namespace TokenManager.Core.DomainServices
         ValidationResult Validate();
 
         void SaveData();
+
+        bool HasUnsavedChanges();
     }
 
     [Export(typeof(IMainViewController))]
@@ -72,6 +74,16 @@ namespace TokenManager.Core.DomainServices
             _logger.Info("validate");
 
             return _validationService.Validate(_persistanceService.DataSource);
+        }
+
+        public bool HasUnsavedChanges()
+        {
+            if (_persistanceService.DataSource == null)
+            {
+                return false;
+            }
+
+            return (_persistanceService.DataSource.IsDirty);
         }
     }
 }

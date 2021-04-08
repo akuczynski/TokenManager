@@ -56,7 +56,7 @@ namespace TokenManager.Core.DomainServices
                 var dirtyTokens = DataSource.GetTokens(env).Where(x => x.IsDirty);
                 _dataSourceWritter.WriteTokens(dirtyTokens, env.Source);
 
-                DataSource.RemoveDeletedTokens(env);
+                DataSource.Clean(env);
             }
         }
 

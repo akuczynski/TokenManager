@@ -168,4 +168,10 @@
   <data name="SaveFailedTitle" xml:space="preserve">
     <value>Save changes failed</value>
   </data>
+  <data name="ApplicationExitTitle" xml:space="preserve">
+    <value>Unsaved changes </value>
+  </data>
+  <data name="UnsavedChanges" xml:space="preserve">
+    <value>Do you really want to close application ?</value>
+  </data>
 </root>

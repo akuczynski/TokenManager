@@ -113,6 +113,7 @@ namespace TokenManager.UserControls
             // 
             // SaveBtn
             // 
+            this.SaveBtn.Enabled = false;
             this.SaveBtn.Location = new System.Drawing.Point(84, 4);
             this.SaveBtn.Name = "SaveBtn";
             this.SaveBtn.Size = new System.Drawing.Size(75, 23);
