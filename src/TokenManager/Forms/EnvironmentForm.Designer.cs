@@ -29,93 +29,120 @@ namespace TokenManager.Forms
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.EnvironmentLbl = new System.Windows.Forms.Label();
+            this.EnvironmentCbx = new System.Windows.Forms.ComboBox();
+            this.ValueLbl = new System.Windows.Forms.Label();
+            this.ValueTbx = new System.Windows.Forms.TextBox();
+            this.UserNameLbl = new System.Windows.Forms.Label();
+            this.UserNameTbx = new System.Windows.Forms.TextBox();
+            this.SubmitBtn = new System.Windows.Forms.Button();
+            this.DescriptionLbl = new System.Windows.Forms.Label();
+            this.DescriptionTbx = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // label1
+            // EnvironmentLbl
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 25);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(87, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Environment";
+            this.EnvironmentLbl.AutoSize = true;
+            this.EnvironmentLbl.Location = new System.Drawing.Point(8, 28);
+            this.EnvironmentLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EnvironmentLbl.Name = "EnvironmentLbl";
+            this.EnvironmentLbl.Size = new System.Drawing.Size(87, 17);
+            this.EnvironmentLbl.TabIndex = 0;
+            this.EnvironmentLbl.Text = "Environment";
             // 
-            // comboBox1
+            // EnvironmentCbx
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(127, 25);
-            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(169, 24);
-            this.comboBox1.TabIndex = 1;
+            this.EnvironmentCbx.FormattingEnabled = true;
+            this.EnvironmentCbx.Location = new System.Drawing.Point(127, 25);
+            this.EnvironmentCbx.Margin = new System.Windows.Forms.Padding(4);
+            this.EnvironmentCbx.Name = "EnvironmentCbx";
+            this.EnvironmentCbx.Size = new System.Drawing.Size(169, 24);
+            this.EnvironmentCbx.TabIndex = 1;
             // 
-            // label2
+            // ValueLbl
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(8, 66);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(44, 17);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Value";
+            this.ValueLbl.AutoSize = true;
+            this.ValueLbl.Location = new System.Drawing.Point(8, 60);
+            this.ValueLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ValueLbl.Name = "ValueLbl";
+            this.ValueLbl.Size = new System.Drawing.Size(44, 17);
+            this.ValueLbl.TabIndex = 2;
+            this.ValueLbl.Text = "Value";
             // 
-            // textBox1
+            // ValueTbx
             // 
-            this.textBox1.Location = new System.Drawing.Point(127, 66);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(516, 22);
-            this.textBox1.TabIndex = 3;
+            this.ValueTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ValueTbx.Location = new System.Drawing.Point(128, 57);
+            this.ValueTbx.Margin = new System.Windows.Forms.Padding(4);
+            this.ValueTbx.Name = "ValueTbx";
+            this.ValueTbx.Size = new System.Drawing.Size(306, 22);
+            this.ValueTbx.TabIndex = 3;
             // 
-            // label3
+            // UserNameLbl
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(8, 108);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 17);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "User Name";
+            this.UserNameLbl.AutoSize = true;
+            this.UserNameLbl.Location = new System.Drawing.Point(8, 90);
+            this.UserNameLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.UserNameLbl.Name = "UserNameLbl";
+            this.UserNameLbl.Size = new System.Drawing.Size(79, 17);
+            this.UserNameLbl.TabIndex = 4;
+            this.UserNameLbl.Text = "User Name";
             // 
-            // textBox2
+            // UserNameTbx
             // 
-            this.textBox2.Location = new System.Drawing.Point(127, 108);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(516, 22);
-            this.textBox2.TabIndex = 5;
+            this.UserNameTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.UserNameTbx.Location = new System.Drawing.Point(128, 87);
+            this.UserNameTbx.Margin = new System.Windows.Forms.Padding(4);
+            this.UserNameTbx.Name = "UserNameTbx";
+            this.UserNameTbx.Size = new System.Drawing.Size(306, 22);
+            this.UserNameTbx.TabIndex = 5;
             // 
-            // button1
+            // SubmitBtn
             // 
-            this.button1.Location = new System.Drawing.Point(544, 185);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 28);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Update";
-            this.button1.UseVisualStyleBackColor = true;
+            this.SubmitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.SubmitBtn.Location = new System.Drawing.Point(334, 147);
+            this.SubmitBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.SubmitBtn.Name = "SubmitBtn";
+            this.SubmitBtn.Size = new System.Drawing.Size(100, 28);
+            this.SubmitBtn.TabIndex = 6;
+            this.SubmitBtn.Text = "Update";
+            this.SubmitBtn.UseVisualStyleBackColor = true;
+            // 
+            // DescriptionLbl
+            // 
+            this.DescriptionLbl.AutoSize = true;
+            this.DescriptionLbl.Location = new System.Drawing.Point(8, 119);
+            this.DescriptionLbl.Name = "DescriptionLbl";
+            this.DescriptionLbl.Size = new System.Drawing.Size(79, 17);
+            this.DescriptionLbl.TabIndex = 7;
+            this.DescriptionLbl.Text = "Description";
+            // 
+            // DescriptionTbx
+            // 
+            this.DescriptionTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.DescriptionTbx.Location = new System.Drawing.Point(128, 116);
+            this.DescriptionTbx.Name = "DescriptionTbx";
+            this.DescriptionTbx.Size = new System.Drawing.Size(306, 22);
+            this.DescriptionTbx.TabIndex = 8;            
             // 
             // EnvironmentForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 225);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.ClientSize = new System.Drawing.Size(447, 188);
+            this.Controls.Add(this.DescriptionTbx);
+            this.Controls.Add(this.DescriptionLbl);
+            this.Controls.Add(this.SubmitBtn);
+            this.Controls.Add(this.UserNameTbx);
+            this.Controls.Add(this.UserNameLbl);
+            this.Controls.Add(this.ValueTbx);
+            this.Controls.Add(this.ValueLbl);
+            this.Controls.Add(this.EnvironmentCbx);
+            this.Controls.Add(this.EnvironmentLbl);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EnvironmentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "EnvironmentForm";
@@ -126,12 +153,14 @@ namespace TokenManager.Forms
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label EnvironmentLbl;
+        private System.Windows.Forms.ComboBox EnvironmentCbx;
+        private System.Windows.Forms.Label ValueLbl;
+        private System.Windows.Forms.TextBox ValueTbx;
+        private System.Windows.Forms.Label UserNameLbl;
+        private System.Windows.Forms.TextBox UserNameTbx;
+        private System.Windows.Forms.Button SubmitBtn;
+        private System.Windows.Forms.Label DescriptionLbl;
+        private System.Windows.Forms.TextBox DescriptionTbx;
     }
 }

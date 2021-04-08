@@ -133,13 +133,17 @@ namespace TokenManager.UserControls
         
         private void ShowEnvironmentForm(object sender, EventArgs e)
         {
-            MainForm.ShowEnvironmentModalWindow();
-        }
-
+            MainForm.ShowEnvironmentModalWindow(GetSelectedToken(), GetSelectedEnvironment());
+        }        
 
         private string GetSelectedToken()
         {
             return (string)MainGrid.SelectedRows[0]?.Cells[0]?.Value; 
+        }
+
+        private string GetSelectedEnvironment()
+        {
+            return (string)SubGrid.SelectedRows[0]?.Cells[nameof(EnvironentTokenViewModel.Environment)]?.Value;
         }
 
         private void UpdateRowsBackgroundColors()

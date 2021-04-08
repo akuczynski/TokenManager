@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllers\EnvironmentEditViewController.cs" />
     <Compile Include="Controllers\MainViewController.cs" />
     <Compile Include="Controllers\TokenEditViewController.cs" />
     <Compile Include="DomainServices\DataSourceWritter.cs" />

@@ -1,6 +1,4 @@
-﻿using System.Windows.Forms;
-
-namespace TokenManager
+﻿namespace TokenManager
 {
     public interface IMainForm
     {
@@ -10,6 +8,6 @@ namespace TokenManager
 
         void ShowTokenModalWindow(bool isEdit, string token = null);
 
-        void ShowEnvironmentModalWindow();
+        void ShowEnvironmentModalWindow(string token, string environment);
     }
 }

@@ -65,7 +65,7 @@ namespace TokenManager.Core.DomainServices
         public TokenViewModel GetToken(string tokenName)
         {
             return Tokens.First(token => token.Token.Equals(tokenName));
-        }
+        }     
 
         public void AddToken(NewTokenViewModel newToken)
         {
@@ -119,7 +119,8 @@ namespace TokenManager.Core.DomainServices
                 {
                     Environment = name,
                     Value = token.Value,
-                    UserName = token.UserName
+                    UserName = token.UserName,
+                    Description = token.Description
                 };
 
                 result.Add(envViewModel);

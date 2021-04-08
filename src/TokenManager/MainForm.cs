@@ -2,6 +2,7 @@
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
 using TokenManager.Core.Events;
+using TokenManager.Core.ViewModel;
 using TokenManager.Forms;
 using TokenManager.Properties;
 
@@ -73,12 +74,13 @@ namespace TokenManager
             modalWindow.ShowDialog(this);
         }
 
-        public void ShowEnvironmentModalWindow()
+        public void ShowEnvironmentModalWindow(string token, string environment)
         {
             var modalWindow = new EnvironmentForm();
             Shell.CompositionContainer.ComposeParts(modalWindow);
-            
 
+            modalWindow.MainForm = this;
+            modalWindow.Init(token, environment);
             modalWindow.ShowDialog(this);
         }
     }
