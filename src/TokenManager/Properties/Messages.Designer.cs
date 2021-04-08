@@ -187,7 +187,7 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you really want to close application ?.
+        ///   Looks up a localized string similar to Do you really want to exit ?.
         /// </summary>
         internal static string UnsavedChanges {
             get {

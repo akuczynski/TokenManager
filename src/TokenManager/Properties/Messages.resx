@@ -172,6 +172,6 @@
     <value>Unsaved changes </value>
   </data>
   <data name="UnsavedChanges" xml:space="preserve">
-    <value>Do you really want to close application ?</value>
+    <value>Do you really want to exit ?</value>
   </data>
 </root>

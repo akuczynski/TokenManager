@@ -15,7 +15,10 @@ namespace TokenManager.Core.DomainServices
 
         void RemoveToken(string tokenName);
 
-        IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName);
+        IEnumerable<EnvironmentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName);
+
+        EnvironmentTokenViewModel GetTokenEnvironementValue(string tokenName, string environment);
+
         void Init();
 
         IEnumerable<TokenViewModel> Tokens { get; }
@@ -94,9 +97,9 @@ namespace TokenManager.Core.DomainServices
             dataSource.UpdateToken(token);
         }
 
-        public IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName)
+        public IEnumerable<EnvironmentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName)
         {
-            var result = new List<EnvironentTokenViewModel>();
+            var result = new List<EnvironmentTokenViewModel>();
             var dataSource = _persistanceService.DataSource;
 
             foreach (var environemnt in dataSource.GetAllEnvironments())
@@ -115,7 +118,7 @@ namespace TokenManager.Core.DomainServices
                     continue;
                 }
 
-                var envViewModel = new EnvironentTokenViewModel
+                var envViewModel = new EnvironmentTokenViewModel
                 {
                     Environment = name,
                     Value = token.Value,
@@ -127,7 +130,35 @@ namespace TokenManager.Core.DomainServices
             }
 
             return result;
-        }  
+        }
+
+        public EnvironmentTokenViewModel GetTokenEnvironementValue(string tokenName, string environment)
+        {
+            var dataSource = _persistanceService.DataSource;
+
+            foreach (var env in dataSource.GetAllEnvironments())
+            {
+                if (env.IsRoot || !env.Name.Equals(environment))
+                {
+                    continue;
+                }
+
+                var token = dataSource.GetToken(tokenName, env);
+                if (token != null)
+                {
+                    return new EnvironmentTokenViewModel
+                    {
+                        Environment = environment,
+                        Value = token.Value,
+                        UserName = token.UserName,
+                        IsPassword = token.IsPassword,
+                        Description = token.Description
+                    };
+                }
+            }
+
+            return null;
+        }
 
         public void Init()
         {

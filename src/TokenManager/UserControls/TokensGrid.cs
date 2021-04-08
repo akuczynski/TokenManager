@@ -38,7 +38,7 @@ namespace TokenManager.UserControls
             this.MainGrid.Columns[nameof(TokenViewModel.Password)].SortMode = DataGridViewColumnSortMode.Automatic;
             UpdateRowsBackgroundColors();
 
-            this.SubGrid.Columns[nameof(EnvironentTokenViewModel.Environment)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            this.SubGrid.Columns[nameof(EnvironmentTokenViewModel.Environment)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
         }
 
         private void MainGrid_MouseClick(object sender, MouseEventArgs e)
@@ -87,10 +87,15 @@ namespace TokenManager.UserControls
             {
                 ContextMenu m = new ContextMenu();                
                 m.MenuItems.Add("Manage", ShowEnvironmentForm);
-             //  m.MenuItems.Add("Remove", RemoveToken);
+                m.MenuItems.Add("Remove", RemoveEnvironmentToken);
 
                 m.Show(this.SubGrid, new Point(e.X, e.Y));
             }
+        }
+
+        private void RemoveEnvironmentToken(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         private void MainGrid_SelectionChanged(object sender, EventArgs e)
@@ -111,7 +116,8 @@ namespace TokenManager.UserControls
             bool isPassword = (bool)row.Cells[nameof(TokenViewModel.Password)].Value;
 
             this.SubGrid.DataSource = TokensGridViewController.GetTokenValuesForAllEnvironments(tokenName);
-            this.SubGrid.Columns[nameof(EnvironentTokenViewModel.UserName)].Visible = isPassword;
+            this.SubGrid.Columns[nameof(EnvironmentTokenViewModel.UserName)].Visible = isPassword;
+            this.SubGrid.Columns[nameof(EnvironmentTokenViewModel.IsPassword)].Visible = false;
 
             _selectedRowIndex = row.Index;
 

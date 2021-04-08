@@ -100,7 +100,7 @@ namespace TokenManager.Forms
             this.SubmitBtn.Name = "SubmitBtn";
             this.SubmitBtn.Size = new System.Drawing.Size(75, 23);
             this.SubmitBtn.TabIndex = 6;
-            this.SubmitBtn.Text = "Update";
+            this.SubmitBtn.Text = "Assign";
             this.SubmitBtn.UseVisualStyleBackColor = true;
             // 
             // DescriptionLbl
@@ -118,7 +118,7 @@ namespace TokenManager.Forms
             this.DescriptionTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DescriptionTbx.Location = new System.Drawing.Point(96, 94);
-            this.DescriptionTbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DescriptionTbx.Margin = new System.Windows.Forms.Padding(2);
             this.DescriptionTbx.Name = "DescriptionTbx";
             this.DescriptionTbx.Size = new System.Drawing.Size(230, 20);
             this.DescriptionTbx.TabIndex = 8;

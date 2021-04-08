@@ -10,7 +10,7 @@ namespace TokenManager.Core.DomainServices
     {
         IEnumerable<TokenViewModel> GetTokenList(bool showTokens, bool showSubTokens, bool onlyPasswords, bool onlyGlobal, string tokenName);
 
-        IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName);
+        IEnumerable<EnvironmentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName);
         void RemoveToken(string tokenName);
     }
 
@@ -69,7 +69,7 @@ namespace TokenManager.Core.DomainServices
             return result.OrderBy(token => token.IsSubToken).ToList(); 
         }
 
-        public IEnumerable<EnvironentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName)
+        public IEnumerable<EnvironmentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName)
         {
             return _tokenManagementService.GetTokenValuesForAllEnvironments(tokenName);
         } 

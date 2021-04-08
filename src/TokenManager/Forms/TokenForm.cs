@@ -104,7 +104,6 @@ namespace TokenManager.Forms
             var model = new UpdateTokenViewModel
             {
                 Token = TokenNameTbx.Text,
-              //  IsGlobal = GlobalTokenChk.Checked,
                 Description = DescriptionTbx.Text,
                 Value = ValueTbx.Text,
                 UserName = UserNameTbx.Text
