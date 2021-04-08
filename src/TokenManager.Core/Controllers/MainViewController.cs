@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Composition;
 using TokenManager.Core.Events;
+using TokenManager.Core.Validation;
 
 namespace TokenManager.Core.DomainServices
 {
@@ -8,7 +9,7 @@ namespace TokenManager.Core.DomainServices
     {
         void LoadData();
 
-        bool Validate();
+        ValidationResult Validate();
 
         void SaveData();
     }
@@ -21,17 +22,21 @@ namespace TokenManager.Core.DomainServices
         private INotificationService _notyficationService { get; set; }
         private IPersistanceService _persistanceService { get; set; }
 
+        private IValidationService _validationService;
+
         [ImportingConstructor]
         public MainViewController(
             ILogger logger,
             IConfiguration configuration,
             INotificationService notyficationService,
-            IPersistanceService persistanceController)
+            IPersistanceService persistanceService,
+            IValidationService validationService)
         {
             _logger = logger;
             _configuration = configuration;
             _notyficationService = notyficationService;
-            _persistanceService = persistanceController;
+            _persistanceService = persistanceService;
+            _validationService = validationService;
         } 
 
         public void LoadData()
@@ -56,11 +61,11 @@ namespace TokenManager.Core.DomainServices
             _notyficationService.Publish(new ProjectSavedEvent());
         }
 
-        public bool Validate()
+        public ValidationResult Validate()
         {
             _logger.Info("validate");
 
-            throw new NotImplementedException();
+            return _validationService.Validate(_persistanceService.DataSource);
         }
     }
 }

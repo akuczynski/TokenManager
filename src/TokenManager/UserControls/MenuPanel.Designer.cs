@@ -109,6 +109,7 @@ namespace TokenManager.UserControls
             this.ValidateBtn.TabIndex = 7;
             this.ValidateBtn.Text = "Validate";
             this.ValidateBtn.UseVisualStyleBackColor = true;
+            this.ValidateBtn.Click += new System.EventHandler(this.ValidateBtn_Click);
             // 
             // SaveBtn
             // 
@@ -136,7 +137,7 @@ namespace TokenManager.UserControls
             this.GlobalCbx.AutoSize = true;
             this.GlobalCbx.Enabled = false;
             this.GlobalCbx.Location = new System.Drawing.Point(880, 9);
-            this.GlobalCbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.GlobalCbx.Margin = new System.Windows.Forms.Padding(2);
             this.GlobalCbx.Name = "GlobalCbx";
             this.GlobalCbx.Size = new System.Drawing.Size(56, 17);
             this.GlobalCbx.TabIndex = 11;

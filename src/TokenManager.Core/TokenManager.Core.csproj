@@ -60,6 +60,8 @@
     <Compile Include="Services\ILogger.cs" />
     <Compile Include="Services\NotyficationService.cs" />
     <Compile Include="DomainServices\TokenManagementService.cs" />
+    <Compile Include="Validation\ValidationResult.cs" />
+    <Compile Include="Validation\ValidationService.cs" />
     <Compile Include="ViewModel\EnvironentTokenViewModel.cs" />
     <Compile Include="ViewModel\NewTokenViewModel.cs" />
     <Compile Include="ViewModel\TokenViewModel.cs" />

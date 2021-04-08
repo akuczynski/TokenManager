@@ -115,6 +115,24 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are validation issues. Project is not valid !.
+        /// </summary>
+        internal static string ProjectIsInvalid {
+            get {
+                return ResourceManager.GetString("ProjectIsInvalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validation succeeded..
+        /// </summary>
+        internal static string ProjectIsValid {
+            get {
+                return ResourceManager.GetString("ProjectIsValid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Can&apos;t add token, because token name is not valid or unique ! .
         /// </summary>
         internal static string TokenNameIsNotUnique {
@@ -156,6 +174,15 @@ namespace TokenManager.Properties {
         internal static string UpdateToken {
             get {
                 return ResourceManager.GetString("UpdateToken", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Validation results.
+        /// </summary>
+        internal static string ValidationResults {
+            get {
+                return ResourceManager.GetString("ValidationResults", resourceCulture);
             }
         }
     }

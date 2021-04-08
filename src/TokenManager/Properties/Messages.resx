@@ -150,4 +150,13 @@
   <data name="UpdateToken" xml:space="preserve">
     <value>{0} was updated.</value>
   </data>
+  <data name="ProjectIsInvalid" xml:space="preserve">
+    <value>There are validation issues. Project is not valid !</value>
+  </data>
+  <data name="ProjectIsValid" xml:space="preserve">
+    <value>Validation succeeded.</value>
+  </data>
+  <data name="ValidationResults" xml:space="preserve">
+    <value>Validation results</value>
+  </data>
 </root>

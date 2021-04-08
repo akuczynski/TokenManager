@@ -3,6 +3,7 @@ using System.ComponentModel.Composition;
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
 using TokenManager.Core.Events;
+using TokenManager.Properties;
 
 namespace TokenManager.UserControls
 {
@@ -80,6 +81,20 @@ namespace TokenManager.UserControls
         private void SaveBtn_Click(object sender, EventArgs e)
         {
             MainViewController.SaveData();
+        }
+
+        private void ValidateBtn_Click(object sender, EventArgs e)
+        {
+            var result = MainViewController.Validate();
+            if (result.IsValid)
+            {
+                MainForm.UpdateMessageOnStatusBar(Messages.ProjectIsValid);
+            }
+            else
+            {
+                MainForm.UpdateMessageOnStatusBar(Messages.ProjectIsInvalid);
+                MessageBox.Show(result.Message, Messages.ValidationResults,  MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
