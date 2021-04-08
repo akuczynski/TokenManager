@@ -36,6 +36,27 @@ namespace TokenManager.Core.Model
             return EnvironmentTokens[environment];
         }
 
+        public IEnumerable<Token> GetAllTokens(Environment environment)
+        {
+            var globalTokens = GetTokens(RootEnvironment);
+            var environementTokens = GetTokens(environment);
+
+            var result = new List<Token>(globalTokens);
+
+            foreach(var token in environementTokens)
+            {
+                var overridenToken = globalTokens.Where(x => x.Key.Equals(token.Key)).SingleOrDefault();
+                if (overridenToken != null)
+                {
+                    result.Remove(overridenToken);
+                }
+            }
+
+            result.AddRange(environementTokens);
+
+            return result;
+        }
+
         public void RemoveDeletedTokens(Environment environment)
         {
             var deletedTokens = GetTokens(environment).Where(x => x.IsDirty && x.Action == Action.Delete).ToList();

@@ -54,7 +54,6 @@ namespace TokenManager
             // 
             // TokensGrid
             // 
-            this.TokensGrid.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.TokensGrid.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TokensGrid.Location = new System.Drawing.Point(0, 34);
             this.TokensGrid.MainForm = null;
@@ -65,7 +64,6 @@ namespace TokenManager
             // 
             // MenuPanel
             // 
-            this.MenuPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.MenuPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.MenuPanel.Location = new System.Drawing.Point(0, 0);
             this.MenuPanel.MainForm = null;

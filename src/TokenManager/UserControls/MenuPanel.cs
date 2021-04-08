@@ -89,6 +89,7 @@ namespace TokenManager.UserControls
             if (result.IsValid)
             {
                 MainForm.UpdateMessageOnStatusBar(Messages.ProjectIsValid);
+                MessageBox.Show(Messages.ValidationSucceded, Messages.ValidationResults, MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {

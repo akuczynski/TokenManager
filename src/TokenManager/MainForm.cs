@@ -28,6 +28,7 @@ namespace TokenManager
             NotyficationService.Subscribe(typeof(ProjectLoadedEvent), this);
             NotyficationService.Subscribe(typeof(ProjectSavedEvent), this);
             NotyficationService.Subscribe(typeof(SelectTokenEvent), this);
+            NotyficationService.Subscribe(typeof(ProjectIsInvalidEvent), this);
         }
 
         void IEventHandler.Handle(IEvent appEvent)
@@ -41,7 +42,7 @@ namespace TokenManager
             }
             else if (appEvent is ModelHasChangedEvent)
             {
-                MenuPanel.ReloadTokenGrid(); 
+                MenuPanel.ReloadTokenGrid();
             }
             else if (appEvent is SelectTokenEvent)
             {
@@ -51,6 +52,10 @@ namespace TokenManager
             else if (appEvent is ProjectSavedEvent)
             {
                 UpdateMessageOnStatusBar(Messages.DataSaved);
+            }
+            else if (appEvent is ProjectIsInvalidEvent)
+            {
+                MessageBox.Show(Messages.SaveFailedMsg, Messages.SaveFailedTitle, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

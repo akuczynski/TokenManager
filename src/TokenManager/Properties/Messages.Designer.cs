@@ -133,6 +133,24 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Data was not saved, because it is not valid !.
+        /// </summary>
+        internal static string SaveFailedMsg {
+            get {
+                return ResourceManager.GetString("SaveFailedMsg", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save changes failed.
+        /// </summary>
+        internal static string SaveFailedTitle {
+            get {
+                return ResourceManager.GetString("SaveFailedTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Can&apos;t add token, because token name is not valid or unique ! .
         /// </summary>
         internal static string TokenNameIsNotUnique {
@@ -183,6 +201,15 @@ namespace TokenManager.Properties {
         internal static string ValidationResults {
             get {
                 return ResourceManager.GetString("ValidationResults", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to References to all Tokens are valid..
+        /// </summary>
+        internal static string ValidationSucceded {
+            get {
+                return ResourceManager.GetString("ValidationSucceded", resourceCulture);
             }
         }
     }

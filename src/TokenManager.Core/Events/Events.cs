@@ -3,6 +3,7 @@
     public class ModelHasChangedEvent : IEvent  { }
     public class ProjectLoadedEvent : IEvent { }
     public class ProjectSavedEvent : IEvent { }
+    public class ProjectIsInvalidEvent : IEvent { }
 
     public class SelectTokenEvent : IEvent
     {

@@ -67,8 +67,7 @@ namespace TokenManager.Core.DomainServices
             }
             else if (!string.IsNullOrEmpty(oldDescriptionValue))
             {
-                // todo: maybe remove this attribute 
-                node.SetAttributeValue(Xml.DescriptionAttributeName, "");
+                node.Attribute(Xml.DescriptionAttributeName).Remove();
             }
 
             if (token.IsPassword)
@@ -80,8 +79,7 @@ namespace TokenManager.Core.DomainServices
                 }
                 else if (!string.IsNullOrEmpty(oldUserNameValue))
                 {
-                    // todo: maybe remove this attribute 
-                    node.SetAttributeValue(Xml.UserNameAttributeName, "");
+                    node.Attribute(Xml.UserNameAttributeName).Remove();
                 }
             }
         }

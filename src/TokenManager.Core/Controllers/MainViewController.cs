@@ -51,14 +51,20 @@ namespace TokenManager.Core.DomainServices
 
         public void SaveData()
         {
-            // TODO: call validation ?
-
             _logger.Info("save data");
 
-            var rootFolderPath = _configuration.Get("RootFolder");
-            _persistanceService.SaveData(rootFolderPath);
+            var validationResult = Validate();
+            if (validationResult.IsValid)
+            {
+                var rootFolderPath = _configuration.Get("RootFolder");
+                _persistanceService.SaveData(rootFolderPath);
 
-            _notyficationService.Publish(new ProjectSavedEvent());
+                _notyficationService.Publish(new ProjectSavedEvent());
+            }
+            else
+            {
+                _notyficationService.Publish(new ProjectIsInvalidEvent());
+            }
         }
 
         public ValidationResult Validate()

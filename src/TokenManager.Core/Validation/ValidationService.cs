@@ -40,7 +40,7 @@ namespace TokenManager.Core.Validation
                     continue;
                 }
 
-                var environmentTokens = dataSource.GetTokens(environment)
+                var environmentTokens = dataSource.GetAllTokens(environment)
                     .Where(x => x.Action != Model.Action.Delete)
                     .Select(y => y)
                     .ToList();
@@ -108,9 +108,9 @@ namespace TokenManager.Core.Validation
 
         private bool CheckIfTokenExists(string token)
         {
-            if (!_globalTokens.Contains(token))
+            if (!_globalTokens.Contains(token, StringComparer.OrdinalIgnoreCase))
             {
-                if (!_environmentsTokens.Contains(token))
+                if (!_environmentsTokens.Contains(token, StringComparer.OrdinalIgnoreCase))
                 {
                     return false;
                 }

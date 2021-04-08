@@ -159,4 +159,13 @@
   <data name="ValidationResults" xml:space="preserve">
     <value>Validation results</value>
   </data>
+  <data name="ValidationSucceded" xml:space="preserve">
+    <value>References to all Tokens are valid.</value>
+  </data>
+  <data name="SaveFailedMsg" xml:space="preserve">
+    <value>Data was not saved, because it is not valid !</value>
+  </data>
+  <data name="SaveFailedTitle" xml:space="preserve">
+    <value>Save changes failed</value>
+  </data>
 </root>
