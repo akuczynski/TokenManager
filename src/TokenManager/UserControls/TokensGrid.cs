@@ -5,6 +5,7 @@ using System.Linq;
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
 using TokenManager.Core.ViewModel;
+using TokenManager.Miscellaneous;
 using TokenManager.Properties;
 
 namespace TokenManager.UserControls
@@ -25,10 +26,16 @@ namespace TokenManager.UserControls
 
         public void ShowData(bool showTokens, bool showSubTokens, bool onlyPasswords, bool onlyGlobal, string tokenName)
         {
-            this.MainGrid.DataSource = TokensGridViewController.GetTokenList(showTokens, showSubTokens, onlyPasswords, onlyGlobal, tokenName);
+            this.MainGrid.DataSource = new SortableBindingList<TokenViewModel>(
+                TokensGridViewController.GetTokenList(showTokens, showSubTokens, onlyPasswords, onlyGlobal, tokenName).ToList());
+
             this.MainGrid.Columns[nameof(TokenViewModel.Global)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.MainGrid.Columns[nameof(TokenViewModel.Password)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+
             this.MainGrid.Columns[nameof(TokenViewModel.IsSubToken)].Visible = false;
+
+            this.MainGrid.Columns[nameof(TokenViewModel.Global)].SortMode = DataGridViewColumnSortMode.Automatic;
+            this.MainGrid.Columns[nameof(TokenViewModel.Password)].SortMode = DataGridViewColumnSortMode.Automatic;
             UpdateRowsBackgroundColors();
 
             this.SubGrid.Columns[nameof(EnvironentTokenViewModel.Environment)].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
@@ -88,6 +95,10 @@ namespace TokenManager.UserControls
 
         private void MainGrid_SelectionChanged(object sender, EventArgs e)
         {
+            if (MainGrid?.CurrentRow?.Index == null)
+            {
+                return;
+            }
             if (MainGrid.CurrentRow.Index != _selectedRowIndex)
             {
                 SelectDataGridRow(MainGrid.CurrentRow); 
@@ -150,7 +161,7 @@ namespace TokenManager.UserControls
         {
             foreach (DataGridViewRow row in this.MainGrid.Rows)
             {
-                if ((bool)row.Cells[nameof(TokenViewModel.IsSubToken)].Value)
+                if ((bool)(row.Cells[nameof(TokenViewModel.IsSubToken)]?.Value ?? false))
                 {
                     row.DefaultCellStyle.BackColor = Color.LightGray;
                 }
