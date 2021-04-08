@@ -79,8 +79,8 @@ namespace TokenManager.UserControls
             if (e.Button == MouseButtons.Right)
             {
                 ContextMenu m = new ContextMenu();                
-                m.MenuItems.Add("Edit", ShowEnvironmentForm);
-                m.MenuItems.Add("Remove", RemoveToken);
+                m.MenuItems.Add("Manage", ShowEnvironmentForm);
+             //  m.MenuItems.Add("Remove", RemoveToken);
 
                 m.Show(this.SubGrid, new Point(e.X, e.Y));
             }
@@ -133,7 +133,10 @@ namespace TokenManager.UserControls
         
         private void ShowEnvironmentForm(object sender, EventArgs e)
         {
-            MainForm.ShowEnvironmentModalWindow(GetSelectedToken(), GetSelectedEnvironment());
+            var token = GetSelectedToken();
+            var environment = GetSelectedEnvironment();
+
+            MainForm.ShowEnvironmentModalWindow(token, environment);
         }        
 
         private string GetSelectedToken()
@@ -143,7 +146,12 @@ namespace TokenManager.UserControls
 
         private string GetSelectedEnvironment()
         {
-            return (string)SubGrid.SelectedRows[0]?.Cells[nameof(EnvironentTokenViewModel.Environment)]?.Value;
+            if (SubGrid.SelectedRows.Count == 0)
+            {
+                return null;
+            }
+
+            return (string)SubGrid.SelectedRows[0]?.Cells[0]?.Value;
         }
 
         private void UpdateRowsBackgroundColors()

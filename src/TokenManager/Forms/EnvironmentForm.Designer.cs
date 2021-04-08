@@ -43,29 +43,26 @@ namespace TokenManager.Forms
             // EnvironmentLbl
             // 
             this.EnvironmentLbl.AutoSize = true;
-            this.EnvironmentLbl.Location = new System.Drawing.Point(8, 28);
-            this.EnvironmentLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.EnvironmentLbl.Location = new System.Drawing.Point(6, 23);
             this.EnvironmentLbl.Name = "EnvironmentLbl";
-            this.EnvironmentLbl.Size = new System.Drawing.Size(87, 17);
+            this.EnvironmentLbl.Size = new System.Drawing.Size(66, 13);
             this.EnvironmentLbl.TabIndex = 0;
             this.EnvironmentLbl.Text = "Environment";
             // 
             // EnvironmentCbx
             // 
             this.EnvironmentCbx.FormattingEnabled = true;
-            this.EnvironmentCbx.Location = new System.Drawing.Point(127, 25);
-            this.EnvironmentCbx.Margin = new System.Windows.Forms.Padding(4);
+            this.EnvironmentCbx.Location = new System.Drawing.Point(95, 20);
             this.EnvironmentCbx.Name = "EnvironmentCbx";
-            this.EnvironmentCbx.Size = new System.Drawing.Size(169, 24);
+            this.EnvironmentCbx.Size = new System.Drawing.Size(128, 21);
             this.EnvironmentCbx.TabIndex = 1;
             // 
             // ValueLbl
             // 
             this.ValueLbl.AutoSize = true;
-            this.ValueLbl.Location = new System.Drawing.Point(8, 60);
-            this.ValueLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.ValueLbl.Location = new System.Drawing.Point(6, 49);
             this.ValueLbl.Name = "ValueLbl";
-            this.ValueLbl.Size = new System.Drawing.Size(44, 17);
+            this.ValueLbl.Size = new System.Drawing.Size(34, 13);
             this.ValueLbl.TabIndex = 2;
             this.ValueLbl.Text = "Value";
             // 
@@ -73,19 +70,17 @@ namespace TokenManager.Forms
             // 
             this.ValueTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ValueTbx.Location = new System.Drawing.Point(128, 57);
-            this.ValueTbx.Margin = new System.Windows.Forms.Padding(4);
+            this.ValueTbx.Location = new System.Drawing.Point(96, 46);
             this.ValueTbx.Name = "ValueTbx";
-            this.ValueTbx.Size = new System.Drawing.Size(306, 22);
+            this.ValueTbx.Size = new System.Drawing.Size(230, 20);
             this.ValueTbx.TabIndex = 3;
             // 
             // UserNameLbl
             // 
             this.UserNameLbl.AutoSize = true;
-            this.UserNameLbl.Location = new System.Drawing.Point(8, 90);
-            this.UserNameLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.UserNameLbl.Location = new System.Drawing.Point(6, 73);
             this.UserNameLbl.Name = "UserNameLbl";
-            this.UserNameLbl.Size = new System.Drawing.Size(79, 17);
+            this.UserNameLbl.Size = new System.Drawing.Size(60, 13);
             this.UserNameLbl.TabIndex = 4;
             this.UserNameLbl.Text = "User Name";
             // 
@@ -93,19 +88,17 @@ namespace TokenManager.Forms
             // 
             this.UserNameTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.UserNameTbx.Location = new System.Drawing.Point(128, 87);
-            this.UserNameTbx.Margin = new System.Windows.Forms.Padding(4);
+            this.UserNameTbx.Location = new System.Drawing.Point(96, 71);
             this.UserNameTbx.Name = "UserNameTbx";
-            this.UserNameTbx.Size = new System.Drawing.Size(306, 22);
+            this.UserNameTbx.Size = new System.Drawing.Size(230, 20);
             this.UserNameTbx.TabIndex = 5;
             // 
             // SubmitBtn
             // 
             this.SubmitBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SubmitBtn.Location = new System.Drawing.Point(334, 147);
-            this.SubmitBtn.Margin = new System.Windows.Forms.Padding(4);
+            this.SubmitBtn.Location = new System.Drawing.Point(250, 119);
             this.SubmitBtn.Name = "SubmitBtn";
-            this.SubmitBtn.Size = new System.Drawing.Size(100, 28);
+            this.SubmitBtn.Size = new System.Drawing.Size(75, 23);
             this.SubmitBtn.TabIndex = 6;
             this.SubmitBtn.Text = "Update";
             this.SubmitBtn.UseVisualStyleBackColor = true;
@@ -113,9 +106,10 @@ namespace TokenManager.Forms
             // DescriptionLbl
             // 
             this.DescriptionLbl.AutoSize = true;
-            this.DescriptionLbl.Location = new System.Drawing.Point(8, 119);
+            this.DescriptionLbl.Location = new System.Drawing.Point(6, 97);
+            this.DescriptionLbl.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.DescriptionLbl.Name = "DescriptionLbl";
-            this.DescriptionLbl.Size = new System.Drawing.Size(79, 17);
+            this.DescriptionLbl.Size = new System.Drawing.Size(60, 13);
             this.DescriptionLbl.TabIndex = 7;
             this.DescriptionLbl.Text = "Description";
             // 
@@ -123,16 +117,17 @@ namespace TokenManager.Forms
             // 
             this.DescriptionTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DescriptionTbx.Location = new System.Drawing.Point(128, 116);
+            this.DescriptionTbx.Location = new System.Drawing.Point(96, 94);
+            this.DescriptionTbx.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.DescriptionTbx.Name = "DescriptionTbx";
-            this.DescriptionTbx.Size = new System.Drawing.Size(306, 22);
-            this.DescriptionTbx.TabIndex = 8;            
+            this.DescriptionTbx.Size = new System.Drawing.Size(230, 20);
+            this.DescriptionTbx.TabIndex = 8;
             // 
             // EnvironmentForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(447, 188);
+            this.ClientSize = new System.Drawing.Size(335, 153);
             this.Controls.Add(this.DescriptionTbx);
             this.Controls.Add(this.DescriptionLbl);
             this.Controls.Add(this.SubmitBtn);
@@ -142,10 +137,9 @@ namespace TokenManager.Forms
             this.Controls.Add(this.ValueLbl);
             this.Controls.Add(this.EnvironmentCbx);
             this.Controls.Add(this.EnvironmentLbl);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "EnvironmentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "EnvironmentForm";
+            this.Text = "Assing value";
             this.ResumeLayout(false);
             this.PerformLayout();
 
