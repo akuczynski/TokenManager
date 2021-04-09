@@ -4,6 +4,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Xml.Linq;
 using TokenManager.Core.Model;
+using TokenManager.Core.Services;
 using  Xml = TokenManager.Core.DomainServices.XmlConstants;
 
 namespace TokenManager.Core.DomainServices
@@ -15,7 +16,15 @@ namespace TokenManager.Core.DomainServices
 
     [Export(typeof(IDataSourceWritter))]
     internal class DataSourceWritter : IDataSourceWritter
-    { 
+    {
+        private ITFSService _tfsService;
+
+        [ImportingConstructor]
+        public DataSourceWritter(ITFSService tfsService)
+        {
+            _tfsService = tfsService;
+        }
+
         public void WriteTokens(IEnumerable<Token> tokens, string filePath)
         {
             if (tokens.Any())
@@ -52,6 +61,7 @@ namespace TokenManager.Core.DomainServices
                     }
                 }
 
+                _tfsService.Checkout(filePath);
                 tokensXml.Save(filePath);
             }
         }
