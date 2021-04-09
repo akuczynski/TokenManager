@@ -60,10 +60,10 @@ namespace TokenManager.UserControls
                     m.MenuItems.Add("-");
                     m.MenuItems.Add("Copy", new MenuItem[]
                     {
-                        new MenuItem("Copy name", CopyTokenName),
-                        new MenuItem("Copy value", CopyTokenValue),
-                        new MenuItem("Copy xml", CopyTokenXml)
-                });
+                        new MenuItem("Copy Token Key", CopyTokenName),
+                        new MenuItem("Copy Value", CopyTokenValue),
+                        new MenuItem("Copy As Xml", CopyTokenXml)
+                    });
                     
                 }                
 
