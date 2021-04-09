@@ -87,7 +87,7 @@ namespace TokenManager.Core.DomainServices
             token.Key = newToken.Token;
             token.Value = newToken.Value;
             token.Description = newToken.Description;
-            token.IsSubToken = newToken.IsSubToken;
+            token.IsSubtoken = newToken.IsSubtoken;
             token.IsPassword = newToken.IsPassword;
             token.UserName = newToken.UserName;
 
@@ -111,7 +111,7 @@ namespace TokenManager.Core.DomainServices
                     Token = updateToken.Token,
                     Value = updateToken.Value,
                     Description = updateToken.Description,
-                    IsSubToken = tokenViewModel.IsSubToken,
+                    IsSubtoken = tokenViewModel.IsSubtoken,
                     IsPassword = tokenViewModel.Password,
                     IsGlobal = true,
                     UserName = updateToken.UserName
@@ -272,7 +272,7 @@ namespace TokenManager.Core.DomainServices
                 tokenViewModel.Value = (isGlobal)? token.Value : "";
                 tokenViewModel.Description = (isGlobal) ? token.Description : "";
                 tokenViewModel.UserName = (isGlobal) ? token.UserName : "";
-                tokenViewModel.IsSubToken = token.IsSubToken;
+                tokenViewModel.IsSubtoken = token.IsSubtoken;
                 tokenViewModel.Password = token.IsPassword; 
                 tokenViewModel.Global = isGlobal;
 
@@ -309,7 +309,7 @@ namespace TokenManager.Core.DomainServices
                 token.Key = tokenName;
                 token.Value = model.Value;
                 token.Description = model.Description;
-                token.IsSubToken = tokenViewModel.IsSubToken;
+                token.IsSubtoken = tokenViewModel.IsSubtoken;
                 token.IsPassword = tokenViewModel.Password;
                 token.UserName = model.UserName;
 

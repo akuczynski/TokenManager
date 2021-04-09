@@ -86,7 +86,7 @@ namespace TokenManager.Core.DomainServices
 
         private void WriteToken(Token token, XDocument tokensXml)
         {
-           XElement parentNode = (token.IsSubToken)? tokensXml.Descendants(Xml.SubTokensNodeName).First() : tokensXml.Element(Xml.TokensNodeName);
+           XElement parentNode = (token.IsSubtoken)? tokensXml.Descendants(Xml.SubtokensNodeName).First() : tokensXml.Element(Xml.TokensNodeName);
            XElement node = new XElement(Xml.TokenNodeName);
 
            node.SetAttributeValue(Xml.KeyAttributeName, token.Key);

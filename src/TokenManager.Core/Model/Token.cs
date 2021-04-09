@@ -24,7 +24,7 @@ namespace TokenManager.Core.Model
 
         public string UserName { get; set; }
 
-        public bool IsSubToken { get; set; }
+        public bool IsSubtoken { get; set; }
 
         public Action Action { get; set; } 
 

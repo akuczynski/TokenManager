@@ -22,10 +22,10 @@ namespace TokenManager.Core.DomainServices
         
             foreach (var childNode in tokensXml.Root.Elements())
             {
-                if (childNode.Name.LocalName.Equals(Xml.SubTokensNodeName))
+                if (childNode.Name.LocalName.Equals(Xml.SubtokensNodeName))
                 {
-                    var subTokens = ReadSubTokens(childNode);
-                    result.AddRange(subTokens);
+                    var subtokens = ReadSubTokens(childNode);
+                    result.AddRange(subtokens);
 
                     continue;
                 }
@@ -47,13 +47,13 @@ namespace TokenManager.Core.DomainServices
             return result;
         }
 
-        private IList<Token> ReadSubTokens(XElement subTokensNode)
+        private IList<Token> ReadSubTokens(XElement subtokensNode)
         {
             var result = new List<Token>();
 
-            foreach (var childNode in subTokensNode.Elements())
+            foreach (var childNode in subtokensNode.Elements())
             {
-                var token = new Token { IsSubToken = true };
+                var token = new Token { IsSubtoken = true };
 
                 token.Key = ReadAttribute(childNode, Xml.KeyAttributeName);
                 token.Value = ReadAttribute(childNode, Xml.ValueAttributeName);

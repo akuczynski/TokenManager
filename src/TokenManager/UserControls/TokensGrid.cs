@@ -24,15 +24,15 @@ namespace TokenManager.UserControls
             InitializeComponent();
         }
 
-        public void ShowData(bool showTokens, bool showSubTokens, bool onlyPasswords, bool onlyGlobal, string tokenName)
+        public void ShowData(bool showTokens, bool showSubtokens, bool onlyPasswords, bool onlyGlobal, string tokenName)
         {
             this.MainGrid.DataSource = new SortableBindingList<TokenViewModel>(
-                TokensGridViewController.GetTokenList(showTokens, showSubTokens, onlyPasswords, onlyGlobal, tokenName).ToList());
+                TokensGridViewController.GetTokenList(showTokens, showSubtokens, onlyPasswords, onlyGlobal, tokenName).ToList());
 
             this.MainGrid.Columns["Global"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
             this.MainGrid.Columns["Password"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
 
-            this.MainGrid.Columns["IsSubToken"].Visible = false;
+            this.MainGrid.Columns["IsSubtoken"].Visible = false;
 
             this.MainGrid.Columns["Global"].SortMode = DataGridViewColumnSortMode.Automatic;
             this.MainGrid.Columns["Password"].SortMode = DataGridViewColumnSortMode.Automatic;
@@ -51,7 +51,7 @@ namespace TokenManager.UserControls
             {
                 ContextMenu m = new ContextMenu();
                 m.MenuItems.Add("Add Token", ShowAddTokenForm);
-                m.MenuItems.Add("Add Sub-token", ShowAddSubtokenForm);
+                m.MenuItems.Add("Add Subtoken", ShowAddSubtokenForm);
 
                 if (IsAnyRowSelected(this.MainGrid))
                 {
@@ -144,18 +144,22 @@ namespace TokenManager.UserControls
 
         private void ShowAddTokenForm(object sender, EventArgs e)
         {
-            MainForm.ShowTokenModalWindow(false, false);
+            var menuItem = sender as MenuItem;
+            MainForm.ShowTokenModalWindow(false, menuItem.Text, false);
         }
 
         private void ShowAddSubtokenForm(object sender, EventArgs e)
         {
-            MainForm.ShowTokenModalWindow(false, true);
+            var menuItem = sender as MenuItem;
+            MainForm.ShowTokenModalWindow(false, menuItem.Text, true);
         }
 
         private void ShowEditTokenForm(object sender, EventArgs e)
         {
             var tokenName = GetSelectedToken();
-            MainForm.ShowTokenModalWindow(true, token: tokenName);
+            var menuItem = sender as MenuItem;
+
+            MainForm.ShowTokenModalWindow(true, menuItem.Text, token: tokenName);
         }
 
         private void CopyTokenNameToClipboard(object sender, EventArgs e)
@@ -196,7 +200,7 @@ namespace TokenManager.UserControls
         {
             foreach (DataGridViewRow row in this.MainGrid.Rows)
             {
-                if ((bool)(row.Cells["IsSubToken"].Value ?? false))
+                if ((bool)(row.Cells["IsSubtoken"].Value ?? false))
                 {
                     row.DefaultCellStyle.BackColor = Color.LightGray;
                 }

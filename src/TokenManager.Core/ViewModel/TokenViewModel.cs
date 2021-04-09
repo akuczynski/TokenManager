@@ -6,7 +6,7 @@
 
         public string Value { get; set; }
 
-        public bool IsSubToken { get; set; }
+        public bool IsSubtoken { get; set; }
 
         public string Description { get; set; }
 

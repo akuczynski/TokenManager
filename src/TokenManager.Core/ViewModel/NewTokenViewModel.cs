@@ -4,7 +4,7 @@
     {
         public string Token { get; set; }
 
-        public bool IsSubToken { get; set; }
+        public bool IsSubtoken { get; set; }
 
         public string Environment { get; set; }
 

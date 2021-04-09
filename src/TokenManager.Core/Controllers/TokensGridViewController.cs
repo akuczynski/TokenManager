@@ -9,7 +9,7 @@ namespace TokenManager.Core.DomainServices
 {
     public interface ITokensGridViewController
     {
-        IEnumerable<TokenViewModel> GetTokenList(bool showTokens, bool showSubTokens, bool onlyPasswords, bool onlyGlobal, string tokenName);
+        IEnumerable<TokenViewModel> GetTokenList(bool showTokens, bool showSubtokens, bool onlyPasswords, bool onlyGlobal, string tokenName);
 
         IEnumerable<EnvironmentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName);
         void RemoveToken(string tokenName);
@@ -35,21 +35,21 @@ namespace TokenManager.Core.DomainServices
             _notificationService.Subscribe(typeof(ProjectLoadedEvent), this);
         }
 
-        public IEnumerable<TokenViewModel> GetTokenList(bool showTokens, bool showSubTokens, bool onlyPasswords, bool onlyGlobal, string tokenName)
+        public IEnumerable<TokenViewModel> GetTokenList(bool showTokens, bool showSubtokens, bool onlyPasswords, bool onlyGlobal, string tokenName)
         {
             var result = Enumerable.Empty<TokenViewModel>();
 
-            if (showSubTokens && showTokens)
+            if (showSubtokens && showTokens)
             {
                 result = _tokenManagementService.Tokens.ToList();
             }
-            else if (showTokens == false && showSubTokens == true)
+            else if (showTokens == false && showSubtokens == true)
             {
-                result = _tokenManagementService.Tokens.Where(x => x.IsSubToken == true).ToList();
+                result = _tokenManagementService.Tokens.Where(x => x.IsSubtoken == true).ToList();
             }
-            else if (showTokens == true && showSubTokens == false)
+            else if (showTokens == true && showSubtokens == false)
             {
-                result = _tokenManagementService.Tokens.Where(x => x.IsSubToken == false).ToList();
+                result = _tokenManagementService.Tokens.Where(x => x.IsSubtoken == false).ToList();
             }
 
             if (!string.IsNullOrEmpty(tokenName))
@@ -69,7 +69,7 @@ namespace TokenManager.Core.DomainServices
 
 
 
-            return result.OrderBy(token => token.IsSubToken).ToList(); 
+            return result.OrderBy(token => token.IsSubtoken).ToList(); 
         }
 
         public XElement GetTokenXml(string tokenName)

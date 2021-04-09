@@ -78,13 +78,13 @@ namespace TokenManager
             StatubBarLbl.Text = text;
         }
 
-        public void ShowTokenModalWindow(bool isEdit, bool isSubtoken, string token)
+        public void ShowTokenModalWindow(bool isEdit, string title, bool isSubtoken, string token)
         {
             var modalWindow = new TokenForm();
             Shell.CompositionContainer.ComposeParts(modalWindow);
 
             modalWindow.MainForm = this;
-            modalWindow.Init(isEdit, isSubtoken, token);
+            modalWindow.Init(isEdit, title, isSubtoken, token);
             modalWindow.ShowDialog(this);
         }
 
