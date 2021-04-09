@@ -70,7 +70,13 @@ namespace TokenManager.Core.DomainServices
 
         private string ReadAttribute(XElement xElement, string attributeName)
         {
-            return xElement.Attributes().Where(x => x.Name.LocalName.Equals(attributeName, System.StringComparison.OrdinalIgnoreCase)).SingleOrDefault()?.Value;
+            var attribute = xElement.Attributes().Where(x => x.Name.LocalName.Equals(attributeName, System.StringComparison.OrdinalIgnoreCase)).SingleOrDefault();
+            if (attribute != null)
+            {
+                return attribute.Value;
+            }
+
+            return string.Empty;
         }
     }
 }

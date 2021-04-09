@@ -84,7 +84,7 @@ namespace TokenManager.Forms
         {
             var model = new NewTokenViewModel
             {
-                Token = TokenNameTbx.Text,
+                Token = string.Format("##{0}##", TokenNameTbx.Text),
                 IsSubToken = _isSubtoken, 
                 IsPassword = PasswordChk.Checked, 
                 IsGlobal = GlobalTokenChk.Checked,

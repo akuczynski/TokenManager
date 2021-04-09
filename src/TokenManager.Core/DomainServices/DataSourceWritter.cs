@@ -113,13 +113,19 @@ namespace TokenManager.Core.DomainServices
         private XElement FindXmlTokenNode(Token token, XDocument tokensXml)
         {
             return tokensXml.Descendants(Xml.TokenNodeName)
-                .Where(x => token.Key.Equals(x?.Attribute(Xml.KeyAttributeName)?.Value))
+                .Where(x => token.Key.Equals(x.Attribute(Xml.KeyAttributeName).Value))
                 .SingleOrDefault();
         }
 
         private string ReadAttribute(XElement xElement, string attributeName)
         {
-            return xElement.Attributes().Where(x => x.Name.LocalName.Equals(attributeName, System.StringComparison.OrdinalIgnoreCase)).SingleOrDefault()?.Value;
+            var attribute = xElement.Attributes().Where(x => x.Name.LocalName.Equals(attributeName, System.StringComparison.OrdinalIgnoreCase)).SingleOrDefault();
+            if (attribute != null)
+            {
+                return attribute.Value;
+            }
+
+            return string.Empty;
         }
     }
 }

@@ -45,7 +45,7 @@ namespace TokenManager.Core.DomainServices
         public bool IsTokenNameUnique(string tokenName)
         {
             var name = tokenName.Trim();
-            if (string.IsNullOrEmpty(name))
+            if (name == "####")
             {
                 return false;
             }
