@@ -101,7 +101,10 @@ namespace TokenManager.UserControls
 
         private void RemoveEnvironmentToken(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            var environment = GetSelectedEnvironment();
+            var tokenName = GetSelectedToken();
+
+            TokensGridViewController.RemoveTokenAssigment(tokenName, environment);
         }
 
         private void MainGrid_SelectionChanged(object sender, EventArgs e)

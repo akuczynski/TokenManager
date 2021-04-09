@@ -87,11 +87,11 @@ namespace TokenManager.Core.Model
 
             if (environment == null)
             {
-                token = EnvironmentTokens[RootEnvironment].Where(x => x.Key.Equals(tokenName)).SingleOrDefault();
+                token = EnvironmentTokens[RootEnvironment].Where(x => x.Key.Equals(tokenName) && x.Action != Action.Delete).SingleOrDefault();
             }
             else
             {
-                token = EnvironmentTokens[environment].Where(x => x.Key.Equals(tokenName)).SingleOrDefault();
+                token = EnvironmentTokens[environment].Where(x => x.Key.Equals(tokenName) && x.Action != Action.Delete).SingleOrDefault();
             }
 
             if (token == null)
@@ -174,6 +174,14 @@ namespace TokenManager.Core.Model
             token.Action = Action.Insert;
 
             EnvironmentTokens[environment].Add(token);
+            Notify(token, Action.TokenValueAssigment, false);
+        }
+
+        public void RemoveTokenAssigment(Token token)
+        {
+            token.IsDirty = true;
+            token.Action = Action.Delete;
+
             Notify(token, Action.TokenValueAssigment, false);
         }
 

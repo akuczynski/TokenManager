@@ -12,6 +12,8 @@ namespace TokenManager.Core.Controllers
         EnvironmentTokenViewModel GetData(string token, string environment);
 
         void AssingValue(string token, EnvironmentTokenViewModel model);
+
+        void RemoveAssignedValue(string token, string environment);
     }
 
     [Export(typeof(IEnvironmentEditViewController))]
@@ -38,6 +40,11 @@ namespace TokenManager.Core.Controllers
         public IEnumerable<string> GetEnvironments()
         {
             return _tokenManagementService.Environments;
+        }
+
+        public void RemoveAssignedValue(string token, string environment)
+        {
+            throw new System.NotImplementedException();
         }
     }
 }

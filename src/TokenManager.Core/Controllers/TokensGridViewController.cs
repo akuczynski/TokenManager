@@ -14,6 +14,7 @@ namespace TokenManager.Core.DomainServices
         IEnumerable<EnvironmentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName);
         void RemoveToken(string tokenName);
         XElement GetTokenXml(string tokenName);
+        void RemoveTokenAssigment(string tokenName, string environment);
     }
 
     [Export(typeof(ITokensGridViewController))]
@@ -92,6 +93,11 @@ namespace TokenManager.Core.DomainServices
         public void RemoveToken(string tokenName)
         {
             _tokenManagementService.RemoveToken(tokenName);
+        }
+
+        public void RemoveTokenAssigment(string tokenName, string environment)
+        {
+            _tokenManagementService.RemoveTokenAssigment(tokenName, environment);
         }
     }
 }

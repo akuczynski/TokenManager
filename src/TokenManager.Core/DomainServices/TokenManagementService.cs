@@ -32,6 +32,7 @@ namespace TokenManager.Core.DomainServices
         XElement GetTokenXml(string tokenName);
         
         void AssignValue(string token, EnvironmentTokenViewModel model);
+        void RemoveTokenAssigment(string tokenName, string environment);
     }
 
      [Export(typeof(ITokenManagementService))]
@@ -293,6 +294,26 @@ namespace TokenManager.Core.DomainServices
                  dataSource.AddTokenAssigment(token, environment);
             }
 
+        }
+
+        public void RemoveTokenAssigment(string tokenName, string environment)
+        {
+            var dataSource = _persistanceService.DataSource;
+            var env = dataSource.GetEnvironment(environment);
+
+            var token = dataSource.GetToken(tokenName, env);
+            dataSource.RemoveTokenAssigment(token);
+
+            var tokenViewModel = GetToken(tokenName);
+            if (!tokenViewModel.Global)
+            {
+                var assigments = GetTokenValuesForAllEnvironments(tokenName);
+                if (assigments.Count() == 0)
+                {
+                    _tokens.Remove(tokenViewModel);
+                    _notificationService.Publish(new ModelHasChangedEvent());
+                }
+            }
         }
     }
 }
