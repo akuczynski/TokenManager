@@ -136,14 +136,14 @@ namespace TokenManager.Forms
             this.DescriptionTbx.Size = new System.Drawing.Size(356, 22);
             this.DescriptionTbx.TabIndex = 8;
             // 
-            // tableLayoutPanel1
+            // Layout
             // 
             this.Layout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.Layout.ColumnCount = 2;
             this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 372F));
             this.Layout.Controls.Add(this.EnvironmentLbl, 0, 0);
             this.Layout.Controls.Add(this.EnvironmentCbx, 1, 0);
             this.Layout.Controls.Add(this.ValueLbl, 0, 1);
@@ -154,7 +154,7 @@ namespace TokenManager.Forms
             this.Layout.Controls.Add(this.DescriptionTbx, 1, 3);
             this.Layout.Controls.Add(this.AssignBtn, 1, 4);
             this.Layout.Location = new System.Drawing.Point(12, 12);
-            this.Layout.Name = "tableLayoutPanel1";
+            this.Layout.Name = "Layout";
             this.Layout.RowCount = 5;
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -171,6 +171,7 @@ namespace TokenManager.Forms
             this.ClientSize = new System.Drawing.Size(491, 214);
             this.Controls.Add(this.Layout);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(509, 261);
             this.Name = "EnvironmentForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Assing value";
