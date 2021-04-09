@@ -42,7 +42,7 @@ namespace TokenManager.UserControls
         }
 
         public void ReloadSubGrid() {
-            SelectDataGridRow(MainGrid.CurrentRow);
+            SelectDataGridRow(MainGrid.SelectedRows[0]);
         }
 
         private void MainGrid_MouseClick(object sender, MouseEventArgs e)
