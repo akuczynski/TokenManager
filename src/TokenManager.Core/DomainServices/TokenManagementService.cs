@@ -101,11 +101,33 @@ namespace TokenManager.Core.DomainServices
         {
             var dataSource = _persistanceService.DataSource;
             var token = dataSource.GetToken(updateToken.Token, dataSource.RootEnvironment);
-            token.Value = updateToken.Value;
-            token.Description = updateToken.Description;
-            token.UserName = updateToken.UserName;
-           
-            dataSource.UpdateToken(token);
+
+            if (token is EmptyToken)
+            {
+                var tokenViewModel = GetToken(updateToken.Token);
+
+                var newToken = new NewTokenViewModel()
+                {
+                    Token = updateToken.Token,
+                    Value = updateToken.Value,
+                    Description = updateToken.Description,
+                    IsSubToken = tokenViewModel.IsSubToken,
+                    IsPassword = tokenViewModel.Password,
+                    IsGlobal = true,
+                    UserName = updateToken.UserName
+                };
+
+                _tokens.Remove(tokenViewModel);
+                AddToken(newToken);
+            }
+            else
+            {
+                token.Value = updateToken.Value;
+                token.Description = updateToken.Description;
+                token.UserName = updateToken.UserName;
+
+                dataSource.UpdateToken(token);
+            }
         }
 
         public IEnumerable<EnvironmentTokenViewModel> GetTokenValuesForAllEnvironments(string tokenName)
@@ -308,7 +330,7 @@ namespace TokenManager.Core.DomainServices
             if (!tokenViewModel.Global)
             {
                 var assigments = GetTokenValuesForAllEnvironments(tokenName);
-                if (assigments.Count() == 0)
+                if (!assigments.Any())
                 {
                     _tokens.Remove(tokenViewModel);
                     _notificationService.Publish(new ModelHasChangedEvent());

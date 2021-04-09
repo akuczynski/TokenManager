@@ -160,7 +160,7 @@
     <value>Validation results</value>
   </data>
   <data name="ValidationSucceded" xml:space="preserve">
-    <value>References to all Tokens are valid.</value>
+    <value>References to all tokens are valid.</value>
   </data>
   <data name="SaveFailedMsg" xml:space="preserve">
     <value>Data was not saved, because it is not valid !</value>
@@ -169,7 +169,7 @@
     <value>Save changes failed</value>
   </data>
   <data name="ApplicationExitTitle" xml:space="preserve">
-    <value>Unsaved changes </value>
+    <value>There are unsaved changes </value>
   </data>
   <data name="UnsavedChanges" xml:space="preserve">
     <value>Do you really want to exit ?</value>

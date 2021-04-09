@@ -79,7 +79,7 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unsaved changes .
+        ///   Looks up a localized string similar to There are unsaved changes .
         /// </summary>
         internal static string ApplicationExitTitle {
             get {
@@ -223,7 +223,7 @@ namespace TokenManager.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to References to all Tokens are valid..
+        ///   Looks up a localized string similar to References to all tokens are valid..
         /// </summary>
         internal static string ValidationSucceded {
             get {
