@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.Composition;
+using System.Drawing;
 using System.Windows.Forms;
 using TokenManager.Core.DomainServices;
 using TokenManager.Core.ViewModel;
@@ -13,6 +14,8 @@ namespace TokenManager.Forms
 
         public IMainForm MainForm { get; set; }
 
+        private bool _isSubtoken;
+
         public TokenForm()
         {
             InitializeComponent();
@@ -20,6 +23,7 @@ namespace TokenManager.Forms
 
         public void Init(bool isEdit, bool isSubtoken, string token)
         {
+            _isSubtoken = isSubtoken;
             EnvironmentCbx.DataSource = TokenEditViewController.GetEnvironments();
 
             if (!string.IsNullOrEmpty(token))
@@ -27,8 +31,7 @@ namespace TokenManager.Forms
                 var tokenViewModel = TokenEditViewController.GetToken(token);
                 PopulateFields(tokenViewModel);
             }
-
-            SubTokenChk.Checked = isSubtoken;
+            
             UserNameTbx.Enabled = PasswordChk.Checked;
             AddBtn.Visible = !isEdit;
             UpdateBtn.Visible = isEdit;
@@ -44,8 +47,7 @@ namespace TokenManager.Forms
         private void PopulateFields(TokenViewModel tokenViewModel)
         {
             TokenNameTbx.Text = tokenViewModel.Token;
-            GlobalTokenChk.Checked = tokenViewModel.Global;
-            SubTokenChk.Checked = tokenViewModel.IsSubToken;
+            GlobalTokenChk.Checked = tokenViewModel.Global;            
             PasswordChk.Checked = tokenViewModel.Password;
             ValueTbx.Text = tokenViewModel.Value;
             DescriptionTbx.Text = tokenViewModel.Description;
@@ -55,8 +57,7 @@ namespace TokenManager.Forms
         private void InitForEdit()
         {
             TokenNameTbx.ReadOnly = true;
-            GlobalTokenChk.Enabled = false;
-            SubTokenChk.Enabled = false;
+            GlobalTokenChk.Enabled = false;            
             PasswordChk.Enabled = false;
             EnvironmentCbx.Hide();
             EnvironmentLbl.Hide();
@@ -84,7 +85,7 @@ namespace TokenManager.Forms
             var model = new NewTokenViewModel
             {
                 Token = TokenNameTbx.Text,
-                IsSubToken = SubTokenChk.Checked, 
+                IsSubToken = _isSubtoken, 
                 IsPassword = PasswordChk.Checked, 
                 IsGlobal = GlobalTokenChk.Checked,
                 Environment = EnvironmentCbx.Text,
