@@ -109,10 +109,9 @@ namespace TokenManager.UserControls
 
         private void MainGrid_SelectionChanged(object sender, EventArgs e)
         {
-            if (MainGrid.CurrentRow.Index == null)
-            {
+            if (MainGrid.CurrentRow == null)
                 return;
-            }
+            
             if (MainGrid.CurrentRow.Index != _selectedRowIndex)
             {
                 SelectDataGridRow(MainGrid.CurrentRow); 

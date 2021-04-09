@@ -61,36 +61,36 @@ namespace TokenManager.Forms
             this.EnvironmentCbx.Location = new System.Drawing.Point(93, 97);
             this.EnvironmentCbx.Margin = new System.Windows.Forms.Padding(8);
             this.EnvironmentCbx.Name = "EnvironmentCbx";
-            this.EnvironmentCbx.Size = new System.Drawing.Size(634, 24);
+            this.EnvironmentCbx.Size = new System.Drawing.Size(638, 24);
             this.EnvironmentCbx.TabIndex = 27;
             // 
             // UserNameTbx
             // 
             this.UserNameTbx.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.UserNameTbx.Location = new System.Drawing.Point(93, 213);
+            this.UserNameTbx.Location = new System.Drawing.Point(93, 214);
             this.UserNameTbx.Margin = new System.Windows.Forms.Padding(8);
             this.UserNameTbx.Name = "UserNameTbx";
-            this.UserNameTbx.Size = new System.Drawing.Size(634, 22);
+            this.UserNameTbx.Size = new System.Drawing.Size(638, 22);
             this.UserNameTbx.TabIndex = 26;
             // 
             // DescriptionTbx
             // 
             this.DescriptionTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DescriptionTbx.Location = new System.Drawing.Point(93, 175);
+            this.DescriptionTbx.Location = new System.Drawing.Point(93, 176);
             this.DescriptionTbx.Margin = new System.Windows.Forms.Padding(8);
             this.DescriptionTbx.Name = "DescriptionTbx";
-            this.DescriptionTbx.Size = new System.Drawing.Size(634, 22);
+            this.DescriptionTbx.Size = new System.Drawing.Size(638, 22);
             this.DescriptionTbx.TabIndex = 25;
             // 
             // ValueTbx
             // 
             this.ValueTbx.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.ValueTbx.Location = new System.Drawing.Point(93, 137);
+            this.ValueTbx.Location = new System.Drawing.Point(93, 138);
             this.ValueTbx.Margin = new System.Windows.Forms.Padding(8);
             this.ValueTbx.Name = "ValueTbx";
-            this.ValueTbx.Size = new System.Drawing.Size(634, 22);
+            this.ValueTbx.Size = new System.Drawing.Size(638, 22);
             this.ValueTbx.TabIndex = 24;
             // 
             // GlobalTokenChk
@@ -124,7 +124,7 @@ namespace TokenManager.Forms
             // 
             this.UserNameLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.UserNameLbl.AutoSize = true;
-            this.UserNameLbl.Location = new System.Drawing.Point(3, 215);
+            this.UserNameLbl.Location = new System.Drawing.Point(3, 216);
             this.UserNameLbl.Name = "UserNameLbl";
             this.UserNameLbl.Size = new System.Drawing.Size(79, 17);
             this.UserNameLbl.TabIndex = 21;
@@ -134,7 +134,7 @@ namespace TokenManager.Forms
             // 
             this.DescriptionLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.DescriptionLbl.AutoSize = true;
-            this.DescriptionLbl.Location = new System.Drawing.Point(3, 177);
+            this.DescriptionLbl.Location = new System.Drawing.Point(3, 178);
             this.DescriptionLbl.Name = "DescriptionLbl";
             this.DescriptionLbl.Size = new System.Drawing.Size(79, 17);
             this.DescriptionLbl.TabIndex = 20;
@@ -144,7 +144,7 @@ namespace TokenManager.Forms
             // 
             this.ValueLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.ValueLbl.AutoSize = true;
-            this.ValueLbl.Location = new System.Drawing.Point(3, 139);
+            this.ValueLbl.Location = new System.Drawing.Point(3, 140);
             this.ValueLbl.Name = "ValueLbl";
             this.ValueLbl.Size = new System.Drawing.Size(44, 17);
             this.ValueLbl.TabIndex = 19;
@@ -154,7 +154,7 @@ namespace TokenManager.Forms
             // 
             this.EnvironmentLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.EnvironmentLbl.AutoSize = true;
-            this.EnvironmentLbl.Location = new System.Drawing.Point(4, 100);
+            this.EnvironmentLbl.Location = new System.Drawing.Point(4, 101);
             this.EnvironmentLbl.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.EnvironmentLbl.Name = "EnvironmentLbl";
             this.EnvironmentLbl.Size = new System.Drawing.Size(72, 17);
@@ -177,7 +177,7 @@ namespace TokenManager.Forms
             this.TokenNameTbx.Location = new System.Drawing.Point(93, 8);
             this.TokenNameTbx.Margin = new System.Windows.Forms.Padding(8);
             this.TokenNameTbx.Name = "TokenNameTbx";
-            this.TokenNameTbx.Size = new System.Drawing.Size(634, 22);
+            this.TokenNameTbx.Size = new System.Drawing.Size(638, 22);
             this.TokenNameTbx.TabIndex = 15;
             // 
             // AddBtn
@@ -206,9 +206,12 @@ namespace TokenManager.Forms
             // 
             // Layout
             // 
+            this.Layout.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.Layout.ColumnCount = 2;
             this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 641F));
+            this.Layout.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 654F));
             this.Layout.Controls.Add(this.TokenNameLbl, 0, 0);
             this.Layout.Controls.Add(this.TokenNameTbx, 1, 0);
             this.Layout.Controls.Add(this.CheckBoxPanel, 1, 1);
@@ -216,13 +219,12 @@ namespace TokenManager.Forms
             this.Layout.Controls.Add(this.EnvironmentCbx, 1, 2);
             this.Layout.Controls.Add(this.ValueLbl, 0, 3);
             this.Layout.Controls.Add(this.ValueTbx, 1, 3);
-            this.Layout.Controls.Add(this.DescriptionLbl, 0, 4);
-            this.Layout.Controls.Add(this.DescriptionTbx, 1, 4);
-            this.Layout.Controls.Add(this.UserNameLbl, 0, 5);
-            this.Layout.Controls.Add(this.UserNameTbx, 1, 5);
+            this.Layout.Controls.Add(this.DescriptionLbl, 0, 5);
+            this.Layout.Controls.Add(this.DescriptionTbx, 1, 5);
+            this.Layout.Controls.Add(this.UserNameLbl, 0, 4);
+            this.Layout.Controls.Add(this.UserNameTbx, 1, 4);
             this.Layout.Controls.Add(this.ButtonPanel, 1, 6);
-            this.Layout.Dock = System.Windows.Forms.DockStyle.Top;
-            this.Layout.Location = new System.Drawing.Point(0, 0);
+            this.Layout.Location = new System.Drawing.Point(12, 12);
             this.Layout.Name = "Layout";
             this.Layout.RowCount = 7;
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -232,7 +234,7 @@ namespace TokenManager.Forms
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.Layout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.Layout.Size = new System.Drawing.Size(744, 302);
+            this.Layout.Size = new System.Drawing.Size(739, 308);
             this.Layout.TabIndex = 29;
             // 
             // CheckBoxPanel
@@ -252,7 +254,7 @@ namespace TokenManager.Forms
             this.ButtonPanel.Controls.Add(this.AddBtn);
             this.ButtonPanel.Controls.Add(this.UpdateBtn);
             this.ButtonPanel.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.ButtonPanel.Location = new System.Drawing.Point(93, 246);
+            this.ButtonPanel.Location = new System.Drawing.Point(97, 252);
             this.ButtonPanel.Name = "ButtonPanel";
             this.ButtonPanel.Size = new System.Drawing.Size(639, 53);
             this.ButtonPanel.TabIndex = 30;
@@ -261,7 +263,7 @@ namespace TokenManager.Forms
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(744, 314);
+            this.ClientSize = new System.Drawing.Size(763, 332);
             this.Controls.Add(this.Layout);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.MinimumSize = new System.Drawing.Size(18, 358);
