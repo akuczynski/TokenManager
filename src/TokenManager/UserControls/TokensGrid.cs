@@ -58,14 +58,19 @@ namespace TokenManager.UserControls
                     m.MenuItems.Add("Edit", ShowEditTokenForm);
                     m.MenuItems.Add("Remove", RemoveToken);
                     m.MenuItems.Add("-");
-                    m.MenuItems.Add("Copy name", CopyTokenNameToClipboard);
-                    m.MenuItems.Add("Copy xml", CopyTokenXml);
+                    m.MenuItems.Add("Copy", new MenuItem[]
+                    {
+                        new MenuItem("Copy name", CopyTokenName),
+                        new MenuItem("Copy value", CopyTokenValue),
+                        new MenuItem("Copy xml", CopyTokenXml)
+                });
+                    
                 }                
 
                 m.Show(this.MainGrid, new Point(e.X, e.Y));
             }
-        }        
-
+        }
+                
         public void Select(string token)
         {
             try
@@ -162,10 +167,17 @@ namespace TokenManager.UserControls
             MainForm.ShowTokenModalWindow(true, menuItem.Text, token: tokenName);
         }
 
-        private void CopyTokenNameToClipboard(object sender, EventArgs e)
+        private void CopyTokenName(object sender, EventArgs e)
         {
             Clipboard.SetText(GetSelectedToken());
         }
+
+        private void CopyTokenValue(object sender, EventArgs e)
+        {
+            var selectedTokenValue = (string)MainGrid.SelectedRows[0].Cells["Value"].Value;
+            Clipboard.SetText(selectedTokenValue);
+        }
+
 
         private void CopyTokenXml(object sender, EventArgs e)
         {
